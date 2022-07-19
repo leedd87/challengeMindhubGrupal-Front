@@ -2,10 +2,11 @@ import React from 'react';
 import DetailCard from '../components/DetailCard';
 
 const Details = () => {
+    
     return (
         <>
             {/* Header */}
-            <div className='mb-10 flex justify-center items-center h-20'>
+            <div className='mb-10 flex justify-center items-center h-20 border border-red-400'>
                 <p className='uppercase font-bold'>Details</p>
             </div>
 
@@ -17,12 +18,12 @@ const Details = () => {
             </div>
 
             {/* Comentarios */}
-            <div className='mb-10 flex justify-center items-center h-20'>
+            <div className='mb-10 flex justify-center items-center h-20 border border-red-400'>
                 <p className='uppercase font-bold'>comentarios</p>
             </div>
 
             {/* Footer */}
-            <div className='flex justify-center items-center h-20'>
+            <div className='flex justify-center items-center h-20 border border-red-400'>
                 <p className='uppercase font-bold'>Footer</p>
             </div>
 
@@ -30,4 +31,4 @@ const Details = () => {
     )
 }
 
-export default Details
+export default Details;
