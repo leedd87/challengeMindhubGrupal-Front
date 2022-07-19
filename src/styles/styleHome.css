@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+  
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+   
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  
+ 
+  }
+  
+  .swiper {
+    margin-left: auto;
+    margin-right: auto;
+   
+  }
+  .carouselHome{
+     height:91vh;
+     width:100%;
+    
+     
+  }
+  .containerPopulares{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    width: 100%;
+    min-height: 40rem;
+  }
+
+  .containerBoxPupular{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .box{
+    border:2px solid rgb(187, 187, 187);
+    height: 18rem;
+    width: 20%;
+    margin: 2rem;
+    background-position: center;
+    background-size: cover;
+    object-fit: cover;
+    background-image: url("https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/798d3061f5934cd1983bade800a7f2dd_9366/ZAPATILLAS_ULTRABOOST_22_Blanco_GX5595_01_standard.jpg");
+  }
+  .b1{
+    background-image: url("https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/esAR/Images/updated_gender_women_dt_tcm216-636701.jpg");
+}
+.b2{
+    background-image: url("https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/esAR/Images/updated_gender_men_dt_tcm216-636698.jpg");
+}
+.b3{
+    background-image: url("https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/esAR/Images/updated_gender_kids_dt_tcm216-636695.jpg");
+}
+.containerGaleria{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(237, 237, 236);
+}
+.containerBoxGaleria{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .footerLogo{
+    background-color: "#f7f7f7";
+  }
+  .containerLogos >  ul
+  {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    padding: 50px 0;
+    align-content: space-between;
+    align-items: center;
+    max-width: 1503px;
+    margin: 0 auto;
+    
+  }
+  .containerLogos >  ul a img:hover{
+    cursor: pointer;
+    background-color: rgb(94, 91, 91);
+  }
+ 
+/*-----Footer----*/
+.footer{
+    background-color: rgb(23, 24, 26);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 15vh;
+}
+.containBtnFooter{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 90%;
+}
+.menu, .icons{
+    width: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    color: #fefefe;
+    height: 5rem;
+}
+.menu button{
+    color: #000000!important;
+
+}
+
+/*------medias-----*/
+  @media (width < 1240px){
+   .box{
+    width: 30%;
+   }
+}
+@media (width < 768px){
+    .box{
+        width: 40%;
+        height: 16rem;
+        margin: 1rem;
+       }
+}
+@media (width < 570px){
+    .box{
+        width: 80%;
+        height: 12rem;
+       }
+    }
+    
