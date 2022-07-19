@@ -6,7 +6,7 @@ function AboutUs() {
 	return (
 		<AboutUsConteiner>
 			<div className="titlecont">About Us</div>
-			<h1>u.u</h1>
+			
 			<div className="first-cont">
 				<div className="a">
 					DAFTLAB{" "}
