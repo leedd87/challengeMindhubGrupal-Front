@@ -1,6 +1,5 @@
 import React from 'react'
-import '../src/styles/App.css';
-
+import '../src/styles/App.css'
 
 
 function App() {
@@ -10,7 +9,7 @@ function App() {
       <h1>Hola</h1>
    
     </div>
+
   );
 }
-
 export default App;
