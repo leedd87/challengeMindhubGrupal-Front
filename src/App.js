@@ -1,6 +1,7 @@
 import React from 'react'
 import '../src/styles/App.css'
 import Shoop from './pages/Shop';
+import CardsShop from './components/CardsShop'
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     // </div>
 
     <Shoop />
+    // <CardsShop />
 
 
   );

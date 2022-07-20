@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import shoesActions from '../redux/actions/shoesActions'
 
-// import CardsShop from '../components/CardsShop'
+import CardsShop from '../components/CardsShop';
 
 
 function Shoop() {
@@ -17,15 +17,6 @@ function Shoop() {
     }, [])
 
     const shoes = useSelector(store => store.shoesReducer.shoes);
-
-    const handleIDshoe = async (id, name) => {
-
-        // console.log(`id: ${id}, name: ${name}`)
-
-        // LLAMAR A LA ACTION DE GET ONE SHOE Y PASARLE EL ID
-        const res = await dispatch(shoesActions.getOneShoe(id))
-        console.log(res.data.response.name)
-    }
 
     return (
 
@@ -49,15 +40,9 @@ function Shoop() {
                     shoes?.map((shoes, index) => {
 
                         return (
-                            // CARD
-                            <div key={index} className='text-center'>
 
-                                <img src={shoes.image[1]} alt={shoes.name} />
-                                <button
-                                    onClick={() => handleIDshoe(shoes._id, shoes.name)}
-                                    className='mt-3'>add carrito</button>
+                            <CardsShop key={index} shoes={shoes} />
 
-                            </div>
                         )
 
                     })
