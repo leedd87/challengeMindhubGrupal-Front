@@ -18,7 +18,7 @@ function App() {
         </div>
       </div>
 
-      <div className='bodyShop'>
+      <div className='bodyShop'> 
       <div>
           <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvd9KD93IRVly4R5GBjLr7ViHk0NG6eTBtzQ&usqp=CAU'/>
         </div>
