@@ -18,10 +18,13 @@ function Shoop() {
 
     const shoes = useSelector(store => store.shoesReducer.shoes);
 
-    const handleIDshoe = (id, name) => {
-        console.log(`id: ${id}, name: ${name}`)
+    const handleIDshoe = async (id, name) => {
+
+        // console.log(`id: ${id}, name: ${name}`)
 
         // LLAMAR A LA ACTION DE GET ONE SHOE Y PASARLE EL ID
+        const res = await dispatch(shoesActions.getOneShoe(id))
+        console.log(res.data.response.name)
     }
 
     return (
