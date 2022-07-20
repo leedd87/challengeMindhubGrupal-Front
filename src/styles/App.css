@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+ .bodyShop{
+ display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+gap: 2rem;
+ }
+
+ img{
+  width: 22rem;
+ }
+
+ .botonesShop{
+  display: flex;
+  justify-content: center;
+  margin: 1%;
+  gap: 3rem;
+ }
+
+ button{
+  color: black;
+  background-color: violet;
+  height: 2rem;
+  border: black solid;
+ }
