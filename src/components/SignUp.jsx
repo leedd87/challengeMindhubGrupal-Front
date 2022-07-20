@@ -1,62 +1,39 @@
-import '../../src/styles/style.css'
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import LockIcon from '@mui/icons-material/Lock';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import ImageIcon from '@mui/icons-material/Image';
-import FlagIcon from '@mui/icons-material/Flag';
+import '../styles/style.css'
 import { Link as LinkRouter } from 'react-router-dom';
+import Avatar from '@mui/material/Avatar';
 
-export default function Account(){
-    
-	return(
-		<div className='formCtn'>
-			<div className='box'>
-				<div className='form'>
-					<h2>Signup</h2>
-					<form>
-						<div className='inputBx'>
-							<input type='text' placeholder='Name'/>
-							<PersonOutlineIcon className='iconForm' fontSize='large'/>
-						</div>
-						<div className='inputBx'>
-							<input type='text' placeholder='LastName'/>
-							<PersonOutlineIcon className='iconForm' fontSize='large'/>
-						</div>
-						<div className='inputBx'>
-							<input type='text' placeholder='Email'/>
-							<AlternateEmailIcon className='iconForm'  fontSize='large'/>
-						</div>
-						<div className='inputBx'>
-							<input type='password' placeholder='Password'/>
-							<LockIcon className='iconForm' fontSize='large'/>
-						</div>
-						<div className='inputBx'>
-							<input type='text' placeholder='Profile Pic'/>
-							<ImageIcon className='iconForm' fontSize='large'/>
-						</div>
-						<div className='inputBx'>
-							<input type='file'/>
-							<ImageIcon className='iconForm' fontSize='large'/>
-						</div>
-						<div className='inputBx'>
-							<input type='text' placeholder='Country'/>
-							<FlagIcon className='iconForm' fontSize='large'/>
-						</div>
-						<label className='rememberCtn'>
-							<input type='checkbox' className='remember'/>Remember Me
-						</label>
-						<div>
-							<button className='submitBtn'>Submit</button>
-						</div>
-					</form>
-					<div style={{display:'flex'}}>
-                        <h3 style={{color:'white'}}>Do you already have an account?</h3>
-                        <LinkRouter to='/login' style={{textDecoration:'none'}}>
-                            <h3 style={{color:'white', textDecoration:'underline'}}>login</h3>
+
+export default function AccountSignUp(){
+    return(
+        <div className='body'> 
+        <div className="container" id="main">
+            <div className='overlay-ctn'>
+                <div className='overlay'>
+                    <div className='overlay-right'>
+                        <h1>Have you already created an account?</h1>
+                        <LinkRouter to='/login'>
+                            <button className='accountbtn' id='signUp'>login</button>
                         </LinkRouter>
                     </div>
-				</div>
-			</div>
-		</div>
-	)
+                </div>
+            </div>
+            <div className="sign-in">
+                <form>
+                    <h1>CREATE ACCOUNT</h1>
+                    <div className="social-ctn">
+                        <Avatar src="http://assets.stickpng.com/images/5847f9cbcef1014c0b5e48c8.png"/>
+                    </div>
+                    <h2>or</h2>
+                    <input type='text' placeholder='Name'/>
+                    <input type='text' placeholder='LastName'/>
+                    <input type='text' placeholder='Email'/>
+                    <input type='password' placeholder='Password'/>
+                    <input type='text' placeholder='Profile Pic'/>
+                    <input type='text' placeholder='Country'/>
+                    <button className='accountbtn'>Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>   
+    )
 }

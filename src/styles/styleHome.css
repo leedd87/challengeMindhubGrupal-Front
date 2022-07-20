@@ -1,15 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@500&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* font-family: 'Signika Negative', sans-serif; */
 }
 .swiper {
     width: 100%;
     height: 100%;
-  
-  }
-  
-  .swiper-slide {
+
+}
+
+.swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -27,29 +30,27 @@
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-  }
-  
-  .swiper-slide img {
+}
+
+.carouselHome .swiper-slide img {
    
     width: 100%;
     height: 100%;
     object-fit: cover;
-  
- 
-  }
-  
-  .swiper {
+
+}
+
+.swiper {
     margin-left: auto;
     margin-right: auto;
    
-  }
-  .carouselHome{
-     height:91vh;
-     width:100%;
-    
-     
-  }
-  .containerPopulares{
+}
+.carouselHome{
+height:91vh;
+width:100%;
+
+}
+.containerPopulares{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -57,7 +58,7 @@
     border: 2px solid black;
     width: 100%;
     min-height: 40rem;
-  }
+}
 
   .containerBoxPupular{
     display: flex;
@@ -77,6 +78,7 @@
   }
   .b1{
     background-image: url("https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/esAR/Images/updated_gender_women_dt_tcm216-636701.jpg");
+    height: 10rem;
 }
 .b2{
     background-image: url("https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/esAR/Images/updated_gender_men_dt_tcm216-636698.jpg");
@@ -86,7 +88,7 @@
 }
 .containerGaleria{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: rgb(237, 237, 236);
 }
 .containerBoxGaleria{
@@ -115,6 +117,223 @@
   .containerLogos >  ul a img:hover{
     cursor: pointer;
     background-color: rgb(94, 91, 91);
+  }
+  .logosImg{
+    height: 10rem;
+    width: 10rem;
+  }
+  .titlePopular{
+    font-size: 3em;
+    color: #545454;
+    font-weight: 700;
+  }
+/*------card*------*/
+
+:root {
+    --bg-color: #D6FF7F;
+    --2d-color: #ABDF02;
+    --3rd-color: #0b960d
+  }
+.container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 450px;
+    height: 500px;
+    background: #fff;
+    margin: 20px
+  }
+  
+  .container .imgbox {
+    position: relative;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: var(--2d-color)
+  }
+  
+  
+  .container .imgbox::before {
+    content: 'Nike';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    color: #000;
+    opacity: .2;
+    font-size: 7em;
+    font-weight: 900;
+  }
+  .imgbox2{
+    background-color: #ededed !important;
+  }
+  .container .imgbox2::before {
+    content: 'Adidas';
+  }
+  .imgbox3{
+    background-color:#fc2929 !important;
+  }
+  .container .imgbox3::before {
+    content: 'NB';
+  }
+  .container .imgbox img {
+    position: relative;
+    width: 550px;
+    transform: rotate(-23deg);
+    left: -27px;
+    transition: 1s ease-in-out;
+    cursor: pointer
+  }
+  
+  /* Make image hover just in big viewport */
+  @media (min-width: 1081px) {
+    .container .imgbox:hover img {
+      transform: scale(.7) rotate(0deg);
+      left: 0;
+      -webkit-filter: drop-shadow(0 10px 10px rgba(0,0,0,.8));
+      filter: drop-shadow(0 10px 10px rgba(0,0,0,.8))
+    }
+  }
+  
+ /* .container .imgbox:hover img {
+    transform: scale(.7) rotate(0deg) ;
+    left: 0
+  } */
+  .container .details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    padding: 40px
+  }
+  
+  .container .details h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5em;
+    line-height: 0.8em;
+    color: #444
+  }
+  
+  .container .details h2 span {
+    font-size: .6em;
+    text-transform:uppercase;
+    letter-spacing: 2px;
+    color: #999
+  }
+  
+  
+  .container .details p {
+    max-width: 85%;
+    margin-left: 15%;
+    color: #333;
+    font-size: 15px
+  }
+  
+  .container .details h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5em;
+    color: #a2a2a2;
+    float: left
+  }
+  
+  .container .details button {
+    background: var(--2d-color);
+    color: #fff;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 15px 20px;
+    margin-top: 5px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 40px;
+    float: right;
+    cursor: pointer
+  }
+.gridImg1{
+  background-image: url("https://images.unsplash.com/photo-1568391603099-482cb961cfa5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  background-size: cover;
+  object-fit: cover;
+ background-position: center;
+  height:50vh;
+  background-repeat: no-repeat;
+}
+.gridImg1:hover{
+  background-image: url("https://images.unsplash.com/photo-1508125673219-7cec6bc90159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80");
+}
+.gridImg2{
+  background-image: url("https://images.unsplash.com/photo-1636718282214-0b4162a154f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80");
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  object-fit: cover;
+  background-repeat: no-repeat;
+}
+.gridImg2:hover{
+  background-image: url("https://images.unsplash.com/photo-1636718283028-bb6845dbf3fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80");
+}
+.gridImg3{
+  background-image: url("https://images.unsplash.com/photo-1595341888016-a392ef81b7de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1179&q=80");
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  object-fit: cover;
+  background-repeat: no-repeat;
+}
+.gridImg4{
+  background-image: url("https://images.unsplash.com/photo-1610630879511-3f6a23c19a02?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1168&q=80");
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  object-fit: cover;
+  background-repeat: no-repeat;
+}
+.gridImg4:hover{
+  background-image: url("https://images.unsplash.com/photo-1610631053144-7be0f3a4f22d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80");
+}
+  /* Start responsive */
+  
+  @media (max-width: 1080px) {
+    
+    .container {
+      height: auto
+    }
+    
+    .container .imgbox {
+      padding: 40px;
+      width: 100% !important;
+      height: auto;
+      text-align: center;
+      /* overflow: hidden;*/
+    } 
+    
+    .container .imgbox img {
+      left: 20px;
+      max-width: 100%;
+      transform: rotate(10deg);
+      transition: transform .3s ease-in-out
+    }
+    
+     .container .imgbox:hover img {
+      transform: translateX(-100px);
+    }
+    /* .container .details {
+      width: 100% !important;
+      height: auto;
+      padding: 20px; 
+    }
+    
+     .container .details p {
+      max-width: 100%;
+      margin-left: 0;
+    } */
   }
  
 /*-----Footer----*/
@@ -168,4 +387,109 @@
         height: 12rem;
        }
     }
-    
+/*------*/
+#container {
+  /* width: 100vw;
+  height: 100vh; */
+  background: #dfdfdf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+#card {
+  width: 300px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 40px -20px rgba(0,0,0,.4);
+}
+
+header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#nikeLogo {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+#shoe {
+  width: 300px;
+}
+
+#description {
+  padding: 10px;
+}
+
+.faded {
+  opacity: .5;
+}
+
+.subhead {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+#description {
+  margin-top: 10px;
+}
+
+#retail {
+  width: 80%;
+  display: inline-block;
+}
+
+#location {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#location img {
+  margin-right: 5px;
+  width: 20px;
+}
+
+#tags {
+  padding: 10px;
+}
+
+#tags ul {
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+  padding: 10px;
+  background: rgba(0,255,0,.2);
+  margin-right: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: limegreen;
+}
+
+footer {
+  padding: 10px;
+  background: #efefef;
+}
+
+footer p:first-child {
+  font-weight: bold;
+  margin: 10px 0; 
+  opacity: .7;
+}
+
+footer p.faded {
+  font-size: 14px;
+  line-height: 1.5;
+}
+/****/
+.cardShop{
+  display: flex;
+}
