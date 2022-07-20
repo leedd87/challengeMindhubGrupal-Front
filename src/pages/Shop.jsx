@@ -16,7 +16,13 @@ function Shoop() {
         // eslint-disable-next-line
     }, [])
 
-    const shoes = useSelector(store => store.shoesReducer.shoes)
+    const shoes = useSelector(store => store.shoesReducer.shoes);
+
+    const handleIDshoe = (id, name) => {
+        console.log(`id: ${id}, name: ${name}`)
+
+        // LLAMAR A LA ACTION DE GET ONE SHOE Y PASARLE EL ID
+    }
 
     return (
 
@@ -40,11 +46,13 @@ function Shoop() {
                     shoes?.map((shoes, index) => {
 
                         return (
-
                             // CARD
-                            <div key={index}>
-                                
+                            <div key={index} className='text-center'>
+
                                 <img src={shoes.image[1]} alt={shoes.name} />
+                                <button
+                                    onClick={() => handleIDshoe(shoes._id, shoes.name)}
+                                    className='mt-3'>add carrito</button>
 
                             </div>
                         )
