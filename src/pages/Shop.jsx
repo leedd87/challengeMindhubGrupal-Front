@@ -1,62 +1,65 @@
-import React from 'react'
-import CardsShop from '../components/CardsShop'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import shoesActions from '../redux/actions/shoesActions'
+
+// import CardsShop from '../components/CardsShop'
 
 
+function Shoop() {
 
-function Shoop(){
-return(
-    <>
-   {/* <div className='Header'>
-        <h2>NavBar</h2>
-        <h1>Shop</h1>
+    const dispatch = useDispatch()
 
-        <div className='botonesShop'>
-        <button>Deplegable1</button>
-        <button>Desplegable2</button>
-        <button>Desplegable3</button>
-        <button>Desplegable4</button>
-        </div>
-      </div>
+    useEffect(() => {
 
-      <div className='bodyShop'>
-      <div>
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvd9KD93IRVly4R5GBjLr7ViHk0NG6eTBtzQ&usqp=CAU'/>
-        </div>
-        <div>
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvd9KD93IRVly4R5GBjLr7ViHk0NG6eTBtzQ&usqp=CAU'/>
-        </div>
-        <div>
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvd9KD93IRVly4R5GBjLr7ViHk0NG6eTBtzQ&usqp=CAU'/>
-        </div>
+        dispatch(shoesActions.getShoes())
 
-        <div>
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvd9KD93IRVly4R5GBjLr7ViHk0NG6eTBtzQ&usqp=CAU'/>
-        </div>
-        <div>
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvd9KD93IRVly4R5GBjLr7ViHk0NG6eTBtzQ&usqp=CAU'/>
-        </div>
-        <div>
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvd9KD93IRVly4R5GBjLr7ViHk0NG6eTBtzQ&usqp=CAU'/>
-        </div>
+        // eslint-disable-next-line
+    }, [])
 
-        <div>
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvd9KD93IRVly4R5GBjLr7ViHk0NG6eTBtzQ&usqp=CAU'/>
-        </div>
-        <div>
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvd9KD93IRVly4R5GBjLr7ViHk0NG6eTBtzQ&usqp=CAU'/>
-        </div>
-        <div>
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvd9KD93IRVly4R5GBjLr7ViHk0NG6eTBtzQ&usqp=CAU'/>
-        </div>
-      </div>
+    const shoes = useSelector(store => store.shoesReducer.shoes)
 
-      <div className='Footer'>
-       <h2>Footer</h2>
-      </div> */}
-<CardsShop/>
+    return (
 
+        <>
+            <div className='Header mb-10 bg-gray-300 py-5'>
+                <h2>NavBar</h2>
+                <h1>Shop</h1>
 
+                <div className='botonesShop'>
+                    <button>Deplegable1</button>
+                    <button>Desplegable2</button>
+                    <button>Desplegable3</button>
+                    <button>Desplegable4</button>
+                </div>
+            </div>
 
+            {/* CONTENEDOR DE CARDS */}
+            <div className='bodyShop mb-10'>
 
-    </>)}
-export default Shoop
+                {
+                    shoes?.map((shoes, index) => {
+
+                        return (
+
+                            // CARD
+                            <div key={index}>
+                                
+                                <img src={shoes.image[1]} alt={shoes.name} />
+
+                            </div>
+                        )
+
+                    })
+                }
+
+            </div>
+
+            <div className='bg-red-400 h-20 flex items-center justify-center'>
+                <h2 className=''>Footer</h2>
+            </div>
+        </>
+
+    )
+}
+
+export default Shoop;
