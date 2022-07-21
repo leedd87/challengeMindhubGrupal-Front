@@ -1,6 +1,7 @@
 import Avatar from '@mui/material/Avatar';
 import '../styles/style.css'
 import { Link as LinkRouter } from 'react-router-dom';
+import logoGoogle from '../../src/assets/logoGoogle.png'
 
 export default function Account(){
 
@@ -11,7 +12,7 @@ export default function Account(){
                 <form>
                     <h1>Welcome</h1>
                     <div className="social-ctn">
-                        <Avatar src="http://assets.stickpng.com/images/5847f9cbcef1014c0b5e48c8.png"/>
+                        <Avatar src={logoGoogle}/>
                     </div>
                     <h2>or</h2>
                     <input type='text' placeholder='Email'/>
