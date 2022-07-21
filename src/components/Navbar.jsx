@@ -21,7 +21,7 @@ import Drawer from 'react-modern-drawer'
 import DeleteIcon from '@mui/icons-material/Delete';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import 'react-modern-drawer/dist/index.css'
-import '../../src/styles/style.css'
+import '../styles/style.css'
 
 
 
