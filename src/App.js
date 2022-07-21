@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import './styles/App.css';
 import { Route, Routes } from 'react-router-dom';
 import SignIn from './components/SignIn';
@@ -10,9 +12,14 @@ import AdminForm from './components/AdminForm';
 import Home from './pages/Home'
 import Shop from './pages/Shop'
 import Details from './pages/Details'
+import shoesActions from './redux/actions/shoesActions';
 
 function App() {
-  
+	const dispatch = useDispatch();
+    useEffect(() => {
+		dispatch(shoesActions.getShoes())
+		// eslint-disable-next-line
+	  }, [])
   return (
     <div className="App">
       <NavBar/>

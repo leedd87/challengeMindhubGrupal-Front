@@ -2,12 +2,14 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import shoesActions from '../redux/actions/shoesActions'
 import CardsShop from '../components/CardsShop';
+import '../styles/style.css'
 /*acordeon*/
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+
 /*optionsFilter*/
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -18,47 +20,85 @@ import Select from '@mui/material/Select';
 
 
 
+
+
 function Shoop() {
+    const dispatch = useDispatch()
+
 
     const [age, setAge] = React.useState('');
+
+
+    useEffect(() => {
+        dispatch(shoesActions.getShoes())
+        // eslint-disable-next-line
+    }, [])
+
+    const shoes = useSelector(store => store.shoesReducer.shoes);
+    console.log("🚀 ~ file: Shop.jsx ~ line 40 ~ Shoop ~ shoes", shoes)
+
 
     const handleChange = (event) => {
         setAge(event.target.value);
     }
 
-    const dispatch = useDispatch()
 
-    useEffect(() => {
-
-        dispatch(shoesActions.getShoes())
-
-        // eslint-disable-next-line
-    }, [])
-
-    const shoes = useSelector(store => store.shoesReducer.shoes);
 
     return (
-
         <>
-            <div className='Header mb-10 bg-gray-300 py-5'>
+            <div className='Header mb-9 bg-gray-300 py-5'>
 
-                <Accordion>
-                    <AccordionSummary
-                        // expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
 
-                    >
-                        <Typography >Filter</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        Gender:
-                        <select name="gender" id="">
+                <AccordionSummary
+                    // expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
 
-                        </select>
+                > <div className='filtersShop'>
+                        <div className='filterGender'>
+                            <AccordionDetails>
+                                Gender:
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={age}
+                                    label="Age"
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value={0}>Man</MenuItem>
+                                    <MenuItem value={1}>Woman</MenuItem>
+                                    <MenuItem value={2}>Kids</MenuItem>
+                                    <MenuItem value={3}>Unisex</MenuItem>
+                                </Select>
+                            </AccordionDetails>
+                        </div>
 
-                    </AccordionDetails>
-                </Accordion>
+                        <div className='filterMark'>
+                            <AccordionDetails>
+                                Marks:
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={age}
+                                    label="Age"
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value={0}>Nike</MenuItem>
+                                    <MenuItem value={1}>Adidas</MenuItem>
+                                    <MenuItem value={2}>New Balance</MenuItem>
+
+                                </Select>
+
+
+                            </AccordionDetails>
+                        </div>
+
+                    </div>
+
+                </AccordionSummary>
+
+
+
             </div>
 
             {/* CONTENEDOR DE CARDS */}
@@ -94,7 +134,6 @@ function Shoop() {
                     </div>
 
                 </div>
-
                 <div className='bodyShop mb-10'>
 
                     {
@@ -111,9 +150,7 @@ function Shoop() {
 
                 </div>
             </div>
-            <div className='bg-red-400 h-20 flex items-center justify-center'>
-                <h2 className=''>Footer</h2>
-            </div>
+
         </>
 
     )

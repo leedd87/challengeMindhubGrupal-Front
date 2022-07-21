@@ -21,7 +21,7 @@ import Drawer from 'react-modern-drawer'
 import DeleteIcon from '@mui/icons-material/Delete';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import 'react-modern-drawer/dist/index.css'
-import '../../src/styles/style.css'
+import '../styles/style.css'
 
 
 
@@ -79,11 +79,10 @@ const Nabvar = () => {
         <AppBar position="sticky" sx={{ backgroundColor: "#949494" }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-
+                
                     <Typography
                         variant="h6"
                         noWrap
-                        component="a"
                         href="/"
                         sx={{
                             mr: 2,
@@ -99,10 +98,10 @@ const Nabvar = () => {
                             to='/'
                         >
                             <img src={logo} alt="logo" style={{ "height": "5rem" }} />
-                        </LinkRouter>
+                            </LinkRouter>
 
                     </Typography>
-
+                   
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"

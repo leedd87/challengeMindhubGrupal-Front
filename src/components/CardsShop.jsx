@@ -4,32 +4,32 @@ import "../styles/cardShop.css";
 // import shoesActions from "../redux/actions/shoesActions";
 import { Link as LinkRouter } from 'react-router-dom';
 
-import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
+//import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 
-let shop = []; // carrito de compras
+//let shop = []; // carrito de compras
 
 const CardsShop = ({ shoes }) => {
 
 	// const dispatch = useDispatch();
 
 
-	const addCarrito = ({shoes}) => {
-		console.log('add shop')
-		// console.log(shoes)
+	// const addCarrito = ({shoes}) => {
+	// 	console.log('add shop')
+	// 	// console.log(shoes)
 
-		const data = {
-			image: shoes.image[0],
-			name: shoes.name,
-			price: shoes.price,
-			id: shoes._id,
-			cant: 1
-		}
-		shop = [...shop, data];
+	// 	const data = {
+	// 		image: shoes.image[0],
+	// 		name: shoes.name,
+	// 		price: shoes.price,
+	// 		id: shoes._id,
+	// 		cant: 1
+	// 	}
+	// 	shop = [...shop, data];
 
-		// console.log(shop)
-		// console.log(carrito)
+	// 	// console.log(shop)
+	// 	// console.log(carrito)
 
-	}
+	// }
 
 
 	// const viewShop = () => {
@@ -58,18 +58,11 @@ const CardsShop = ({ shoes }) => {
 							<li>Colors:	⚪⚫</li>
 
 						</ul>
-
-						<LinkRouter to={'/details'} >
-							<button>Detail</button>
+						<LinkRouter to={`/details/${shoes._id}`} >
+						<button>Detail</button>
 						</LinkRouter>
-
-						<span 
-						className="cursor-pointer"
-							onClick={() => addCarrito({shoes})}
-						>
-							<AddShoppingCartOutlinedIcon />
-						</span>
-
+						
+						
 					</div>
 
 				</div>
@@ -77,7 +70,7 @@ const CardsShop = ({ shoes }) => {
 					<img src={shoes.image[0]} alt={shoes.name} />
 				</div>
 			</div>
-
+			
 		</div>
 	);
 };
