@@ -1,9 +1,9 @@
 import React from 'react'
-import Drawer from 'react-modern-drawer'
-import 'react-modern-drawer/dist/index.css'
-import '../../src/styles/style.css'
+// import Drawer from 'react-modern-drawer'
+// import 'react-modern-drawer/dist/index.css'
+// import '../../src/styles/style.css'
+import '../styles/style.css'
 import DeleteIcon from '@mui/icons-material/Delete';
-
 
 const Carrito = () => {
     const [isOpen, setIsOpen] = React.useState(false)
@@ -16,7 +16,7 @@ const Carrito = () => {
             <div className='carrito'>
                 <button onClick={toggleDrawer}>OPEN</button>
             </div>
-            <Drawer
+            {/* <Drawer
                 open={isOpen}
                 onClose={toggleDrawer}
                 direction='right'
@@ -48,7 +48,7 @@ const Carrito = () => {
                         </div>
                     </div>
                 </div>
-            </Drawer>
+            </Drawer> */}
         </>
     )
 }

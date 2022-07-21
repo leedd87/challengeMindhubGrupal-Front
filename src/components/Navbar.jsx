@@ -14,8 +14,24 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import logo from '../assets/logo.png'
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import { Link as LinkRouter } from 'react-router-dom';
+
+
+const pages = [
+    { name: 'Shoop', href: '/shop'},
+    { name: 'Pricing', href: '/notfound'},
+    { name: 'Blog', href: '/notfound'},
+    { name: 'ShopCard', href: '/shopcart'}
+
+];
+
+const settings = [
+
+    { name: 'Login', href: '/login' },
+    { name: 'Signup', href: '/signup' },
+    { name: 'Logout', href: '/notfound' }
+
+];
 
 const Nabvar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -56,7 +72,12 @@ const Nabvar = () => {
               textDecoration: 'none',
             }}
           >
-           <img src={logo} alt="logo" style={{"height":"5rem"}} />
+            <LinkRouter
+            to='/'
+            >
+                <img src={logo} alt="logo" style={{"height":"5rem"}} />
+            </LinkRouter>
+
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -88,11 +109,24 @@ const Nabvar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              {
+              
+              pages.map(item => (
+                
+                <LinkRouter
+                  to={item.href}
+                  key={item.name}
+                >
+                
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{item.name}</Typography>
+                  </MenuItem>
+
+                </LinkRouter>
+
+              ))
+              
+              }
             </Menu>
           </Box>
           
@@ -115,15 +149,27 @@ const Nabvar = () => {
             <img src={logo} alt="logo" style={{"height":"5rem"}} />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+            {
+            
+            pages.map(item => (
+
+                <LinkRouter
+                    to={item.href}
+                    key={item.name}
+                >
+                
+                    <Button
+                        key={item.name}
+                        onClick={handleCloseNavMenu}
+                        sx={{ my: 2, color: 'white', display: 'block' }}
+                    >
+                        {item.name}
+                    </Button>
+
+                </LinkRouter>
+            ))
+            
+            }
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -148,11 +194,21 @@ const Nabvar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              {
+              settings.map(setting => (
+                <LinkRouter
+                to={`${setting.href}`}
+                key={setting.name}
+                >
+                
+                      <MenuItem key={setting.name} onClick={handleCloseUserMenu}>
+                          <Typography textAlign="center">{setting.name}</Typography>
+                    </MenuItem>
+
+                </LinkRouter>
+
+              ))
+              }
             </Menu>
           </Box>
         </Toolbar>
