@@ -1,22 +1,24 @@
-const initialState = {
-    productsInShop: [],
-}
+// const initialState = {
+//     productsInShop: [],
+// }
 
-const shopReducers = ( state = initialState, action ) => {
+// const shopReducers = (state = initialState, action) => {
 
-    switch (action.type) {
+//     switch (action.type) {
 
-        case 'ADDTOSHOP':
+//         case 'ADDTOSHOP':
 
-            let productsInShop = [...state.productsInShop];
+//             let productsInShop = [...state.productsInShop];
 
-            return {
-                ...state,
-                productsInShop: productsInShop
+//             return {
+//                 ...state,
+//                 productsInShop: productsInShop
 
-            }
+//             }
 
-    }
+//     }
 
 
-}
+// }
+
+// export default shopReducers

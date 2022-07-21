@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import "../styles/cardShop.css";
-import shoesActions from "../redux/actions/shoesActions";
+// import shoesActions from "../redux/actions/shoesActions";
 import { Link as LinkRouter } from 'react-router-dom';
 
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
@@ -10,7 +10,7 @@ let shop = []; // carrito de compras
 
 const CardsShop = ({ shoes }) => {
 
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 
 
 	const addCarrito = ({shoes}) => {
@@ -32,11 +32,11 @@ const CardsShop = ({ shoes }) => {
 	}
 
 
-	const viewShop = () => {
+	// const viewShop = () => {
 
 		
 
-	}
+	// }
 
 	return (
 		<div id="container">

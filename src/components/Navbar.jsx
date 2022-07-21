@@ -12,8 +12,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import Badge from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
+// import Badge from '@mui/material/Badge';
+// import { styled } from '@mui/material/styles';
 // import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import logo from '../assets/logo.png';
 
