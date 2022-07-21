@@ -9,6 +9,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 /*optionsFilter*/
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -16,28 +17,30 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-import inputShop from '../components/inputShop'
+import SearchAppBar from '../components/inputShop'
 
 
 
 
 function Shoop() {
+  const [age, setAge] = React.useState('');
 
-    const [age, setAge] = React.useState('');
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  }
+  const dispatch = useDispatch()
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    }
+  useEffect(() => {
 
-    const dispatch = useDispatch()
+    dispatch(shoesActions.getShoes())
 
-    useEffect(() => {
+    // eslint-disable-next-line
+  }, [])
 
-        dispatch(shoesActions.getShoes())
+  const shoes = useSelector(store => store.shoesReducer.shoes);
 
-        // eslint-disable-next-line
-    }, [])
- return (
+  return (
+
     <>
       <div className='Header mb-9 bg-gray-300 py-5'>
 
@@ -85,7 +88,7 @@ function Shoop() {
 
               </AccordionDetails>
               </div>
-              <inputShop/>
+              <SearchAppBar/>
               </div>
 
           </AccordionSummary>
@@ -127,11 +130,29 @@ function Shoop() {
           </div>
 
         </div>
-</div>
-          
-        </>
 
-    )
+        <div className='bodyShop mb-10'>
+
+          {
+            shoes?.map((shoes, index) => {
+
+              return (
+
+                <CardsShop key={index} shoes={shoes} />
+
+              )
+
+            })
+          }
+
+        </div>
+      </div>
+      <div className='bg-red-400 h-20 flex items-center justify-center'>
+        <h2 className=''>Footer</h2>
+      </div>
+    </>
+
+  )
 }
 
 export default Shoop;
