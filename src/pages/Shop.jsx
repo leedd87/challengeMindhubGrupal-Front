@@ -1,61 +1,76 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import shoesActions from '../redux/actions/shoesActions'
-
 import CardsShop from '../components/CardsShop';
-
+/*acordeon*/
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function Shoop() {
 
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-    useEffect(() => {
+  useEffect(() => {
 
-        dispatch(shoesActions.getShoes())
+    dispatch(shoesActions.getShoes())
 
-        // eslint-disable-next-line
-    }, [])
+    // eslint-disable-next-line
+  }, [])
 
-    const shoes = useSelector(store => store.shoesReducer.shoes);
+  const shoes = useSelector(store => store.shoesReducer.shoes);
 
-    return (
+  return (
 
-        <>
-            <div className='Header mb-10 bg-gray-300 py-5'>
-                <h2>NavBar</h2>
-                <h1>Shop</h1>
+    <>
+      <div className='Header mb-10 bg-gray-300 py-5'>
+        
+        <Accordion>
+          <AccordionSummary
+            // expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
 
-                <div className='botonesShop'>
-                    <button>Deplegable1</button>
-                    <button>Desplegable2</button>
-                    <button>Desplegable3</button>
-                    <button>Desplegable4</button>
-                </div>
-            </div>
+          >
+            <Typography >Filter</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            Gender:
+            <select name="gender" id="">
+              
+            </select>
+            
+          </AccordionDetails>
+        </Accordion>
+      </div>
 
-            {/* CONTENEDOR DE CARDS */}
-            <div className='bodyShop mb-10'>
+      {/* CONTENEDOR DE CARDS */}
+      <div className='bodyShop mb-10'>
 
-                {
-                    shoes?.map((shoes, index) => {
+        {
+          shoes?.map((shoes, index) => {
 
-                        return (
+            return (
 
-                            <CardsShop key={index} shoes={shoes} />
+              <CardsShop key={index} shoes={shoes} />
 
-                        )
+            )
 
-                    })
-                }
+          })
+        }
 
-            </div>
+      </div>
 
-            <div className='bg-red-400 h-20 flex items-center justify-center'>
-                <h2 className=''>Footer</h2>
-            </div>
-        </>
+      <div className='bg-red-400 h-20 flex items-center justify-center'>
+        <h2 className=''>Footer</h2>
+      </div>
+    </>
 
-    )
+  )
 }
 
 export default Shoop;
+
+

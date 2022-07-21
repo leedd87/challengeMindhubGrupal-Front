@@ -40,17 +40,26 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  background-color: #e0e0e0;
 }
 
-img {
+/* img {
   width: 22rem;
-}
+} */
 
 .botonesShop {
   display: flex;
   justify-content: center;
   margin: 1%;
   gap: 3rem;
+}
+/*NavBar*/
+.css-1t6c9ts{ /**/
+  justify-content: center;
+}
+/***/
+.css-o4b71y-MuiAccordionSummary-content{
+  justify-content: center;
 }
 
 /* button {

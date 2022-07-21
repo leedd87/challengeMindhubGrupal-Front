@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Sriracha&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
     /* font-family: 'Signika Negative', sans-serif; */
 }
 .swiper {
@@ -388,9 +389,8 @@ width:100%;
        }
     }
 /*------*/
-#container {
-  /* width: 100vw;
-  height: 100vh; */
+/* #container {
+ 
   background: #dfdfdf;
   display: flex;
   align-items: center;
@@ -488,8 +488,5 @@ footer p:first-child {
 footer p.faded {
   font-size: 14px;
   line-height: 1.5;
-}
+} */
 /****/
-.cardShop{
-  display: flex;
-}
