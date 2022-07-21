@@ -32,7 +32,7 @@ const pages = [
     { to: '/', name: 'Home' },
     { to: '/shop', name: 'Shop' }];
 
-console.log("🚀 ~ file: Navbar.jsx ~ line 21 ~ pages", pages)
+// console.log("🚀 ~ file: Navbar.jsx ~ line 21 ~ pages", pages)
 
 const settings = [
     { to: '/login', name: 'SignIn ' },
