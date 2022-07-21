@@ -20,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
 	...theme.typography.body2,
 	padding: theme.spacing(1),
-	textAlign: "center",
+	textalign: "center",
 	color: theme.palette.text.secondary,
 }));
 
@@ -109,12 +109,7 @@ const Home = () => {
 							</h2>
 						</div>
 					</div>
-					{/* https://codepen.io/happydias/pen/LYpoxgR*/}
-					{/* <div className='box'> 
-          </div> 
-          <div className='box'></div>
-          <div className='box'></div>
-          <div className='box'></div> */}
+
 				</div>
 			</div>
 			<div className="containerGaleria">
@@ -145,7 +140,62 @@ const Home = () => {
 			</div>
 			<div></div>
 			{/* <div className='cardShop'>
-      <div id="container">
+				<div class="wrapper">
+					<div class="card">
+						<div class="front">
+							<h1>Adidas</h1>
+							<p>Runing start</p>
+							<h5 class="price">$ 89.00</h5>
+						</div>
+
+						<div class="right">
+							<h2>Adidas</h2>
+							<p>Runing start</p>
+							<h5 class="price">$ 89.00</h5>
+							<ul>
+								<li>talles : 12 12</li>
+								<li>Colors:	⚪⚫</li>
+
+
+							</ul>
+
+							<button>Add to cart, yo</button>
+						</div>
+
+					</div>
+					<div class="img-wrapper">
+						<img src='https://reactsport.herokuapp.com/img/productImages/shoe_newbalance_01.png' alt='' />
+					</div>
+				</div>
+				<div class="wrapper">
+					<div class="card">
+						<div class="front">
+							<h1>Adidas</h1>
+							<p>Runing start</p>
+							<h5 class="price">$ 89.00</h5>
+						</div>
+
+						<div class="right">
+							<h2>Adidas</h2>
+							<p>Runing start</p>
+							<h5 class="price">$ 89.00</h5>
+							<ul>
+								<li>talles : 12 12</li>
+								<li>Colors:	⚪⚫</li>
+
+
+							</ul>
+
+							<button>Add to cart, yo</button>
+						</div>
+
+					</div>
+					<div class="img-wrapper">
+						<img src='https://reactsport.herokuapp.com/img/productImages/shoe_newbalance_01.png' alt='' />
+					</div>
+				</div>
+			</div> */}
+			{/* <div id="container">
         <article id="card">
           <header>
             <img
@@ -232,8 +282,8 @@ const Home = () => {
             <p className="faded">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur omnis excepturi perferendis quasi labore architecto...</p>
           </footer>
         </article>
-      </div>
       </div> */}
+
 			<div className="footerLogo">
 				<div className="containerLogos">
 					<Swiper
