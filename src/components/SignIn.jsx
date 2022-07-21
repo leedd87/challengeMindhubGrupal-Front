@@ -2,19 +2,35 @@ import Avatar from '@mui/material/Avatar';
 import '../styles/style.css'
 import { Link as LinkRouter } from 'react-router-dom';
 import logoGoogle from '../../src/assets/logoGoogle.png'
+import logoFacebook from '../../src/assets/logoFacebook.png'
+import logoInstagram from '../../src/assets/logoInstagram.png'
+import userActions from '../../src/redux/actions/userActions'
+import { connect } from 'react-redux';
 
-export default function Account(){
-
+function SignIn(props){
+    const handleSubmit= async (event)=>{
+        event.preventDefault()
+        const userSignIn= {
+            email: event.target[0].value,
+            password: event.target[1].value,
+            from: "form-SignIn"
+        }
+        //console.log(event)
+        props.signIn(userSignIn)
+        // console.log(userSignIn);
+    }
     return(
     <div className='body'> 
         <div className="container" id="main">
             <div className="sign-in">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h1>Welcome</h1>
                     <div className="social-ctn">
-                        <Avatar src={logoGoogle}/>
+                        <Avatar sx={{margin:'8px'}} src={logoGoogle}/>
+                        <Avatar sx={{margin:'8px'}} src={logoFacebook}/>
+                        <Avatar sx={{margin:'8px'}} src={logoInstagram}/>
                     </div>
-                    <h2>or</h2>
+                    <h3>or</h3>
                     <input type='text' placeholder='Email'/>
                     <input type='password' placeholder='Password'/>
                     <button className='accountbtn'>Sign In</button>
@@ -34,4 +50,8 @@ export default function Account(){
     </div>   
       )
  }
+ const mapDispatchToProps= {
+    signIn: userActions.signIn
+  }
+export default connect(null, mapDispatchToProps)(SignIn)
     

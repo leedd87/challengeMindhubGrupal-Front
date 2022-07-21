@@ -159,6 +159,7 @@ input{
 }
 .social-ctn{
   margin: 20px;
+  display: flex;
 }
 .icons{
   background-color: none;
@@ -256,4 +257,85 @@ input{
   color: white;
   font-size: 20px;
   cursor: pointer;
+}
+
+/* ADMIN FORM */
+/* ADMIN FORM */
+/* ADMIN FORM */
+.adminForm{
+  background:linear-gradient(135deg,#ccd6a6,#293462);
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin-ctn{
+  max-width: 40vw;
+  width: 100%;
+  background-color: #fff;
+  padding:25px 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.admin-ctn .title-form{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.form-admin{
+  background-color:transparent !important;
+}
+.admin-ctn .title-form::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 7vw;
+  background:linear-gradient(135deg,#ccd6a6,#293462);
+}
+.input-box{
+  width: calc(100%/2-20px);
+}
+.input-box .input-admin{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+}
+.input-box .input-admin:focus,
+.input-box .input-admin:valid{
+  border-color:#b6c09d;
+}
+.button-ctn{
+  height: 45px;
+  margin: 20px 0;
+  width: 100%;
+}
+.btn-admin{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background:linear-gradient(135deg,#ccd6a6,#293462);
+}
+.btn-admin:hover{
+  background:linear-gradient(-135deg,#ccd6a6,#293462);
+}
+@media screen and (max-width:1300px){
+  .container{
+    min-height: 70vh !important;
+  }
 }

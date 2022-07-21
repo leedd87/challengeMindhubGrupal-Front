@@ -5,6 +5,7 @@ import 'react-modern-drawer/dist/index.css'
 import '../../src/styles/style.css'
 import DeleteIcon from '@mui/icons-material/Delete';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
+// import Paypal from "../../src/components/PayPal";
 
 export default function Nav(){
     const [isOpen, setIsOpen] =useState(false)
@@ -15,6 +16,9 @@ export default function Nav(){
         <div className='navCtn'>
                 <LinkRouter to='/account'>
                     <button className='btn'>Account</button>
+                </LinkRouter>
+                <LinkRouter to='/adminForm'>
+                    <button className='btn'>Admin</button>
                 </LinkRouter>
             <div>
                 <button onClick={toggleDrawer}>
@@ -48,6 +52,7 @@ export default function Nav(){
                             </div>
                             <div style={{marginTop:'10px'}}>
                                 <button className='paypal-btn'><span style={{color:'#003586'}}>Pay</span><span style={{color:'#009ddd'}}>Pal</span></button>
+                                {/* <Paypal/> */}
                                 <button className='mp-btn'>Mercado Pago</button>
                             </div>
                         </div>
