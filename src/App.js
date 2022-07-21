@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import "./styles/App.css";
 import { Route, Routes } from "react-router-dom";
 import SignIn from "./components/SignIn";
@@ -7,12 +7,22 @@ import SignUp from "./components/SignUp";
 import ShopCart from "./components/ShopCart";
 import Carrito from "./components/Carrito2";
 import Home from "./pages/Home";
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Shop from './pages/Shop.jsx'
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Shop from './pages/Shop.jsx';
+import { useDispatch} from 'react-redux'
 import Details from "./pages/Details";
+import shoesActions from './redux/actions/shoesActions';
 //import AboutUs from "./pages/AboutUs";
 function App() {
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+
+	dispatch(shoesActions.getShoes())
+	  // eslint-disable-next-line
+	}, [])
+
 	return (
 		
 		<div className="App">
@@ -24,7 +34,7 @@ function App() {
 				<Route path="/carrito" element={<Carrito/>} />
 				<Route path="/" element={<Home/>} />
 				<Route path="/shop" element={<Shop/>} />
-				<Route path="/details" element={<Details/>} />
+				<Route path="/details/:id" element={<Details/>} />
 				{/* <Route path="/about" element={<AboutUs/>} /> */}
 			</Routes>
 			<Footer/>

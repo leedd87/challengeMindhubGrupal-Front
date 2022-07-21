@@ -7,7 +7,8 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+
 /*optionsFilter*/ 
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -19,6 +20,8 @@ import Select from '@mui/material/Select';
 
 
 function Shoop() {
+
+  
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
@@ -27,13 +30,12 @@ function Shoop() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-
     dispatch(shoesActions.getShoes())
-
     // eslint-disable-next-line
   }, [])
 
   const shoes = useSelector(store => store.shoesReducer.shoes);
+  console.log("🚀 ~ file: Shop.jsx ~ line 40 ~ Shoop ~ shoes", shoes)
 
   return (
 

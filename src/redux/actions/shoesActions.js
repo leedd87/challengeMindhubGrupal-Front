@@ -16,11 +16,11 @@ const shoesActions={
         return async (dispatch, getState) => {
             
             const res = await axios.get(`https://daftlab-back.herokuapp.com/api/shoes/${id}`)
+            dispatch({ type: 'GET_ONE_SHOE', payload: res.data.response })
             return res
-
         }
 
-        // dispatch({ type: 'GET_ONE_SHOE', payload: res.data.response })
+      
 
     }
 }
