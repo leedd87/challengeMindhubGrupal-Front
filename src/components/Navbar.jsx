@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,30 +14,41 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+// import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import logo from '../assets/logo.png';
+
+import Drawer from 'react-modern-drawer'
+import DeleteIcon from '@mui/icons-material/Delete';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
+import 'react-modern-drawer/dist/index.css'
+import '../../src/styles/style.css'
+
+
+
 import { Link as LinkRouter } from 'react-router-dom';
 
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
-    '& .MuiBadge-badge': {
-        right: -3,
-        top: 13,
-        padding: '0 4px',
-    },
-}));
+// const StyledBadge = styled(Badge)(({ theme }) => ({
+//     '& .MuiBadge-badge': {
+//         right: -3,
+//         top: 13,
+//         padding: '0 4px',
+//     },
+// }));
 
 
 
 const pages = [
     { to: '/', name: 'Home' },
-    { to: '/shop', name: 'Shop' }];
+    { to: '/shop', name: 'Shop' }
+];
 
 // console.log("🚀 ~ file: Navbar.jsx ~ line 21 ~ pages", pages)
 
 const settings = [
-    { to: '/login', name: 'SignIn ' },
-    { to: '/signup', name: 'SignUp' }];
+    { to: '/account', name: 'Account ' },
+    // { to: '/signup', name: 'SignUp' }
+];
 
 
 const Nabvar = () => {
@@ -57,6 +69,11 @@ const Nabvar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const [isOpen, setIsOpen] = useState(false)
+    const toggleDrawer = () => {
+        setIsOpen((prevState) => !prevState)
+    }
 
     return (
         <AppBar position="sticky" sx={{ backgroundColor: "#949494" }}>
@@ -155,13 +172,46 @@ const Nabvar = () => {
                     </Box>
                     <MenuItem>
 
-                        <LinkRouter to={'/shopcart'} >
-                            <IconButton aria-label="cart">
-                                <StyledBadge badgeContent={4} color="error">
-                                    <ShoppingCartIcon sx={{ color: "white" }} />
-                                </StyledBadge>
-                            </IconButton>
-                        </LinkRouter>
+                        <Box>
+                            <button onClick={toggleDrawer}>
+                                <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
+                            </button>
+                            <Drawer
+                                open={isOpen}
+                                onClose={toggleDrawer}
+                                direction='right'
+                                className='drawer-ctn'
+                            >
+                                <div>
+                                    <div className='h2-ctn'>
+                                        <h2 className='title-cart'>SHOPPING CART</h2>
+                                    </div>
+                                    <div className="article-ctn">
+                                        <div className="products">
+                                            <img className="imgShops" src="https://media.revistagq.com/photos/5f2832773c95260b5c5ae0fc/4:3/w_1496,h_1122,c_limit/Captura%20de%20pantalla%202020-08-03%20a%20las%2017.50.14.png" alt="imgShoes" />
+                                            <div>
+                                                <h3 style={{ color: 'black' }}>Nike Jordan</h3>
+                                                <p style={{ color: 'black' }}>$ 0 USD</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <DeleteIcon sx={{ cursor: 'pointer', marginRight: '5px', color: 'black' }} />
+                                        </div>
+                                    </div>
+                                    <div className='total-ctn'>
+                                        <div className='price-ctn'>
+                                            <p>Total $ 0 USD</p>
+                                        </div>
+                                        <div style={{ marginTop: '10px' }}>
+                                            <button className='paypal-btn'><span style={{ color: '#003586' }}>Pay</span><span style={{ color: '#009ddd' }}>Pal</span></button>
+                                            {/* <Paypal/> */}
+                                            <button className='mp-btn'>Mercado Pago</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Drawer>
+                        </Box>
+
                     </MenuItem>
 
                     <Box sx={{ flexGrow: 0 }}>

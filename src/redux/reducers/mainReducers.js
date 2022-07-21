@@ -1,9 +1,12 @@
-import {combineReducers} from 'redux'
-import shoesReducer from '../../../src/redux/reducers/shoesReducer';
-import shopReducer from '../reducers/shopReducers';
+import { combineReducers } from 'redux'
+import shoesReducer from './shoesReducer';
+import shopReducer from './shopReducers';
+import userReducer from './userReducer';
 
-const mainReducer=combineReducers({
+const mainReducer = combineReducers({
     shoesReducer,
-    shopReducer
+    shopReducer,
+    userReducer
 })
-export default mainReducer
+
+export default mainReducer;
