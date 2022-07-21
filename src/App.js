@@ -1,12 +1,12 @@
 import React from 'react'
 import '../src/styles/App.css'
+import AboutUs from './pages/AboutUs'
 
 function App() {
   return (
-    <div className="App">
-      <h1>hola</h1>      
-    </div>
-
+    
+    <AboutUs/>
+    
   );
 }
 export default App;
