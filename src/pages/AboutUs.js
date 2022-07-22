@@ -46,8 +46,90 @@ function AboutUs() {
 					alt="fq-acordion"
 					className="cont-img"
 				/>
-				<div className="a">
-					Frequently Asked Questions
+				
+			</div> */}
+			<h1>The gallery of the store, memorable moments of the sneaker culture</h1>
+			<div className="contenedor">
+				<div className="div1">
+				
+				</div>
+				<div className="div2">
+
+				</div>
+				<div className="div3">
+					<div className="objetivo"></div>
+					</div>
+				<div className="div4">
+					
+				</div>
+				<div className="div5">
+				</div>
+				<div className="div6">
+				DAFTLAB{" "}
+					<span>
+						is an American retailer of athletic footwear. It is a national
+						company, which was founded in 2019. 
+						DAFTLAB has around 100
+						stores in operation worldwide and it is headquartered in New
+						York City, United States.
+					</span>
+				</div>
+				<div className="div7">
+
+				</div>
+				<div className="div8">
+
+				</div>
+				<div className="div9">
+
+				</div>
+				<div className="div10">
+					
+				</div>
+				<div className="div10">
+				Sneaker collecting is the acquisition and trading of sneakers as a hobby. It is often manifested by the use and collection of shoes made for particular sports, particularly basketball and skateboarding. A person involved in sneaker collecting is sometimes called a sneakerhead.
+				</div>
+				<div className="div11">
+
+				</div>
+				<div className="div12">
+
+				</div>
+				<div className="div13">
+				
+				</div>
+				</div>
+				<h3>¿What do you want for buy a new sneaker?</h3>
+				<div className="parent">
+				<div className="div14">
+				
+				</div>
+				<div className="div15">
+					<h3>A classic store of sneakers</h3>
+				</div>
+				<div className="div16">
+					<p>Why buy in our stores?</p>
+					<span>DAFTLAB inspects every pair to make sure whatever the buyer receives is 100% authentic.</span>
+				</div>
+				<div className="div17">
+				
+				</div>
+				<div className="div18">
+					<span>
+Shoes sold on StockX are considered deadstock, which means that they're authentic, new and unworn at the time of sale. Deadstock sneakers are also sold with the original box including the box lid and the box label indicating the shoe size, as would be acceptable for sale at a retail location.</span>
+				</div>
+				<div className="div19">
+				
+				</div>
+				<div className="div20">
+				
+				</div>
+				</div>
+
+			<h5>Frequently Asked Questions</h5>
+
+			<div className="a">
+					
 					<Collapse.Group>
 						<Collapse title="How I can know about my order?">
 							<Text>
@@ -93,75 +175,35 @@ function AboutUs() {
 						</Collapse>
 					</Collapse.Group>
 				</div>
-			</div> */}
-			<div className="contenedor">
-				<div className="div1">
-				
-				</div>
-				<div className="div2">
-
-				</div>
-				<div className="div3">
-					<h2>Tas tiste?</h2>
-					</div>
-				<div className="div4">
-					
-				</div>
-				<div className="div5">
-					<h2>pq tas tiste?</h2>
-				</div>
-				<div className="div6">
-				
-				</div>
-				
-			</div>
-			<div className="third-cont">
-				
-				<img
-					src="https://www.highsnobiety.com/static-assets/thumbor/6TZ_JqKDiRvcrK2twXIw6mWGfIw=/1600x1067/www.highsnobiety.com/static-assets/wp-content/uploads/2019/07/05175500/vivienne-westwood-asics-gel-saga-release-date-price-051.jpg"
-					alt="about-hero"
-					className="cont-img"
-				/>
-			</div>
-			<div className="four-cont">
-				<div className="frame">
-					<img id="img-1" src="https://wallpaperaccess.com/full/810836.png" alt="ad" className="botitas"/>
-					<img id="img-2" src="https://wallpaperaccess.com/full/810836.png" alt="asd" className="botitas"/>
-					<div className="street">
-						<p className="textito-botita">DAFTLAB</p>
-					</div>
-					<div>
-						<img src="http://imgfz.com/i/Sim4Uwb.png" alt="mm"/>
-					</div>
-				</div>
-			</div>
+			<div className="five-cont">
 				<div className="payments-methods">
 					
 					<img
-						src="https://seeklogo.com/images/M/mercadopago-nuevo-logo-12208FF614-seeklogo.com.png"
+						src="https://allbike.com.ar/wp-content/uploads/2022/01/kuder-mercadopago-blanco-negro.png"
 						alt="mercado-pago"
 						id="mercado-pago"
 						className="payload"
 						/>
 					<img
-						src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png"
+						src="https://images.squarespace-cdn.com/content/v1/5e7218f0d6425741be5a9df9/1589548860801-DGSUZZOECOJY092S5C9P/logos_zahlungsarten_paypal.png"
 						alt="paypal"
 						id="paypal"
 						className="payload"
 						/>
 					<img
-						src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Visa_Logo.png/640px-Visa_Logo.png"
+						src="https://cdn-icons-png.flaticon.com/512/61/61555.png"
 						alt="visa"
 						id="visa"
 						className="payload"
 						/>
 					<img
-						src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/MasterCard_early_1990s_logo.png/1200px-MasterCard_early_1990s_logo.png"
+						src="https://icon-library.com/images/mastercard-icon/mastercard-icon-10.jpg"
 						alt="mastercard"
 						id="mastercard"
 						className="payload"
 						/>
 				</div> 
+				</div>
 			
 		</AboutUsConteiner>
 	);
@@ -215,7 +257,7 @@ const AboutUsConteiner = styled.div`
 	}
 	.a {
 		padding: 1rem;
-		width: 40%;
+		width: 100%;
 		font-weight: 500;
 
 		@media (max-width: 1120px) {
@@ -258,10 +300,16 @@ const AboutUsConteiner = styled.div`
 			flex-direction: column;
 		}
 	}
-	.nextui-collapse-title-content {
-		margin: 0px;
-		text-align: center;
+	.five-cont {
+		display: flex;
+		align-content: center;
+		justify-content: center !important;
+		margin-bottom: 20px;
+		@media (max-width: 1120px) {
+			flex-direction: column;
+		}
 	}
+	
 	#mercado-pago {
 		width: 25%;
 		@media (max-width: 1120px) {
@@ -287,7 +335,7 @@ const AboutUsConteiner = styled.div`
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: row;
-		justify-content: space-around;
+		justify-content: center;
 		align-items: center;
 		font-size: 30px;
 		margin-bottom: 20px;
@@ -405,14 +453,15 @@ const AboutUsConteiner = styled.div`
 }
 .contenedor{
     display: grid;
-grid-template-columns: repeat(5, 1fr);
-grid-template-rows: repeat(10, 1fr);
-grid-column-gap: 5px;
-grid-row-gap: 5px;
+grid-template-columns: repeat(8, 1fr);
+grid-template-rows: repeat(20, 1fr);
+grid-column-gap: 10px;
+grid-row-gap: 10px;
 min-height: 100vh;
+padding: 20px;
 }
 .div1 { 
-	grid-area: 1 / 1 / 5 / 4;
+	grid-area: 1 / 1 / 4 / 3;
 	background-image: url(https://cdn.25gramos.com/wp-content/uploads/2019/07/25-Gramos-Yeezy-Kanye-West-Forbes-1.jpg);
 	background-size: cover;
 	background-position: center;
@@ -421,8 +470,9 @@ min-height: 100vh;
 		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 }
 .div2 { 
-	grid-area: 1 / 4 / 8 / 6; 
-	background-image: url(https://pbs.twimg.com/media/E-38JjRXIAMC5C6.jpg);
+	grid-area: 1 / 3 / 4 / 5; 
+	background-image: url(https://media.revistagq.com/photos/62860b8e1f8d21740a7cbdea/master/w_1600%2Cc_limit/louis-vuitton-nike-air-force-1-virgil-abloh.jpeg);
+	/* background-image: url(https://media.gq.com/photos/60d2192a430ae505071c3804/master/w_2571,h_3600,c_limit/SNEAKER_GUIDE_JORDANS_1.jpg); */
 	background-size: cover;
 	background-position: center;
 	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
@@ -430,8 +480,8 @@ min-height: 100vh;
 		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 }
 .div3 {
-	grid-area: 5 / 1 / 6 / 4; 
-	background-image: url(https://img.freepik.com/fotos-premium/fondo-grunge-papel-marron-vintage-antiguo_213524-343.jpg);
+	grid-area: 4 / 1 / 11 / 5; 
+	background-image: url(https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_auto,w_1400/fl_lossy,pg_1/uj9phqfjnlsu1mq2ruwk/air-jordan-1-1985?fimg-ssr-default);
 	background-size: cover;
 	background-position: center;
 	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
@@ -440,8 +490,8 @@ min-height: 100vh;
 }
 
 .div4 { 
-	grid-area: 6 / 1 / 11 / 4; 
-	background-image: url(https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_auto,w_1400/fl_lossy,pg_1/uj9phqfjnlsu1mq2ruwk/air-jordan-1-1985?fimg-ssr-default);
+	grid-area: 1 / 5 / 11 / 7; 
+	background-image: url(https://media.gq.com/photos/60d2192a430ae505071c3804/master/w_2571,h_3600,c_limit/SNEAKER_GUIDE_JORDANS_1.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -450,8 +500,8 @@ min-height: 100vh;
 		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 }
 .div5 {
-	grid-area: 8 / 4 / 9 / 6;
-	background-image: url(https://img.freepik.com/fotos-premium/fondo-grunge-papel-marron-vintage-antiguo_213524-343.jpg);
+	grid-area: 1 / 7 / 4 / 9;
+	background-image: url(https://90snkrs.com/es/wp-content/uploads/sites/3/2021/05/FLIGHT-CLUB-LA.jpg);
 	background-size: cover;
 	background-position: center;
 	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
@@ -460,7 +510,25 @@ min-height: 100vh;
 }
 
 .div6 { 
-	grid-area: 9 / 4 / 11 / 6; 
+	grid-area: 4 / 7 / 8 / 9; 
+	/* background-image: url(https://www.theridernews.com/wp-content/uploads/2022/04/DSC05208-780x470.jpg); */
+	background-color: black;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	padding: 3px;
+
+	font-size: 1rem;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 10px;
+	color: white;
+}
+.div7 {
+	grid-area: 8/ 7 / 11 / 9;
 	background-image: url(https://www.theridernews.com/wp-content/uploads/2022/04/DSC05208-780x470.jpg);
 	background-size: cover;
 	background-position: center;
@@ -469,8 +537,184 @@ min-height: 100vh;
 		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 }
-div > h2{
-	text-align: center;
-	font-size: 2rem;
+.div8 {
+	grid-area: 11 / 1 / 21 / 3;
+	background-image: url(https://images.solecollector.com/complex/images/c_crop,h_1929,w_1638,x_0,y_16/c_fill,dpr_2.0,f_auto,fl_lossy,q_auto,w_680/tjd6zfjqyv0u09rcorbg/ronnie-fieg-asics-gel-lyte-3-the-palette-2);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 }
+.div9 {
+	grid-area: 11 / 3 / 14 / 5;
+	background-image: url(https://media.revistagq.com/photos/5e8718f0c314930008f2e34b/master/w_1600%2Cc_limit/nike-air-yeezy.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+}
+.div10 {
+	grid-area: 14/ 3 / 18 /5;
+	background-color: black;
+	background-size: cover;
+	background-position: center;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		padding: 3px;
+
+	font-size: 1rem;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 10px;
+	color: white;
+}
+
+.div11 {
+	grid-area: 18 / 3 / 21 / 5;
+	background-image: url(https://www.okayplayer.com/wp-content/uploads/2021/04/120-OKP-SB-Dunks-01-1200.jpg);
+	background-size: cover;
+	background-position: center;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+}
+.div12 {
+	grid-area: 11/ 5 / 16 / 9;
+	background-image: url(https://bcchspatriotpost.com/wp-content/uploads/2019/04/F1-900x506.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+}
+.div13 {
+	grid-area: 16 / 5 / 21 / 9;
+	background-image: url(https://external-preview.redd.it/h0NQndlvR2IxgavrlByoUX96Af1jOcWBQJYxfNVe00g.jpg?auto=webp&s=5cc6b13f535f4084f61fb16451c0837a0a7bbdda);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+}
+.parent{
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-rows: repeat(20, 1fr);
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	min-height: 100vh;
+	padding: 20px;
+}
+.div14 {
+	grid-area: 1 / 1 / 8 / 6;
+	background-image: url(https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_90,w_1400/fl_lossy,pg_1/scbl5pmzs3ewac4u1cxw/air-jordan-4-1);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	padding: 3px;
+}
+.div15 {
+	grid-area: 1 / 6 / 3 / 9;
+	background-color: #222;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	padding: 3px;
+	font-size: 1rem;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 10px;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.div16 {
+	grid-area: 3 / 6 / 8 / 9; 
+	background-color: #222;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	padding: 3px;
+	font-size: 1rem;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 10px;
+	color: white;
+}
+.div17 {
+	grid-area: 8 / 1 / 21 / 4; 
+	background-image: url(https://cdn.sanity.io/images/c1chvb1i/production/e5334eedeb691b18a5f28a2a96517bb792f9b17f-1100x735.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	padding: 3px;
+}
+.div18 {
+	grid-area: 8 / 4 / 15 / 6;
+	background-color: #222;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	padding: 3px;
+	font-size: 1rem;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 10px;
+	color: white;
+}
+.div19 {
+	grid-area: 15 / 4 / 21 / 6; 
+	background-image: url(https://www.highsnobiety.com/static-assets/thumbor/0dpObh8E5srkA-wa89nBe1Zsqu0=/1600x2000/www.highsnobiety.com/static-assets/wp-content/uploads/2020/06/17090722/casablanca-new-balance-327-monochrome-release-date-price-01.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	padding: 3px;
+}
+.div20 {
+	grid-area: 8 / 6 / 21 / 9;
+	background-image: url(https://www.highsnobiety.com/static-assets/thumbor/7cHrLWs3XKIBdM6VxXWbvcqx2V8=/1600x1067/www.highsnobiety.com/static-assets/wp-content/uploads/2019/11/06165748/the-10-most-expensive-sneakers-ever-sold-12.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	padding: 3px;
+}
+h1, h3, h5{
+	font-size: 2rem;
+	text-align: center;
+	text-decoration: underline;
+}
+.nextui-collapse-title {
+		margin: 0px;
+		text-align: center;
+		text-decoration: none !important;
+	}
 `;

@@ -40,7 +40,8 @@ import { Link as LinkRouter } from 'react-router-dom';
 
 const pages = [
     { to: '/', name: 'Home' },
-    { to: '/shop', name: 'Shop' }
+    { to: '/shop', name: 'Shop' },
+    { to: '/about', name: 'About' }
 ];
 
 // console.log("🚀 ~ file: Navbar.jsx ~ line 21 ~ pages", pages)
@@ -51,7 +52,7 @@ const settings = [
 ];
 
 
-const Nabvar = () => {
+const NavBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -250,4 +251,4 @@ const Nabvar = () => {
         </AppBar>
     );
 };
-export default Nabvar;
+export default NavBar;
