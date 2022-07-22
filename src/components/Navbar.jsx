@@ -65,6 +65,8 @@ const Nabvar = () => {
     const dispatch = useDispatch();
 
     const carrito = useSelector(store => store.shopReducer.productsInShop);
+    localStorage.setItem('carrito', JSON.stringify(carrito)) // guardo en mi ls
+
     // console.log(carrito)
 
     const removeToShop = (producto) => {
