@@ -64,16 +64,22 @@ const Nabvar = () => {
     // CODIGO
     const dispatch = useDispatch();
 
-    const carrito = useSelector(store => store.shopReducer.productsInShop);
-    localStorage.setItem('carrito', JSON.stringify(carrito)) // guardo en mi ls
+    const carrito = useSelector(store => store.shopReducer.productsInShop); // GUARDO MI CARRITO
 
-    // console.log(carrito)
+    const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
 
-    const removeToShop = (producto) => {
-        // console.log('click')
-        // console.log(producto)
-        dispatch(shopActions.deleteToShop(producto))
-    }
+    const removeToShop = (producto) => dispatch(shopActions.deleteToShop(producto)) // ELIMINO PRODUCTOS DEL CARRITO
+
+    localStorage.setItem('carrito', JSON.stringify(carrito)) // GUARDAR MI CARRITO EN EL LOCAL STORAGE
+
+
+    // OBTENER MI LOCAL STORAGE
+    // if ( localStorage.getItem('carrito') ) {
+
+
+    //     const carritoLS = JSON.parse(localStorage.getItem('carrito'))
+
+    // }
 
     return (
         <AppBar position="sticky" sx={{ backgroundColor: "#949494" }}>
@@ -235,7 +241,9 @@ const Nabvar = () => {
 
                                     <div className='total-ctn'>
                                         <div className='price-ctn'>
-                                            <p>Total $ 0 USD</p>
+
+                                            <p>Total $ {priceTotal} USD</p>
+
                                         </div>
                                         <div style={{ marginTop: '10px' }}>
                                             <button className='paypal-btn'><span style={{ color: '#003586' }}>Pay</span><span style={{ color: '#009ddd' }}>Pal</span></button>
