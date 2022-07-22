@@ -68,7 +68,10 @@ const Nabvar = () => {
 
     const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
 
-    const removeToShop = (producto) => dispatch(shopActions.deleteToShop(producto)) // ELIMINO PRODUCTOS DEL CARRITO
+    const removeToShop = (producto) => {
+        dispatch(shopActions.deleteToShop(producto))
+        console.log('eliminaste un producto')
+    } // ELIMINO PRODUCTOS DEL CARRITO
 
     localStorage.setItem('carrito', JSON.stringify(carrito)) // GUARDAR MI CARRITO EN EL LOCAL STORAGE
 

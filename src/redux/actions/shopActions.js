@@ -11,7 +11,7 @@ const shopActions = {
 
             dispatch({
                 type: 'ADDTOSHOP',
-                payload: { product }
+                payload: { product },
             })
         }
     },
@@ -24,7 +24,7 @@ const shopActions = {
 
             dispatch({
                 type: 'DELETETOSHOP',
-                payload: { product }
+                payload: { product },
             })
         }
     }

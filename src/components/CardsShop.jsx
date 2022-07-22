@@ -11,7 +11,7 @@ import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutl
 const CardsShop = ({ shoes }) => {
 
 	const dispatch = useDispatch();
-	
+
 
 
 	const addCarrito = ({ shoes }) => {
@@ -25,6 +25,7 @@ const CardsShop = ({ shoes }) => {
 		}
 
 		dispatch(shopActions.addToShop(product))
+		console.log('alerta agregaste un producto')
 
 	}
 
@@ -52,7 +53,7 @@ const CardsShop = ({ shoes }) => {
 							<button>Detail</button>
 						</LinkRouter>
 						<span
-							onClick={() => addCarrito({shoes})}
+							onClick={() => addCarrito({ shoes })}
 						><AddShoppingCartOutlinedIcon /></span>
 
 					</div>
