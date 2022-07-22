@@ -7,7 +7,7 @@ import shoesActions from "../redux/actions/shoesActions";
 
 const Details = () => {
     const {id}= useParams()
-    console.log("🆔 ~ file: Shop.jsx ~ line 24 ~ Shoop ~ id", id)
+    // console.log("🆔 ~ file: Shop.jsx ~ line 24 ~ Shoop ~ id", id)
     
     
     const [shoes, setShoes] = useState()
@@ -20,7 +20,7 @@ const Details = () => {
   // eslint-disable-next-line
   },[])
 
-  console.log("🚀 ~ file: Details.js ~ line 14 ~ Details ~ shoes", shoes)
+//   console.log("🚀 ~ file: Details.js ~ line 14 ~ Details ~ shoes", shoes)
 
 
 	// const handleIDshoe = async (id) => {

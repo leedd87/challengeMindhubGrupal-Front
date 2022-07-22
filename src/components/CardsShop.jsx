@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "../styles/cardShop.css";
 import { Link as LinkRouter } from 'react-router-dom';
 
