@@ -1,42 +1,41 @@
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../styles/cardShop.css";
-// import shoesActions from "../redux/actions/shoesActions";
 import { Link as LinkRouter } from 'react-router-dom';
 
-//import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
+import shopActions from '../redux/actions/shopActions';
 
-//let shop = []; // carrito de compras
+import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
+
 
 const CardsShop = ({ shoes }) => {
 
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
+	
 
 
-	// const addCarrito = ({shoes}) => {
-	// 	console.log('add shop')
-	// 	// console.log(shoes)
+	const addCarrito = ({ shoes }) => {
 
-	// 	const data = {
-	// 		image: shoes.image[0],
-	// 		name: shoes.name,
-	// 		price: shoes.price,
-	// 		id: shoes._id,
-	// 		cant: 1
-	// 	}
-	// 	shop = [...shop, data];
+		// console.log('add shop')
+		// console.log(shoes)
 
-	// 	// console.log(shop)
-	// 	// console.log(carrito)
+		const product = {
+			image: shoes.image[0],
+			name: shoes.name,
+			price: shoes.price,
+			id: shoes._id,
+			cant: 1
+		}
 
-	// }
-
-
-	// const viewShop = () => {
+		// console.log(product)
+		dispatch(shopActions.addToShop(product))
 
 		
+		// console.log(res);
 
-	// }
+		// console.log(data)
+
+	}
 
 	return (
 		<div id="container">
@@ -59,10 +58,12 @@ const CardsShop = ({ shoes }) => {
 
 						</ul>
 						<LinkRouter to={`/details/${shoes._id}`} >
-						<button>Detail</button>
+							<button>Detail</button>
 						</LinkRouter>
-						
-						
+						<span
+							onClick={() => addCarrito({shoes})}
+						><AddShoppingCartOutlinedIcon /></span>
+
 					</div>
 
 				</div>
@@ -70,7 +71,7 @@ const CardsShop = ({ shoes }) => {
 					<img src={shoes.image[0]} alt={shoes.name} />
 				</div>
 			</div>
-			
+
 		</div>
 	);
 };

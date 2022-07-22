@@ -4,10 +4,10 @@ import shoesActions from '../redux/actions/shoesActions'
 import CardsShop from '../components/CardsShop';
 import '../styles/style.css'
 /*acordeon*/
-import Accordion from '@mui/material/Accordion';
+// import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 
 /*optionsFilter*/
 import Box from '@mui/material/Box';
@@ -30,7 +30,7 @@ function Shoop() {
     }, [])
 
     const shoes = useSelector(store => store.shoesReducer.shoes);
-    console.log("🚀 ~ file: Shop.jsx ~ line 40 ~ Shoop ~ shoes", shoes)
+    // console.log("🚀 ~ file: Shop.jsx ~ line 40 ~ Shoop ~ shoes", shoes)
 
 
     const handleChange = (event) => {

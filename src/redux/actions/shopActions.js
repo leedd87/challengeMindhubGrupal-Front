@@ -1,10 +1,12 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 const shopActions = {
 
 
     addToShop: (product) => {
-        
+
+        console.log(product);
+
         return async (dispatch, getState) => {
 
             dispatch({
@@ -13,6 +15,12 @@ const shopActions = {
             })
         }
     },
+
+    deleteToShop: (product) => {
+        return async (dispatch, getState) => {
+            dispatch()
+        }
+    }
 
 }
 

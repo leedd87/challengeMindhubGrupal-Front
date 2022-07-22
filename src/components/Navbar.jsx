@@ -22,6 +22,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import 'react-modern-drawer/dist/index.css'
 import '../styles/style.css'
+import { useSelector } from 'react-redux';
+
 
 
 
@@ -75,11 +77,15 @@ const Nabvar = () => {
         setIsOpen((prevState) => !prevState)
     }
 
+    const carrito = useSelector(store => store.shopReducer.productsInShop);
+    console.log(carrito)
+
+
     return (
         <AppBar position="sticky" sx={{ backgroundColor: "#949494" }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                
+
                     <Typography
                         variant="h6"
                         noWrap
@@ -98,10 +104,10 @@ const Nabvar = () => {
                             to='/'
                         >
                             <img src={logo} alt="logo" style={{ "height": "5rem" }} />
-                            </LinkRouter>
+                        </LinkRouter>
 
                     </Typography>
-                   
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
@@ -175,28 +181,60 @@ const Nabvar = () => {
                             <button onClick={toggleDrawer}>
                                 <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
                             </button>
+
+                            {/* DRAWER CARRITO */}
                             <Drawer
                                 open={isOpen}
                                 onClose={toggleDrawer}
                                 direction='right'
                                 className='drawer-ctn'
                             >
+
                                 <div>
+
                                     <div className='h2-ctn'>
                                         <h2 className='title-cart'>SHOPPING CART</h2>
                                     </div>
+
+
+                                    {/* CONTENEDOR DE PRODUCTOS */}
                                     <div className="article-ctn">
-                                        <div className="products">
-                                            <img className="imgShops" src="https://media.revistagq.com/photos/5f2832773c95260b5c5ae0fc/4:3/w_1496,h_1122,c_limit/Captura%20de%20pantalla%202020-08-03%20a%20las%2017.50.14.png" alt="imgShoes" />
-                                            <div>
-                                                <h3 style={{ color: 'black' }}>Nike Jordan</h3>
-                                                <p style={{ color: 'black' }}>$ 0 USD</p>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <DeleteIcon sx={{ cursor: 'pointer', marginRight: '5px', color: 'black' }} />
-                                        </div>
+
+                                        {
+                                            carrito.length !== 0 ?
+                                                (
+                                                    carrito.map(producto => {
+                                                        return (
+                                                            <div className='mb-5 bg-gray-100 p-3 rounded-md'>
+                                                                <div className="products">
+                                                                    <img
+                                                                        className="imgShops"
+                                                                        src={producto.image}
+                                                                        alt={producto.name}
+                                                                    />
+                                                                    <div>
+                                                                        <h3 style={{ color: 'black' }}>{producto.name}</h3>
+                                                                        <p style={{ color: 'black' }}>$ {producto.price} USD</p>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div>
+                                                                    <DeleteIcon sx={{ cursor: 'pointer', marginRight: '5px', color: 'black' }} />
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                    })
+
+                                                )
+                                                :
+                                                (
+                                                    <p>No hay productos en el carrito</p>
+                                                )
+                                        }
+
+
                                     </div>
+
                                     <div className='total-ctn'>
                                         <div className='price-ctn'>
                                             <p>Total $ 0 USD</p>
@@ -209,6 +247,7 @@ const Nabvar = () => {
                                     </div>
                                 </div>
                             </Drawer>
+                            {/* DRAWER CARRITO */}
                         </Box>
 
                     </MenuItem>
