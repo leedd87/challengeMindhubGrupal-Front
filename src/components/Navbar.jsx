@@ -78,7 +78,7 @@ const Nabvar = () => {
 
 
     //     const carritoLS = JSON.parse(localStorage.getItem('carrito'))
-
+        
     // }
 
     return (

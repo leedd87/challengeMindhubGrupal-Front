@@ -5,7 +5,7 @@ const shopActions = {
 
     addToShop: (product) => {
 
-        console.log(product);
+        // console.log(product);
 
         return async (dispatch, getState) => {
 
@@ -17,10 +17,11 @@ const shopActions = {
     },
 
     deleteToShop: (product) => {
-        console.log(product)
+
+        // console.log(product)
 
         return async (dispatch, getState) => {
-            
+
             dispatch({
                 type: 'DELETETOSHOP',
                 payload: { product }

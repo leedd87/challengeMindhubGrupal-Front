@@ -16,9 +16,6 @@ const CardsShop = ({ shoes }) => {
 
 	const addCarrito = ({ shoes }) => {
 
-		// console.log('add shop')
-		// console.log(shoes)
-
 		const product = {
 			image: shoes.image[0],
 			name: shoes.name,
@@ -27,13 +24,7 @@ const CardsShop = ({ shoes }) => {
 			cant: 1
 		}
 
-		// console.log(product)
 		dispatch(shopActions.addToShop(product))
-
-		
-		// console.log(res);
-
-		// console.log(data)
 
 	}
 
