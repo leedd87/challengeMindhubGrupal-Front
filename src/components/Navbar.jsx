@@ -78,7 +78,7 @@ const Nabvar = () => {
 
 
     //     const carritoLS = JSON.parse(localStorage.getItem('carrito'))
-        
+
     // }
 
     return (
@@ -178,9 +178,18 @@ const Nabvar = () => {
                     <MenuItem>
 
                         <Box>
-                            <button onClick={toggleDrawer}>
+                            {/* BOTON CARRITO */}
+                            <div
+                                onClick={toggleDrawer}
+                                className='flex items-center justify-center'
+                            >
                                 <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
-                            </button>
+                                {
+                                    carrito.length !== 0
+                                        ? <span className='text-lg'>{carrito.length}</span>
+                                        : <></>
+                                }
+                            </div>
 
                             {/* DRAWER CARRITO */}
                             <Drawer
