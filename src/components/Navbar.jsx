@@ -12,31 +12,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-// import Badge from '@mui/material/Badge';
-// import { styled } from '@mui/material/styles';
-// import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import logo from '../assets/logo.png';
-
 import Drawer from 'react-modern-drawer'
 import DeleteIcon from '@mui/icons-material/Delete';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import 'react-modern-drawer/dist/index.css'
 import '../styles/style.css'
-import { useSelector } from 'react-redux';
-
-
-
-
+import { useSelector, useDispatch } from 'react-redux';
 import { Link as LinkRouter } from 'react-router-dom';
 
+import shopActions from '../redux/actions/shopActions';
 
-// const StyledBadge = styled(Badge)(({ theme }) => ({
-//     '& .MuiBadge-badge': {
-//         right: -3,
-//         top: 13,
-//         padding: '0 4px',
-//     },
-// }));
 
 
 
@@ -45,13 +31,10 @@ const pages = [
     { to: '/shop', name: 'Shop' }
 ];
 
-// console.log("🚀 ~ file: Navbar.jsx ~ line 21 ~ pages", pages)
 
 const settings = [
     { to: '/account', name: 'Account ' },
-    // { to: '/signup', name: 'SignUp' }
 ];
-
 
 const Nabvar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -73,13 +56,22 @@ const Nabvar = () => {
     };
 
     const [isOpen, setIsOpen] = useState(false)
+
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState)
     }
 
-    const carrito = useSelector(store => store.shopReducer.productsInShop);
-    console.log(carrito)
+    // CODIGO
+    const dispatch = useDispatch();
 
+    const carrito = useSelector(store => store.shopReducer.productsInShop);
+    // console.log(carrito)
+
+    const removeToShop = (producto) => {
+        // console.log('click')
+        // console.log(producto)
+        dispatch(shopActions.deleteToShop(producto))
+    }
 
     return (
         <AppBar position="sticky" sx={{ backgroundColor: "#949494" }}>
@@ -205,7 +197,7 @@ const Nabvar = () => {
                                                 (
                                                     carrito.map(producto => {
                                                         return (
-                                                            <div className='mb-5 bg-gray-100 p-3 rounded-md'>
+                                                            <div key={producto.id} className='mb-5 bg-gray-100 p-3 rounded-md'>
                                                                 <div className="products">
                                                                     <img
                                                                         className="imgShops"
@@ -218,8 +210,12 @@ const Nabvar = () => {
                                                                     </div>
                                                                 </div>
 
-                                                                <div>
-                                                                    <DeleteIcon sx={{ cursor: 'pointer', marginRight: '5px', color: 'black' }} />
+                                                                <div
+                                                                    onClick={() => removeToShop(producto)}
+                                                                >
+                                                                    <DeleteIcon
+                                                                        sx={{ cursor: 'pointer', marginRight: '5px', color: 'black' }}
+                                                                    />
                                                                 </div>
                                                             </div>
                                                         )

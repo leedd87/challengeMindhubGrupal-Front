@@ -17,8 +17,14 @@ const shopActions = {
     },
 
     deleteToShop: (product) => {
+        console.log(product)
+
         return async (dispatch, getState) => {
-            dispatch()
+            
+            dispatch({
+                type: 'DELETETOSHOP',
+                payload: { product }
+            })
         }
     }
 
