@@ -15,43 +15,47 @@ import Select from '@mui/material/Select';
 function Shoop() {
   const dispatch = useDispatch()
   const [inputSearch, setInputSearch] = useState("")
-
-
   const [tipe, setTipe] = React.useState('');
-  const [render, setRender] = React.useState([]);
-  const [renderB, setRenderB] = React.useState([]);
-
   const [brand, setBrand] = React.useState('');
+  const [shoes, setShoes] = React.useState([]);
+  const [filterShoes, setfilterShoes] = React.useState([]);
 
+  console.log("🚀 ~ file: Shop.jsx ~ line 22 ~ Shoop ~ filterShoes", filterShoes)
   useEffect(() => {
-    dispatch(shoesActions.filterShoes(inputSearch))
+    //dispatch(shoesActions.filterShoes(inputSearch))
+    getShoes()
     // eslint-disable-next-line
-  }, [inputSearch])
+  }, [])
   let filterCard = useSelector(store => store.shoesReducer.filterShoes)
-  
+
   useEffect(()=>{
-    if (render?.length > 0) {
-      const filterRender = render?.filter(shoe => shoe.name.toLowerCase().startsWith(inputSearch.trim().toLowerCase()))
-      setRenderB(filterRender)
+    if (shoes?.length > 0) {
+      const filterRender = shoes?.filter(shoe => shoe.name.toLowerCase().startsWith(inputSearch.trim().toLowerCase()))
+      setfilterShoes(filterRender)
     }
     // eslint-disable-next-line
   },[inputSearch])
- 
-  console.log("🚀 ~ file: Shop.jsx ~ line 29 ~ Shoop ~ setRenderB", renderB)
+
+  
+  const getShoes = async (event) => {
+    const res = await dispatch(shoesActions.getShoes())
+    console.log("🚀 ~ file: Shop.jsx ~ line 53 ~ handleChangeBrand ~ res", res)
+    setShoes(res.data.response)
    
-
-
+  }
 
   const handleChangeTipe = async (event) => {
     console.log(event.target.value);
     const res = await dispatch(shoesActions.getShoesByType(event.target.value))
-    setRender(res.response.response)
+    setShoes(res.response.response)
+    setfilterShoes(res.response.response)
   }
 
   const handleChangeBrand = async (event) => {
     const res = await dispatch(shoesActions.getShoesByBrand(event.target.value))
     console.log("🚀 ~ file: Shop.jsx ~ line 53 ~ handleChangeBrand ~ res", res)
-    setRender(res.response.response)
+    setShoes(res.response.response)
+    setfilterShoes(res.response.response)
   }
   //   const search=(e)=>{
   //     dispatch(shoesActions.filterShoes(e.target.value))
@@ -137,19 +141,20 @@ function Shoop() {
         <div className='bodyShop mb-10'>
 
           {
-            renderB.length > 0 ?
+            filterShoes.length > 0 ?
               (
-                renderB?.map((shoes, index) => {
+                filterShoes?.map((shoes, index) => {
                   return (
                     <CardsShop key={index} shoes={shoes} />
                   )
 
                 })
               ) :
-              filterCard?.map((shoes, index) => {
+              shoes.map((shoes, index) => {
                 return (
                   <CardsShop key={index} shoes={shoes} />
                 )
+
               })
           }
 
