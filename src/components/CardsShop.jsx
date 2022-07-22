@@ -10,6 +10,7 @@ import { Link as LinkRouter } from 'react-router-dom';
 
 const CardsShop = ({ shoes }) => {
 
+
 	// const dispatch = useDispatch();
 
 
@@ -43,8 +44,20 @@ const CardsShop = ({ shoes }) => {
 
 			<div className="wrapper">
 				<div className="card">
+
 					<div className="front">
-						<h1>{shoes.brand.name}</h1>
+						{
+							shoes.brand ?
+							<h1>{shoes.brand.name}</h1> 
+							:null
+						}
+						{
+							shoes.type ?
+							<h1>{shoes.type.name}</h1> 
+							:null
+						}
+						
+						{/* <h1>{shoes?.type.name}</h1> */}
 						<p>{shoes.name}</p>
 						<h2 className="price">U$S {shoes.price}</h2>
 					</div>

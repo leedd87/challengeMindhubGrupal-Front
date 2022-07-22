@@ -74,11 +74,7 @@ const Home = () => {
 								title="Nike Air Max 270"
 							/>
 						</div>
-						<div className="content">
-							<h2>
-								Nike Air Max 270<span>Running Collection</span>
-							</h2>
-						</div>
+						
 					</div>
 					<div className="container">
 						<div className="imgbox imgbox2">
@@ -88,11 +84,7 @@ const Home = () => {
 								title="Nike Air Max 270"
 							/>
 						</div>
-						<div className="content">
-							<h2>
-								Nike Air Max 270<span>Running Collection</span>
-							</h2>
-						</div>
+						
 					</div>
 
 					<div className="container">
@@ -103,24 +95,14 @@ const Home = () => {
 								alt="img3"
 							/>
 						</div>
-						<div className="content">
-							<h2>
-								Nike Air Max 270<span>Running Collection</span>
-							</h2>
-						</div>
+						
 					</div>
 
 				</div>
 			</div>
 			<div className="containerGaleria">
 				<h1>Galeria</h1>
-				{/* <div className='containerBoxGaleria'>
-          <div className='box b1'></div>
-          <div className='box b2'></div>
-          <div className='box b3'></div>
-          <div className='box b4'></div>
-
-        </div> */}
+				
 				<Box sx={{ flexGrow: 1 }}>
 					<Grid container spacing={2}>
 						<Grid item xs={6} md={6}>
@@ -252,39 +234,8 @@ const Home = () => {
 							/>
 						</SwiperSlide>
 					</Swiper>
-					{/* <ul>
-            <li>
-            
-              <a href="https://sneakerlinks.com/brand/adidas/">
-                <img src="https://sneakerlinks.com/wp-content/uploads/2019/08/addidas.png" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="https://sneakerlinks.com/brand/asics/">
-                <img src="https://sneakerlinks.com/wp-content/uploads/2019/08/asics.png" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="https://sneakerlinks.com/brand/jordan/">
-                <img src="https://sneakerlinks.com/wp-content/uploads/2019/08/jordan.png" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="https://sneakerlinks.com/brand/nike/">
-                <img src="https://sneakerlinks.com/wp-content/uploads/2019/08/nike.png" alt="" />
-              </a></li>
-            <li>
-              <a href="https://sneakerlinks.com/brand/reebok/">
-                <img src="https://sneakerlinks.com/wp-content/uploads/2019/08/reebok.png" alt="" />
-              </a></li>
-            <li>
-              <a href="https://sneakerlinks.com/brand/under-armour/">
-                <img src="https://sneakerlinks.com/wp-content/uploads/2019/08/under_armour.png" alt="" />
-              </a></li>
-            <li><a href="https://sneakerlinks.com/brand/vans/">
-              <img src="https://sneakerlinks.com/wp-content/uploads/2019/08/vans.png" alt="" />
-            </a></li>
-          </ul> */}
+					
+           
 				</div>
 			</div>
 		</>

@@ -1,15 +1,9 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import shoesActions from '../redux/actions/shoesActions'
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import shoesActions from '../redux/actions/shoesActions';
 import CardsShop from '../components/CardsShop';
 import '../styles/style.css'
-/*acordeon*/
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-
-
 /*optionsFilter*/
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -18,84 +12,105 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 
-
-
-
-
 function Shoop() {
   const dispatch = useDispatch()
+  const [inputSearch, setInputSearch] = useState("")
 
 
-  const [age, setAge] = React.useState('');
+  const [tipe, setTipe] = React.useState('');
+  const [render, setRender] = React.useState([]);
+  const [renderB, setRenderB] = React.useState([]);
 
+  const [brand, setBrand] = React.useState('');
 
   useEffect(() => {
-    dispatch(shoesActions.getShoes())
+    dispatch(shoesActions.filterShoes(inputSearch))
     // eslint-disable-next-line
-  }, [])
+  }, [inputSearch])
+  let filterCard = useSelector(store => store.shoesReducer.filterShoes)
+  
+  useEffect(()=>{
+    if (render?.length > 0) {
+      const filterRender = render?.filter(shoe => shoe.name.toLowerCase().startsWith(inputSearch.trim().toLowerCase()))
+      setRenderB(filterRender)
+    }
+    // eslint-disable-next-line
+  },[inputSearch])
+ 
+  console.log("🚀 ~ file: Shop.jsx ~ line 29 ~ Shoop ~ setRenderB", renderB)
+   
 
-  const shoes = useSelector(store => store.shoesReducer.shoes);
-  console.log("🚀 ~ file: Shop.jsx ~ line 40 ~ Shoop ~ shoes", shoes)
 
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const handleChangeTipe = async (event) => {
+    console.log(event.target.value);
+    const res = await dispatch(shoesActions.getShoesByType(event.target.value))
+    setRender(res.response.response)
   }
 
-
+  const handleChangeBrand = async (event) => {
+    const res = await dispatch(shoesActions.getShoesByBrand(event.target.value))
+    console.log("🚀 ~ file: Shop.jsx ~ line 53 ~ handleChangeBrand ~ res", res)
+    setRender(res.response.response)
+  }
+  //   const search=(e)=>{
+  //     dispatch(shoesActions.filterShoes(e.target.value))
+  // }
+  
 
   return (
     <>
       <div className='Header mb-9 bg-gray-300 py-5'>
 
+        <div className='filtersShop'>
 
-        <AccordionSummary
-          // expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-
-        > <div className='filtersShop'>
-            <div className='filterGender'>
-              <AccordionDetails>
-                Gender:
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={age}
-                  label="Age"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={0}>Man</MenuItem>
-                  <MenuItem value={1}>Woman</MenuItem>
-                  <MenuItem value={2}>Kids</MenuItem>
-                  <MenuItem value={3}>Unisex</MenuItem>
-                </Select>
-              </AccordionDetails>
-            </div>
-
-            <div className='filterMark'>
-              <AccordionDetails>
-                Marks:
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={age}
-                  label="Age"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={0}>Nike</MenuItem>
-                  <MenuItem value={1}>Adidas</MenuItem>
-                  <MenuItem value={2}>New Balance</MenuItem>
-
-                </Select>
-
-
-              </AccordionDetails>
-            </div>
-
+          <div>
+            <input className='input' type="text" placeholder='Search Shoes' onChange={(e) => setInputSearch(e.target.value)} />
           </div>
 
-        </AccordionSummary>
+          <Box sx={{ minWidth: 120, padding: 1 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Tipe</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={tipe}
+                label="Tipe"
+                onChange={handleChangeTipe}
+              >
+                <MenuItem value={"62d81e84db36588e63203de7"}>Urban</MenuItem>
+                <MenuItem value={"62d827534fca1cb3de1808b1"}>Sport</MenuItem>
+                <MenuItem value={"62d828964fca1cb3de1808bd"}>Fancy</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
+
+
+          <Box sx={{ minWidth: 120, padding: 1 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Brand</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={brand}
+                label="Brand"
+                onChange={handleChangeBrand}
+              >
+                <MenuItem value={"62d836532f6e1f16ca3df337"}>Nike</MenuItem>
+                <MenuItem value={"62d838004fca1cb3de1808cb"}>Adidas</MenuItem>
+                <MenuItem value={"62d8392a4fca1cb3de1808cd"}>Jordan</MenuItem>
+                <MenuItem value={"62d839d04fca1cb3de1808ce"}>New Balance</MenuItem>
+                <MenuItem value={"62d83a704fca1cb3de1808cf"}>Asics</MenuItem>
+                <MenuItem value={"62d83b334fca1cb3de1808d1"}>Balenciaga</MenuItem>
+                <MenuItem value={"62d83c814fca1cb3de1808d6"}>Dior</MenuItem>
+                <MenuItem value={"62d83e2d4fca1cb3de1808da"}>Louis Vuittom</MenuItem>
+
+              </Select>
+            </FormControl>
+          </Box>
+
+        </div>
+
 
 
 
@@ -107,22 +122,7 @@ function Shoop() {
           <div>
             <h1>Filter Shoes</h1>
             <h3>Price</h3>
-            <Box sx={{ minWidth: 120, padding: 1 }}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Age</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={age}
-                  label="Age"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
+
             <h3>Color:</h3>
             <div className='itemsFilterColor'>
 
@@ -137,15 +137,20 @@ function Shoop() {
         <div className='bodyShop mb-10'>
 
           {
-            shoes?.map((shoes, index) => {
+            renderB.length > 0 ?
+              (
+                renderB?.map((shoes, index) => {
+                  return (
+                    <CardsShop key={index} shoes={shoes} />
+                  )
 
-              return (
-
-                <CardsShop key={index} shoes={shoes} />
-
-              )
-
-            })
+                })
+              ) :
+              filterCard?.map((shoes, index) => {
+                return (
+                  <CardsShop key={index} shoes={shoes} />
+                )
+              })
           }
 
         </div>
