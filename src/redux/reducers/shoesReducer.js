@@ -1,6 +1,7 @@
 const initialState = {
   shoes: [],
-  oneShoe:{}
+  oneShoe:{},
+  filterShoes:[],
 };
 
 const shoesReducer = (state = initialState, action) => {
@@ -19,6 +20,12 @@ const shoesReducer = (state = initialState, action) => {
         oneShoe: action.payload, 
         auxiliar: action.payload,
       };
+    case "FILTER_SHOES":
+      return{
+        ...state,
+        filterShoes:state.shoes.filter(shoe=>shoe.name.toLowerCase().startsWith(action.payload.trim().toLowerCase()))
+      }
   }
+
 };
 export default shoesReducer;

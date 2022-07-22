@@ -10,7 +10,6 @@ const shoesActions={
             dispatch({type:'GET_SHOES', payload:res.data.response})
         }
     },
-
     getOneShoe: (id) => {
 
         return async (dispatch, getState) => {
@@ -19,9 +18,11 @@ const shoesActions={
             dispatch({ type: 'GET_ONE_SHOE', payload: res.data.response })
             return res
         }
-
-      
-
-    }
+    },
+    filterShoes:(value)=>{
+        return(dispatch, getState)=>{
+            dispatch({type:"FILTER_SHOES", payload:value})
+        }
+    },
 }
 export default shoesActions

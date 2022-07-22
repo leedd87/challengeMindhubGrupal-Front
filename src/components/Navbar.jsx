@@ -201,7 +201,7 @@ const Nabvar = () => {
                                         <div className='price-ctn'>
                                             <p>Total $ 0 USD</p>
                                         </div>
-                                        <div style={{ marginTop: '10px' }}>
+                                        <div className='ctn-btn-pagos'>
                                             <button className='paypal-btn'><span style={{ color: '#003586' }}>Pay</span><span style={{ color: '#009ddd' }}>Pal</span></button>
                                             {/* <Paypal/> */}
                                             <button className='mp-btn'>Mercado Pago</button>

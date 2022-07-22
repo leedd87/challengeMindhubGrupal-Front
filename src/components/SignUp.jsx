@@ -1,11 +1,8 @@
 import '../styles/style.css'
 import { Link as LinkRouter } from 'react-router-dom';
-import Avatar from '@mui/material/Avatar';
-import logoGoogle from '../../src/assets/logoGoogle.png'
-import logoFacebook from '../../src/assets/logoFacebook.png'
-import logoInstagram from '../../src/assets/logoInstagram.png'
 import { connect } from 'react-redux';
 import userActions from '../../src/redux/actions/userActions'
+import GoogleSignUp from './GoogleSignUp';
 
 function AccountSignUp(props){
     
@@ -32,9 +29,7 @@ function AccountSignUp(props){
                     <form onSubmit={handleSubmit}>
                         <h1>Create Account</h1>
                         <div className="social-ctn">
-                            <Avatar sx={{margin:'8px'}} src={logoGoogle}/>
-                            <Avatar sx={{margin:'8px'}} src={logoFacebook}/>
-                            <Avatar sx={{margin:'8px'}} src={logoInstagram}/>
+                            <GoogleSignUp/>
                         </div>
                         <h3>or</h3>
                         <input type='text' placeholder='FirstName'/>

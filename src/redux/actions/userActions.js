@@ -27,7 +27,7 @@ const userActions={
                 dispatch({type:'USER', payload: user.data.response.userData})
             }   
             else{
-                        dispatch({
+                    dispatch({
                             type:"MESSAGE" ,
                             payload: {
                                 view:true,

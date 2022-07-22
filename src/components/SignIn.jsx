@@ -1,11 +1,8 @@
-import Avatar from '@mui/material/Avatar';
 import '../styles/style.css'
 import { Link as LinkRouter } from 'react-router-dom';
-import logoGoogle from '../../src/assets/logoGoogle.png'
-import logoFacebook from '../../src/assets/logoFacebook.png'
-import logoInstagram from '../../src/assets/logoInstagram.png'
 import userActions from '../../src/redux/actions/userActions'
 import { connect } from 'react-redux';
+import GoogleSignIn from './GoogleSignIn';
 
 function SignIn(props){
     const handleSubmit= async (event)=>{
@@ -26,9 +23,7 @@ function SignIn(props){
                 <form onSubmit={handleSubmit}>
                     <h1>Welcome</h1>
                     <div className="social-ctn">
-                        <Avatar sx={{margin:'8px'}} src={logoGoogle}/>
-                        <Avatar sx={{margin:'8px'}} src={logoFacebook}/>
-                        <Avatar sx={{margin:'8px'}} src={logoInstagram}/>
+                        <GoogleSignIn/>
                     </div>
                     <h3>or</h3>
                     <input type='text' placeholder='Email'/>
