@@ -14,7 +14,7 @@ function SignIn(props){
         }
         //console.log(event)
         props.signIn(userSignIn)
-        // console.log(userSignIn);
+        console.log(userSignIn);
     }
     return(
     <div className='body'> 

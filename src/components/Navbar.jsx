@@ -16,6 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
 // import { styled } from '@mui/material/styles';
 // import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import logo from '../assets/logo.png';
+import {useSelector,useDispatch } from 'react-redux';
 
 import Drawer from 'react-modern-drawer'
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -24,8 +25,9 @@ import 'react-modern-drawer/dist/index.css'
 import '../styles/style.css'
 
 
-
+import PersonIcon from '@mui/icons-material/Person';
 import { Link as LinkRouter } from 'react-router-dom';
+import userActions from '../redux/actions/userActions';
 
 
 // const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -52,6 +54,13 @@ const settings = [
 
 
 const Nabvar = () => {
+    const dispatch=useDispatch()
+    const logOut=()=>{
+        dispatch(userActions.logOut(user.email))
+        console.log(user.email);
+      }
+
+
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -74,6 +83,7 @@ const Nabvar = () => {
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState)
     }
+    const user=useSelector(store=>store.userReducer.user)
 
     return (
         <AppBar position="sticky" sx={{ backgroundColor: "#949494" }}>
@@ -183,7 +193,7 @@ const Nabvar = () => {
                             >
                                 <div>
                                     <div className='h2-ctn'>
-                                        <h2 className='title-cart'>SHOPPING CART</h2>
+                                        <h1 className='title-cart-shop'>SHOPPING CART</h1>
                                     </div>
                                     <div className="article-ctn">
                                         <div className="products">
@@ -216,7 +226,15 @@ const Nabvar = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                {user ?
+                                    <Box>
+                                        <Avatar alt="Remy Sharp" src={user.photoUrl} />
+                                    </Box>
+                                :
+                                    <Box>
+                                        <PersonIcon fontSize='large'/>
+                                    </Box>
+                                }
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -235,13 +253,23 @@ const Nabvar = () => {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting, index) => (
-                                <LinkRouter to={setting.to} key={index} onClick={handleCloseUserMenu} className="linkR">
-                                    <MenuItem >
-                                        <Typography textalign="center">{setting.name}</Typography>
+                            {user ? 
+                                    <MenuItem>
+                                        <Typography onClick={logOut} textalign="center">LogOut</Typography>
                                     </MenuItem>
-                                </LinkRouter>
-                            ))}
+                            
+                            : 
+                            <Box>
+                                {settings.map((setting, index) => (
+                                    <LinkRouter to={setting.to} key={index} onClick={handleCloseUserMenu} className="linkR">
+                                        <MenuItem >
+                                            <Typography textalign="center">{setting.name}</Typography>
+                                        </MenuItem>
+                                    </LinkRouter>
+                                ))}
+                            
+                            </Box>
+                            }
                         </Menu>
                     </Box>
 

@@ -41,14 +41,14 @@ const userActions={
         
         }
     },
-    // logOut:(closeUser)=>{
-    //     return async(dispatch, getState)=>{
-    //         const user= await axios.post(`${url}/api/logOut`,{closeUser})
-    //         localStorage.removeItem('token')
-    //         dispatch({type:'USER', payload:null})
-    //         return user
-    //     }
-    // },
+    logOut:(closeUser)=>{
+        return async(dispatch, getState)=>{
+            const user= await axios.post(`${url}/api/logOut`,{closeUser})
+            localStorage.removeItem('token')
+            dispatch({type:'USER', payload:null})
+            return user
+        }
+    },
     verifyToken:(token)=>{
         return async (dispatch, getState) =>{
             await axios.get(`${url}/api/logintoken`, {
