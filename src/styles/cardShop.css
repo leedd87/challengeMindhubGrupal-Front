@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Sriracha&display=swap');
+
 /* #container {
     
     margin: 1rem;
@@ -329,12 +331,7 @@ position: fixed;
   margin: 1rem;
 
 }
-  
-  /* @media only screen and (max-width: 600px){
-    body{
-      transform: scale(.67);
-    }
-  } */
+
 
 .imgZoom{
   transition: transform 0.4s ease-out 0s;
@@ -396,5 +393,58 @@ position: fixed;
 
 }
 
-  /* transform:translateX(1000px) */
-  /* margin-left: 50%; */
+/*btnColors*/
+.btnColors
+{
+  font-size: 18px;
+  color: #000000;
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+.btnColors:focus,
+.btnColors:hover {
+  color: rgb(15, 15, 15);
+}
+
+.btnColors:focus:after,
+.btnColors:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.btnColors:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: rgb(255, 0, 0);
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input{
+  font-size: 18px;
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}

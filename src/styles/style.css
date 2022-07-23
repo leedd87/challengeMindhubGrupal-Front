@@ -170,7 +170,7 @@ input{
   display: flex;
   justify-content: center;
   background-color: white;
-  height: 8vh;
+  height: 10vh;
   padding-top: 2%;
   padding-bottom: 2%;
 }
@@ -183,6 +183,7 @@ background-color: white;
 }
 .filtersShop{
   display: flex;
+  align-items: center;
   gap: 3rem;
 }
 /* .filterGender{
