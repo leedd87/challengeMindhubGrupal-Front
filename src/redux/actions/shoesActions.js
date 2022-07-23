@@ -26,6 +26,7 @@ const shoesActions={
     getShoesByBrand: (brandID) => {
     console.log("🚀 ~ file: shoesActions.js ~ line 25 ~ brandID", brandID)
 
+<<<<<<< HEAD
         return async (dispatch, getState) => {
             try {
 
@@ -34,6 +35,9 @@ const shoesActions={
                 return { 
                     success: true, response: answer.data
                 }
+=======
+    
+>>>>>>> tomy
 
             } catch (error) {
                 return {

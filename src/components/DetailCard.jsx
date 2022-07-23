@@ -12,7 +12,24 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 const DetailCard = ({ shoes }) => {
+
   console.log("👠 ~ file: DetailCard.jsx ~ line 4 ~ DetailCard ~ shoes", shoes)
+
+
+  const addCarrito = ({ shoes }) => {
+
+    const product = {
+      image: shoes.image[0],
+      name: shoes.name,
+      price: shoes.price,
+      id: shoes._id,
+      cant: 1
+    }
+
+    dispatch(shopActions.addToShop(product))
+    console.log('alerta agregaste un producto')
+
+  }
 
   return (
     <>
@@ -93,7 +110,10 @@ const DetailCard = ({ shoes }) => {
                 {/* Botones */}
                 <div className=' flex items-center justify-center flex-col gap-5 py-4 md:py-8 md:text-sm'>
 
-                  <button className='bg-green-600 text-white font-bold px-1 lg:px-5 py-2 lg:py-2 text-sm lg:text-base rounded-md hover:bg-indigo-700 shadow-md w-2/5 sm:w-2/3'>Agregar al carrito</button>
+                  <button
+                    className='bg-green-600 text-white font-bold px-1 lg:px-5 py-2 lg:py-2 text-sm lg:text-base rounded-md hover:bg-indigo-700 shadow-md w-2/5 sm:w-2/3'
+                      onClick={() => addCarrito(shoes)}
+                  >Agregar al carrito</button>
 
                   <button className='bg-green-600 text-white font-bold px-1 lg:px-5 py-2 lg:py-2 text-sm lg:text-base rounded-md hover:bg-indigo-700 shadow-md w-2/5 sm:w-2/3'>Comprar ahora</button>
 
@@ -103,7 +123,7 @@ const DetailCard = ({ shoes }) => {
                   <p>FREE SHIPPING OVER $18,999</p>
                   <p>PAY UP TO 6 INSTALLMENTS WITHOUT INTEREST!</p>
                   <p>FREE RETURNS NOT YOUR SIZE? YOU CAN RETURN IT WITHIN 60 DAYS</p>
-                
+
                 </div>
 
               </div>
