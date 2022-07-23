@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import shoesActions from '../redux/actions/shoesActions';
 import CardsShop from '../components/CardsShop';
@@ -15,20 +15,21 @@ import Select from '@mui/material/Select';
 function Shoop() {
   const dispatch = useDispatch()
   const [inputSearch, setInputSearch] = useState("")
+  const [type, setType] = React.useState('');
   const [brand, setBrand] = React.useState('');
   const [shoes, setShoes] = React.useState([]);
 
- const [reload, setReload]=React.useState(false);
+  const [reload, setReload] = React.useState(false);
   const [filterShoes, setfilterShoes] = React.useState([]);
 
   console.log("🚀 ~ file: Shop.jsx ~ line 22 ~ Shoop ~ filterShoes", filterShoes)
   useEffect(() => {
     //dispatch(shoesActions.filterShoes(inputSearch))
     getShoes()
-  
+
     // eslint-disable-next-line
   }, [])
-  // let filterCard = useSelector(store => store.shoesReducer.filterShoes)
+  let filterCard = useSelector(store => store.shoesReducer.filterShoes)
 
   useEffect(() => {
     if (shoes?.length > 0) {
@@ -52,13 +53,13 @@ function Shoop() {
     setBrand("")
   }
 
-  const order = () =>{
-    shoes?.sort((a, b) =>  a.price - b.price);
+  const order = () => {
+    shoes?.sort((a, b) => a.price - b.price);
     setReload(!reload)
     console.log(shoes)
   }
-  const order2 = () =>{
-    shoes?.sort((a, b) =>  b.price - a.price);
+  const order2 = () => {
+    shoes?.sort((a, b) => b.price - a.price);
     setReload(!reload)
     console.log(shoes)
   }
@@ -126,12 +127,12 @@ function Shoop() {
             </FormControl>
           </Box>
 
-        
+
           <Box>
-            <button className='btnColors' onClick={ order} >por precio</button>
+            <button className='btnColors' onClick={order} >por precio</button>
           </Box>
           <Box>
-            <button className='btnColors' onClick={ order2} >por precio M-me</button>
+            <button className='btnColors' onClick={order2} >por precio M-me</button>
           </Box>
 
           <Box>
@@ -191,5 +192,3 @@ function Shoop() {
 }
 
 export default Shoop;
-
-
