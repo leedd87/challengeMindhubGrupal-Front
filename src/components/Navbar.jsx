@@ -22,6 +22,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link as LinkRouter } from 'react-router-dom';
 
 import shopActions from '../redux/actions/shopActions';
+import PayPal from './PayPal';
 
 
 
@@ -204,10 +205,10 @@ const Nabvar = () => {
 
                                 <div>
 
+
                                     <div className='h2-ctn'>
                                         <h2 className='title-cart'>SHOPPING CART</h2>
                                     </div>
-
 
                                     {/* CONTENEDOR DE PRODUCTOS */}
                                     <div className="article-ctn">
@@ -244,7 +245,7 @@ const Nabvar = () => {
                                                 )
                                                 :
                                                 (
-                                                    <p>No hay productos en el carrito</p>
+                                                    <p className='text-black'>No added products</p>
                                                 )
                                         }
 
@@ -257,11 +258,16 @@ const Nabvar = () => {
                                             <p>Total $ {priceTotal} USD</p>
 
                                         </div>
-                                        <div style={{ marginTop: '10px' }}>
-                                            <button className='paypal-btn'><span style={{ color: '#003586' }}>Pay</span><span style={{ color: '#009ddd' }}>Pal</span></button>
-                                            {/* <Paypal/> */}
+
+                                        <div
+                                            style={{ marginTop: '30px' }}
+                                            className='w-full flex items-center justify-evenly'
+                                        >
+                                            {/* <button className='paypal-btn'><span style={{ color: '#003586' }}>Pay</span><span style={{ color: '#009ddd' }}>Pal</span></button> */}
+                                            <PayPal />
                                             <button className='mp-btn'>Mercado Pago</button>
                                         </div>
+
                                     </div>
                                 </div>
                             </Drawer>
