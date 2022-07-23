@@ -1,5 +1,6 @@
-import React,  {useState,  useEffect }from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch,useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import './styles/App.css';
 import { Route, Routes } from 'react-router-dom';
 import SignIn from './components/SignIn';
@@ -27,10 +28,22 @@ function App() {
   }
   , []); 
 	const dispatch = useDispatch();
-    useEffect(() => {
+    
+  useEffect(() => {
 		dispatch(shoesActions.getShoes())
 		// eslint-disable-next-line
 	  }, [])
+
+  useEffect(()=>{
+      if(localStorage.getItem('token') !== null){
+        const token=localStorage.getItem('token')
+        dispatch(userActions.verifyToken(token))
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
+    const user=useSelector(store=>store.userReducer.user)
+
   return (
     <SneakerStore>
     <div className="App">
@@ -49,9 +62,9 @@ function App() {
         :
         (<><NavBar/>
           <Routes>
-            <Route path='/signIn' element={<SignIn/>}/>
-            <Route path='/signup' element={<SignUp/>}/>
-            <Route path='/account' element={<Account/>}/>
+		  	{!user && <Route path='/signIn' element={<SignIn/>}/>}
+        	{!user && <Route path='/signup' element={<SignUp/>}/>}
+        	{!user && <Route path='/account' element={<Account/>}/>}
             <Route path='/adminForm' element={<AdminForm/>}/>
             <Route path='/shop' element={<Shop/>}/>
             <Route path='/about' element={<AboutUs/>}/>

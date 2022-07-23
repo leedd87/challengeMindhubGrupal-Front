@@ -230,14 +230,6 @@ height: 2.5rem;
 background-color: #2f4353;
 background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
 }
-.navCtn{
-  background-color: #0a1929;
-  height: 10vh;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .btn{
   padding: 10px;
   cursor: pointer;
@@ -252,7 +244,15 @@ background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
 .drawer-ctn{
   background-color: #fff !important;
   width: 30vw !important;
-  min-height: 100vh !important;
+  min-height: 100% !important;
+  overflow-y: scroll;
+}
+.drawer-ctn::-webkit-scrollbar{
+  width: 10px !important;
+}
+.drawer-ctn::-webkit-scrollbar-thumb{
+  background-color:#121212;
+  border-radius: 20px;
 }
 .article-ctn{
   background-color:#ebebeb;
@@ -291,21 +291,31 @@ background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.title-cart{
+.title-cart-shop{
   text-decoration: underline gray;
   color: black;
+  font-size: 20px;
 }
 .imgShops{
   width:8vw;
   margin: 20px;
   border-radius: 10px;
 }
+.ctn-btn-pagos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .paypal-btn{
   background-color: #ffaf00;
   color: blue;
   border: none;
   padding: 10px;
-  width: 90%;
+  width: 50%;
   border-radius: 5px;
   font-size: 20px;
   cursor: pointer;
@@ -313,7 +323,7 @@ background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
 .mp-btn{
   background-color: #009ee3;
   padding: 10px;
-  width: 90%;
+  width: 50%;
   border-radius: 5px;
   border: none;
   margin-top: 10px;
