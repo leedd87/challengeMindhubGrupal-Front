@@ -159,9 +159,22 @@ const NavBar = () => {
                     </Box>
 
                     <Box>
-                        <button onClick={toggleDrawer}>
+
+
+                        {/* BOTON CARRITO */}
+                        <div
+                            onClick={toggleDrawer}
+                            className='flex items-center justify-center'
+                        >
                             <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
-                        </button>
+                            {
+                                carrito.length !== 0
+                                    ? <span className='text-lg'>{carrito.length}</span>
+                                    : <></>
+                            }
+                        </div>
+
+
                         <Drawer
                             open={isOpen}
                             onClose={toggleDrawer}
@@ -169,7 +182,7 @@ const NavBar = () => {
                             className='drawer-ctn'
                         >
                             <div>
-                                
+
                                 <div className='h2-ctn'>
                                     <h1 className='title-cart-shop'>SHOPPING CART</h1>
                                 </div>
@@ -221,8 +234,8 @@ const NavBar = () => {
                                         <p>Total $ {priceTotal} USD</p>
                                     </div>
                                     <div className='ctn-btn-pagos'>
-                                        <button className='paypal-btn'><span style={{ color: '#003586' }}>Pay</span><span style={{ color: '#009ddd' }}>Pal</span></button>
-                                        {/* <Paypal/> */}
+                                        {/* <button className='paypal-btn'><span style={{ color: '#003586' }}>Pay</span><span style={{ color: '#009ddd' }}>Pal</span></button> */}
+                                        <PayPal />
                                         <button className='mp-btn'>Mercado Pago</button>
                                     </div>
                                 </div>
@@ -266,7 +279,7 @@ const NavBar = () => {
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                     {user ?
                                         <Box>
-                                            <Avatar alt="Remy Sharp" src={user.photoUrl} />
+                                            <Avatar alt='' src={user.photoUrl} />
                                         </Box>
                                         :
                                         <Box>
@@ -314,11 +327,14 @@ const NavBar = () => {
                     </MenuItem>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
+
+                        {/* ICON R */}
+                        {/* <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                             </IconButton>
-                        </Tooltip>
+                        </Tooltip> */}
+
                         <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"
@@ -335,14 +351,26 @@ const NavBar = () => {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting, index) => (
-                                <LinkRouter to={setting.to} key={index} onClick={handleCloseUserMenu} className="linkR">
-                                    <MenuItem >
-                                        <Typography textalign="center">{setting.name}</Typography>
-                                    </MenuItem>
-                                </LinkRouter>
-                            ))}
+                            {user ?
+                                <MenuItem>
+                                    <Typography onClick={logOut} textalign="center">LogOut</Typography>
+                                </MenuItem>
+
+                                :
+                                <Box>
+                                    {settings.map((setting, index) => (
+                                        <LinkRouter to={setting.to} key={index} onClick={handleCloseUserMenu} className="linkR">
+                                            <MenuItem >
+                                                <Typography textalign="center">{setting.name}</Typography>
+                                            </MenuItem>
+                                        </LinkRouter>
+                                    ))}
+
+                                </Box>
+                            }
                         </Menu>
+
+
                     </Box>
 
                 </Toolbar>

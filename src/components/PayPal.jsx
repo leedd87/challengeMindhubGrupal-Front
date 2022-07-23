@@ -16,6 +16,7 @@ export default function Paypal() {
 
         PayPalCheckOut()//LLamo al cdn de PayPal cada vez que cambia el carrito
 
+        // eslint-disable-next-line
     }, []);
 
     // DATOS DE MI CARRITO
@@ -63,7 +64,7 @@ export default function Paypal() {
             .then(function (details) {
 
                 const { payer } = details;
-                
+
                 setSuccess(true);
                 console.log('Capture result', details, JSON.stringify(details, null, 2)); //veo los datos en consola
 

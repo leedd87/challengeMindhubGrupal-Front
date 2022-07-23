@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDispatch,useSelector } from 'react-redux';
-import { useEffect,useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import './styles/App.css';
 import { Route, Routes } from 'react-router-dom';
 import SignIn from './components/SignIn';
@@ -13,101 +13,74 @@ import Home from './pages/Home'
 import Shop from './pages/Shop'
 import Details from './pages/Details'
 import shoesActions from './redux/actions/shoesActions';
-<<<<<<< HEAD
 import AboutUs from './pages/AboutUs';
 import styled from 'styled-components';
 import userActions from '../src/redux/actions/userActions'
 
 function App() {
-  const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }
-    , 3500);
-  }
-  , []); 
+	useEffect(() => {
+		setLoading(true);
+		setTimeout(() => {
+			setLoading(false);
+		}
+			, 3500);
+	}
+		, []);
 	const dispatch = useDispatch();
-    
-  useEffect(() => {
-		dispatch(shoesActions.getShoes())
-		// eslint-disable-next-line
-	  }, [])
 
-  useEffect(()=>{
-      if(localStorage.getItem('token') !== null){
-        const token=localStorage.getItem('token')
-        dispatch(userActions.verifyToken(token))
-      }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
-
-    const user=useSelector(store=>store.userReducer.user)
-
-  return (
-    <SneakerStore>
-    <div className="App">
-      {
-        loading ?
-        (<>
-			<div className="four-cont">
-				<div className="frame">
-					<img id="img-1" src="https://wallpaperaccess.com/full/810836.png" alt="ad" className="botitas"/>
-					<img id="img-2" src="https://wallpaperaccess.com/full/810836.png" alt="asd" className="botitas"/>
-					<div className="street">
-
-					</div>
-				</div>
-			</div></>)
-        :
-        (
-		<>
-		<NavBar/>
-          <Routes>
-		  	{!user && <Route path='/signIn' element={<SignIn/>}/>}
-        	{!user && <Route path='/signup' element={<SignUp/>}/>}
-        	{!user && <Route path='/account' element={<Account/>}/>}
-            <Route path='/adminForm' element={<AdminForm/>}/>
-            <Route path='/shop' element={<Shop/>}/>
-            <Route path='/about' element={<AboutUs/>}/>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/details/:id' element={<Details/>}/>
-          </Routes>
-	      <Footer/>
-      	</>
-	  )}
-     
-    </div>
-    </SneakerStore>
-  );
-=======
-
-function App() {
-
-	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(shoesActions.getShoes())
 		// eslint-disable-next-line
 	}, [])
-	
+
+	useEffect(() => {
+		if (localStorage.getItem('token') !== null) {
+			const token = localStorage.getItem('token')
+			dispatch(userActions.verifyToken(token))
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+
+	const user = useSelector(store => store.userReducer.user)
+
 	return (
-		<div className="App">
-			<NavBar />
-			<Routes>
-				<Route path='/signIn' element={<SignIn />} />
-				<Route path='/signup' element={<SignUp />} />
-				<Route path='/account' element={<Account />} />
-				<Route path='/adminForm' element={<AdminForm />} />
-				<Route path='/shop' element={<Shop />} />
-				<Route path='/' element={<Home />} />
-				<Route path='/details/:id' element={<Details />} />
-			</Routes>
-			<Footer />
-		</div>
+		<SneakerStore>
+			<div className="App">
+				{
+					loading ?
+						(<>
+							<div className="four-cont">
+								<div className="frame">
+									<img id="img-1" src="https://wallpaperaccess.com/full/810836.png" alt="ad" className="botitas" />
+									<img id="img-2" src="https://wallpaperaccess.com/full/810836.png" alt="asd" className="botitas" />
+									<div className="street">
+
+									</div>
+								</div>
+							</div></>)
+						:
+						(
+							<>
+								<NavBar />
+								<Routes>
+									{!user && <Route path='/signIn' element={<SignIn />} />}
+									{!user && <Route path='/signup' element={<SignUp />} />}
+									{!user && <Route path='/account' element={<Account />} />}
+									<Route path='/adminForm' element={<AdminForm />} />
+									<Route path='/shop' element={<Shop />} />
+									<Route path='/about' element={<AboutUs />} />
+									<Route path='/' element={<Home />} />
+									<Route path='/details/:id' element={<Details />} />
+								</Routes>
+								<Footer />
+							</>
+						)}
+
+			</div>
+		</SneakerStore>
 	);
->>>>>>> tomy
 }
 export default App;
 

@@ -11,6 +11,7 @@ const shoesActions={
             return res
         }
     },
+
     getOneShoe: (id) => {
 
         return async (dispatch, getState) => {
@@ -21,10 +22,10 @@ const shoesActions={
         }
 
     },
+
     getShoesByBrand: (brandID) => {
     console.log("🚀 ~ file: shoesActions.js ~ line 25 ~ brandID", brandID)
 
-<<<<<<< HEAD
         return async (dispatch, getState) => {
             try {
 
@@ -33,9 +34,6 @@ const shoesActions={
                 return { 
                     success: true, response: answer.data
                 }
-=======
-    
->>>>>>> tomy
 
             } catch (error) {
                 return {
@@ -44,6 +42,7 @@ const shoesActions={
             }
         }
     },
+    
     getShoesByType: (typeID) => {
     console.log("🚀 ~ file: shoesActions.js ~ line 42 ~ typeID", typeID)
 
@@ -62,6 +61,7 @@ const shoesActions={
             }
         }
     },
+    
     filterShoes:(value)=>{
         return(dispatch, getState)=>{
             dispatch({type:"FILTER_SHOES", payload:value})
