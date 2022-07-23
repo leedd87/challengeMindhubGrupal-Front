@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { useState } from 'react';
 import shoesActions from '../redux/actions/shoesActions';
 import CardsShop from '../components/CardsShop';
@@ -15,7 +15,6 @@ import Select from '@mui/material/Select';
 function Shoop() {
   const dispatch = useDispatch()
   const [inputSearch, setInputSearch] = useState("")
-  const [type, setType] = React.useState('');
   const [brand, setBrand] = React.useState('');
   const [shoes, setShoes] = React.useState([]);
 
@@ -29,7 +28,7 @@ function Shoop() {
 
     // eslint-disable-next-line
   }, [])
-  let filterCard = useSelector(store => store.shoesReducer.filterShoes)
+
 
   useEffect(() => {
     if (shoes?.length > 0) {

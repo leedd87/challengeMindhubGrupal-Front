@@ -1,11 +1,7 @@
 const initialState = {
   shoes: [],
   oneShoe:{},
-<<<<<<< HEAD
   filterShoes:[],
-=======
-  filterShoes:[]
->>>>>>> laura
 };
 
 const shoesReducer = (state = initialState, action) => {
@@ -23,13 +19,6 @@ const shoesReducer = (state = initialState, action) => {
         oneShoe: action.payload, 
         auxiliar: action.payload,
       };
-<<<<<<< HEAD
-    case "FILTER_SHOES":
-      return{
-        ...state,
-        filterShoes:state.shoes.filter(shoe=>shoe.name.toLowerCase().startsWith(action.payload.trim().toLowerCase()))
-      }
-=======
       case "FILTER_SHOES":
       return{
         ...state,
@@ -47,7 +36,6 @@ const shoesReducer = (state = initialState, action) => {
         // }
       default:
       return state;
->>>>>>> laura
   }
 
 };

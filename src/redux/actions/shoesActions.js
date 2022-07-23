@@ -19,8 +19,6 @@ const shoesActions={
             dispatch({ type: 'GET_ONE_SHOE', payload: res.data.response })
             return res
         }
-<<<<<<< HEAD
-=======
 
     },
     getShoesByBrand: (brandID) => {
@@ -63,7 +61,6 @@ const shoesActions={
                 }
             }
         }
->>>>>>> laura
     },
     filterShoes:(value)=>{
         return(dispatch, getState)=>{
