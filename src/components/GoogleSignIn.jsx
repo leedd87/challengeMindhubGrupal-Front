@@ -24,7 +24,11 @@ export default function GoogleSignIn(){
         });
         google.accounts.id.renderButton(
             document.getElementById('buttonDiv'),
-            {theme:'outline', size:'medium', text:'signin_with' ,locale:'en-IN'}
+            {theme:'outline',
+            size:'medium',
+            text:'signin_with',
+            locale:'en-IN',
+        }
         )
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
