@@ -71,7 +71,7 @@ function App() {
 									<Route path='/adminForm' element={<AdminForm />} />
 									<Route path='/shop' element={<Shop />} />
 									<Route path='/about' element={<AboutUs />} />
-									<Route path='/' element={<Home />} />
+									<Route path='/*' element={<Home />} />
 									<Route path='/details/:id' element={<Details />} />
 								</Routes>
 								<Footer />
