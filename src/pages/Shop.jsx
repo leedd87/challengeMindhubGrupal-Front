@@ -54,25 +54,15 @@ function Shoop() {
   }
 
   const order = () =>{
-    //setShoes("")
     shoes?.sort((a, b) =>  a.price - b.price);
     setReload(!reload)
-    //setShoes("")
-    //setShoes(listaOrd)
-    //console.log(listaOrd);
     console.log(shoes)
   }
   const order2 = () =>{
-    //setShoes("")
     shoes?.sort((a, b) =>  b.price - a.price);
     setReload(!reload)
-    //setShoes("")
-    //setShoes(listaOrd)
-    //console.log(listaOrd);
     console.log(shoes)
   }
-
-
 
   const handleChangeType = async (id) => {
     console.log(id);

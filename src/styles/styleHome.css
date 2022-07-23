@@ -141,7 +141,7 @@ width:100%;
     font-weight: 900;
     width: -webkit-min-content;
     width: -moz-min-content;
-    width: min-content;
+    /* width: min-content; */
     margin: auto;
     text-transform: uppercase;
     background: linear-gradient(219deg, 
@@ -177,7 +177,7 @@ width:100%;
   
   @media screen and (min-width: 768px) {
     .titlePopular {
-      font-size: 6.5rem;
+      font-size: 7.5rem;
     }
   }
 /*------card*------*/
