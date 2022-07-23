@@ -159,22 +159,7 @@ const NavBar = () => {
                     </Box>
 
                     <Box>
-
-
-                        {/* BOTON CARRITO */}
-                        <div
-                            onClick={toggleDrawer}
-                            className='flex items-center justify-center'
-                        >
-                            <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
-                            {
-                                carrito.length !== 0
-                                    ? <span className='text-lg'>{carrito.length}</span>
-                                    : <></>
-                            }
-                        </div>
-
-
+                    {/* BOTON CARRITO */}
                         <Drawer
                             open={isOpen}
                             onClose={toggleDrawer}
@@ -243,6 +228,7 @@ const NavBar = () => {
 
                             </div>
                         </Drawer>
+                        
                     </Box>
                     <Typography
                         variant="h5"
@@ -272,6 +258,17 @@ const NavBar = () => {
                             </LinkRouter>
                         ))}
                     </Box>
+                        <div
+                                onClick={toggleDrawer}
+                                className='flex items-center justify-center'
+                            >
+                                <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
+                                {
+                                    carrito.length !== 0
+                                        ? <span className='text-lg'>{carrito.length}</span>
+                                        : <></>
+                                }
+                        </div>
                     <MenuItem>
 
                         <Box sx={{ flexGrow: 0 }}>
@@ -325,16 +322,7 @@ const NavBar = () => {
                         </Box>
 
                     </MenuItem>
-
                     <Box sx={{ flexGrow: 0 }}>
-
-                        {/* ICON R */}
-                        {/* <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip> */}
-
                         <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"
@@ -369,8 +357,6 @@ const NavBar = () => {
                                 </Box>
                             }
                         </Menu>
-
-
                     </Box>
 
                 </Toolbar>
