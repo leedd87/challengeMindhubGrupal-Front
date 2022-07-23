@@ -51,7 +51,7 @@ const settings = [
 ];
 
 
-const Nabvar = () => {
+const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -250,4 +250,4 @@ const Nabvar = () => {
     </AppBar>
   );
 };
-export default Nabvar;
+export default NavBar;
