@@ -54,7 +54,7 @@ const settings = [
 ];
 
 
-const Nabvar = () => {
+const NavBar = () => {
     const dispatch=useDispatch()
     const logOut=()=>{
         dispatch(userActions.logOut(user.email))
@@ -279,4 +279,4 @@ const Nabvar = () => {
         </AppBar>
     );
 };
-export default NavBar;
+export default NavBar

@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch,useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import './styles/App.css';
 import { Route, Routes } from 'react-router-dom';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
-import NavBar from './components/NavBar'
+import NavBar from './components/Navbar'
 import Footer from './components/Footer'
 import Account from './components/Account';
 import AdminForm from './components/AdminForm';
@@ -15,6 +15,7 @@ import Details from './pages/Details'
 import shoesActions from './redux/actions/shoesActions';
 import AboutUs from './pages/AboutUs';
 import styled from 'styled-components';
+import userActions from '../src/redux/actions/userActions'
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -60,7 +61,9 @@ function App() {
 				</div>
 			</div></>)
         :
-        (<><NavBar/>
+        (
+		<>
+		<NavBar/>
           <Routes>
 		  	{!user && <Route path='/signIn' element={<SignIn/>}/>}
         	{!user && <Route path='/signup' element={<SignUp/>}/>}
@@ -72,7 +75,8 @@ function App() {
             <Route path='/details/:id' element={<Details/>}/>
           </Routes>
 	      <Footer/>
-      </>)}
+      	</>
+	  )}
      
     </div>
     </SneakerStore>
