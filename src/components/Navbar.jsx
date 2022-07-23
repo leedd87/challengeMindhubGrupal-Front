@@ -97,6 +97,7 @@ const NavBar = () => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
 
+                    {/* LOGO */}
                     <Typography
                         variant="h6"
                         noWrap
@@ -120,6 +121,7 @@ const NavBar = () => {
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -130,6 +132,7 @@ const NavBar = () => {
                         >
                             <MenuIcon />
                         </IconButton>
+
                         <Menu
                             id="menu-appbar"
                             anchorEl={anchorElNav}
@@ -156,94 +159,89 @@ const NavBar = () => {
                                 </LinkRouter>
                             ))}
                         </Menu>
+
                     </Box>
 
-                    <Box>
 
 
-                        {/* BOTON CARRITO */}
-                        <div
-                            onClick={toggleDrawer}
-                            className='flex items-center justify-center'
-                        >
-                            <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
-                            {
-                                carrito.length !== 0
-                                    ? <span className='text-lg'>{carrito.length}</span>
-                                    : <></>
-                            }
-                        </div>
+                    {/* DRAWER */}
+                    <Drawer
+                        open={isOpen}
+                        onClose={toggleDrawer}
+                        direction='right'
+                        className='drawer-ctn'
+                    >
+                        <div>
 
+                            {/* Titulo */}
+                            <div className='h2-ctn'>
+                                <h1 className='title-cart-shop'>SHOPPING CART</h1>
+                            </div>
 
-                        <Drawer
-                            open={isOpen}
-                            onClose={toggleDrawer}
-                            direction='right'
-                            className='drawer-ctn'
-                        >
-                            <div>
+                            {/* contenedor de productos del carrito */}
+                            <div className="article-ctn">
 
-                                <div className='h2-ctn'>
-                                    <h1 className='title-cart-shop'>SHOPPING CART</h1>
-                                </div>
-
-
-                                <div className="article-ctn">
-
-                                    {
-                                        carrito.length !== 0 ?
-                                            (
-                                                carrito.map(producto => {
-                                                    return (
-                                                        <div key={producto.id} className='mb-5 bg-gray-100 p-3 rounded-md'>
-                                                            <div className="products">
-                                                                <img
-                                                                    className="imgShops"
-                                                                    src={producto.image}
-                                                                    alt={producto.name}
-                                                                />
-                                                                <div>
-                                                                    <h3 style={{ color: 'black' }}>{producto.name}</h3>
-                                                                    <p style={{ color: 'black' }}>$ {producto.price} USD</p>
-                                                                </div>
-                                                            </div>
-
-                                                            <div
-                                                                onClick={() => removeToShop(producto)}
-                                                            >
-                                                                <DeleteIcon
-                                                                    sx={{ cursor: 'pointer', marginRight: '5px', color: 'black' }}
-                                                                />
+                                {
+                                    carrito.length !== 0 ?
+                                        (
+                                            carrito.map(producto => {
+                                                return (
+                                                    <div key={producto.id} className='mb-5 bg-gray-100 p-3 rounded-md'>
+                                                        <div className="products">
+                                                            <img
+                                                                className="imgShops"
+                                                                src={producto.image}
+                                                                alt={producto.name}
+                                                            />
+                                                            <div>
+                                                                <h3 style={{ color: 'black' }}>{producto.name}</h3>
+                                                                <p style={{ color: 'black' }}>$ {producto.price} USD</p>
                                                             </div>
                                                         </div>
-                                                    )
-                                                })
 
-                                            )
-                                            :
-                                            (
-                                                <p className='text-black'>No added products</p>
-                                            )
-                                    }
+                                                        <div
+                                                            onClick={() => removeToShop(producto)}
+                                                        >
+                                                            <DeleteIcon
+                                                                sx={{ cursor: 'pointer', marginRight: '5px', color: 'black' }}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })
 
-
-                                </div>
-
-                                <div className='total-ctn'>
-                                    <div className='price-ctn'>
-                                        <p>Total $ {priceTotal} USD</p>
-                                    </div>
-                                    <div className='ctn-btn-pagos'>
-                                        {/* <button className='paypal-btn'><span style={{ color: '#003586' }}>Pay</span><span style={{ color: '#009ddd' }}>Pal</span></button> */}
-                                        <PayPal />
-                                        <button className='mp-btn'>Mercado Pago</button>
-                                    </div>
-                                </div>
+                                        )
+                                        :
+                                        (
+                                            <p className='text-black'>No added products</p>
+                                        )
+                                }
 
 
                             </div>
-                        </Drawer>
-                    </Box>
+
+                            {/* contenedor del precio total y botones de pago */}
+                            <div className='total-ctn'>
+
+                                <div className='price-ctn'>
+                                    <p>Total $ {priceTotal} USD</p>
+                                </div>
+
+                                <div className='ctn-btn-pagos'>
+
+                                    <PayPal />
+
+                                    <button className='mp-btn'>Mercado Pago</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </Drawer>
+                    {/* DRAWER */}
+
+
+                    {/* LOGO */}
                     <Typography
                         variant="h5"
                         noWrap
@@ -253,7 +251,6 @@ const NavBar = () => {
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
-
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
@@ -263,6 +260,10 @@ const NavBar = () => {
                     >
                         <img src={logo} alt="logo" style={{ "height": "5rem" }} />
                     </Typography>
+
+
+
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((op, index) => (
                             <LinkRouter to={op.to} key={index} onClick={handleCloseNavMenu} className="linkR">
@@ -272,9 +273,37 @@ const NavBar = () => {
                             </LinkRouter>
                         ))}
                     </Box>
+
                     <MenuItem>
 
+                        {/* ACA VA EL BOTON CARRITO */}
+
+                        {/* BOTON CARRITO */}
+                        <div
+                            onClick={toggleDrawer}
+                            className='flex items-center justify-center mx-5'
+                        >
+                            <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
+                            {
+                                carrito.length !== 0
+                                    ? <span className='text-lg'>{carrito.length}</span>
+                                    : <></>
+                            }
+                        </div>
+
+                        {/* BOTON ADMIN */}
+                        {
+                            user &&
+                                user.role === 'admin'
+                                ? <LinkRouter
+                                    to='/adminForm'
+                                >
+                                    <button className='text-3xl mr-4'>👮‍♀️</button>
+                                </LinkRouter>
+                                : <></>
+                        }
                         <Box sx={{ flexGrow: 0 }}>
+
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                     {user ?
@@ -288,6 +317,7 @@ const NavBar = () => {
                                     }
                                 </IconButton>
                             </Tooltip>
+
                             <Menu
                                 sx={{ mt: '45px' }}
                                 id="menu-appbar"
@@ -322,18 +352,12 @@ const NavBar = () => {
                                     </Box>
                                 }
                             </Menu>
+
                         </Box>
 
                     </MenuItem>
 
                     <Box sx={{ flexGrow: 0 }}>
-
-                        {/* ICON R */}
-                        {/* <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip> */}
 
                         <Menu
                             sx={{ mt: '45px' }}

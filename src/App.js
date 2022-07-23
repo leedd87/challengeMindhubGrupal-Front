@@ -25,7 +25,7 @@ function App() {
 		setTimeout(() => {
 			setLoading(false);
 		}
-			, 3500);
+			, 2000);
 	}
 		, []);
 	const dispatch = useDispatch();
@@ -44,6 +44,7 @@ function App() {
 	}, [])
 
 	const user = useSelector(store => store.userReducer.user)
+	// console.log(user.role)
 
 	return (
 		<SneakerStore>
@@ -68,7 +69,15 @@ function App() {
 									{!user && <Route path='/signIn' element={<SignIn />} />}
 									{!user && <Route path='/signup' element={<SignUp />} />}
 									{!user && <Route path='/account' element={<Account />} />}
-									<Route path='/adminForm' element={<AdminForm />} />
+
+									{
+										user &&
+											user.role === 'admin'
+											? <Route path='/adminForm' element={<AdminForm />} />
+											: null
+
+									}
+
 									<Route path='/shop' element={<Shop />} />
 									<Route path='/about' element={<AboutUs />} />
 									<Route path='/*' element={<Home />} />
