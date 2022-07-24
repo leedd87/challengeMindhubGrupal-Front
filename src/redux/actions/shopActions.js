@@ -29,16 +29,16 @@ const shopActions = {
         }
     },
 
-    // verifyShopStorage: (shopStorage) => {
+    verifyShopStorage: (shopStorage) => {
 
-    //     return async (dispatch, getState) => {
+        return async (dispatch, getState) => {
 
-    //         dispatch({
-    //             type: 'VERIFYSHOPSTORAGE',
-    //             payload: { shopStorage },
-    //         })
-    //     }
-    // },
+            dispatch({
+                type: 'VERIFYSHOPSTORAGE',
+                payload: { shopStorage },
+            })
+        }
+    },
 
 
 

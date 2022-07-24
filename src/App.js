@@ -51,12 +51,12 @@ function App() {
 		}
 
 
-		// if(localStorage.getItem('carrito') !== null ) {
+		if(localStorage.getItem('carrito') !== null ) {
 
-		// 	const carrito = JSON.parse(localStorage.getItem('carrito') )
+			const carrito = JSON.parse(localStorage.getItem('carrito') )
 
-		// 	dispatch(shopActions.verifyShopStorage(carrito))
-		// } else { console.log('no encontre nada')}
+			dispatch(shopActions.verifyShopStorage(carrito))
+		} else { console.log('no encontre nada')}
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])

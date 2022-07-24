@@ -2,10 +2,22 @@ const initialState = {
     productsInShop: [],
     // productsInShopAux: [],
 }
-// localStorage.setItem('producto', JSON.stringify(product))
+
+
+
 const shopReducer = (state = initialState, action) => {
 
     let productsInShop = [...state.productsInShop];
+    // let productsInShop = [];
+
+    // if (localStorage.getItem('carrito') !== null) {
+
+    //     const carrito = JSON.parse(localStorage.getItem('carrito'))
+
+    //     productsInShop = [...carrito]
+
+    // } else { productsInShop = [...state.productsInShop] }
+
     
     switch (action.type) {
 
@@ -33,10 +45,10 @@ const shopReducer = (state = initialState, action) => {
 
             };
         
-        // case 'VERIFYSHOPSTORAGE':
-        //     return {
-        //         productsInShop: action.payload.shopStorage // IGUALO MI LOCAL STORAGE A MI STORE
-        //     }
+        case 'VERIFYSHOPSTORAGE':
+            return {
+                productsInShop: action.payload.shopStorage // IGUALO MI LOCAL STORAGE A MI STORE
+            }
 
         default:
             return state;
