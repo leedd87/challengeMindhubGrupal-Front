@@ -377,7 +377,8 @@ position: fixed;
   padding: 0.5rem;
 }
 .h2Name{
-  color:rgb(17, 17, 17);
+  color:rgb(33, 37, 41);
+  font-size: 2rem;
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.007em;
@@ -447,4 +448,13 @@ position: fixed;
   transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
   transition-duration: 400ms;
   transition-property: color;
+}
+.logoDetail{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logosDetailImg{
+  height: 8rem;
+  margin-bottom: 1rem;
 }

@@ -104,7 +104,7 @@ const Home = () => {
         </div>
       </div>
       <div className="containerGaleria">
-        <h1>Galeria</h1>
+        {/* <h1>Galeria</h1> */}
 
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>

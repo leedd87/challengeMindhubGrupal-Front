@@ -7,16 +7,16 @@ import axios from 'axios'
 
 function GoogleSignUp(props){
     const dispatch= useDispatch();
-    const [country, setCountry] = useState({})
+    //const [country, setCountry] = useState({})
 
-    useEffect(() => {
-        axios.get("https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572")
-            .then(response => {
-                const apiResponse = response;
-                setCountry(apiResponse)
-            })
-    }, []);
-
+    // useEffect(() => {
+    //     axios.get("https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572")
+    //         .then(response => {
+    //             const apiResponse = response;
+    //             setCountry(apiResponse)
+    //         })
+    // }, []);
+    //console.log("🚀 ~ file: GoogleSignUp.jsx ~ line 30 ~ handleCallbackResponse ~ country", country.data.country_name)
     const handleCallbackResponse=(response)=>{
         let userObject = jwt_decode(response.credential)
 
@@ -26,7 +26,7 @@ function GoogleSignUp(props){
                 email:userObject.email,
                 password:userObject.sub,
                 photoUrl:userObject.picture,
-                country: country.data.country_name,
+                country: "Argentina",
                 from:'google',
         }))
     }

@@ -10,14 +10,15 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
-
+import DeleteIcon from '@mui/icons-material/Delete';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import FilterAltOffIcon from '@mui/icons-material/FilterAltOff';
 function Shoop() {
   const dispatch = useDispatch()
   const [inputSearch, setInputSearch] = useState("")
   const [brand, setBrand] = React.useState('');
   const [shoes, setShoes] = React.useState([]);
-
+  const [ord, setOrd] = React.useState('');
   const [reload, setReload] = React.useState(false);
   const [filterShoes, setfilterShoes] = React.useState([]);
 
@@ -50,18 +51,24 @@ function Shoop() {
     setfilterShoes(res.data.response)
     setInputSearch("")
     setBrand("")
+    setOrd("")
   }
 
-  const order = () => {
-    shoes?.sort((a, b) => a.price - b.price);
-    setReload(!reload)
-    console.log(shoes)
+  const order = (event) => {
+    console.log(event)
+    if (event.target.value === "op1") {
+      shoes?.sort((a, b) => a.price - b.price);
+      setOrd(event.target.value)
+      setReload(!reload)
+    }
+    else if (event.target.value === "op2"){
+      shoes?.sort((a, b) => b.price - a.price)
+      setReload(!reload)
+      setOrd(event.target.value)
+    }
+    
   }
-  const order2 = () => {
-    shoes?.sort((a, b) => b.price - a.price);
-    setReload(!reload)
-    console.log(shoes)
-  }
+
 
   const handleChangeType = async (id) => {
     console.log(id);
@@ -126,16 +133,25 @@ function Shoop() {
             </FormControl>
           </Box>
 
+          <Box>
+            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+              <InputLabel id="demo-simple-select-standard-label">Price</InputLabel>
+              <Select
+                labelId="demo-simple-select-standard-label"
+                id="demo-simple-select-standard"
+                value={ord}
+                onChange={order}
+                label="Brand"
+              >
+                <MenuItem value={"op1"}>menor a mayor</MenuItem>
+                <MenuItem value={"op2"}>mayor a menor</MenuItem>
+                
+              </Select>
+            </FormControl>
+          </Box>
 
           <Box>
-            <button className='btnColors' onClick={order} >por precio</button>
-          </Box>
-          <Box>
-            <button className='btnColors' onClick={order2} >por precio M-me</button>
-          </Box>
-
-          <Box>
-            <button className='btnColors' onClick={() => getShoes()} >clear</button>
+            <button className='btnColors' onClick={() => getShoes()} ><DeleteIcon/></button>
           </Box>
 
         </div>
@@ -144,22 +160,7 @@ function Shoop() {
 
       {/* CONTENEDOR DE CARDS */}
       <div className='contFilterCards'>
-        <div className='filter'>
-          <div>
-            <h1>Filter Shoes</h1>
-            <h3>Price</h3>
 
-            <h3>Color:</h3>
-            <div className='itemsFilterColor'>
-
-              <p>⚫⚪🟤</p>
-              <p>🔴🔵🟠</p>
-              <p>🟡🟢</p>
-
-            </div>
-          </div>
-
-        </div>
         <div className='bodyShop mb-10'>
 
           {

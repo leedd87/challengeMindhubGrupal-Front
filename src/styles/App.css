@@ -41,8 +41,8 @@
   justify-content: center;
   gap: 2rem;
   background-color: #e0e0e0;
-  width: 85%;
-  margin-left: 15%;
+  width: 100%;
+  /* margin-left: 15%; */
 
 }
 

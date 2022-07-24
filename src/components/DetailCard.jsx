@@ -12,6 +12,8 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.text.secondary,
 }));
+
+
 const DetailCard = ({ shoes }) => {
   const dispatch = useDispatch();
 
@@ -29,8 +31,70 @@ const DetailCard = ({ shoes }) => {
 
     dispatch(shopActions.addToShop(product))
     console.log('alerta agregaste un producto')
-
   }
+  
+  const logoShoes =  () => {
+    if (shoes.brand === "62d836532f6e1f16ca3df337") {
+      return( <div className='logoDetail'>
+          
+      <img className="logosDetailImg" src="https://logos-world.net/wp-content/uploads/2020/04/Nike-Logo-700x394.png" alt="adidas"/> 
+    </div>)
+    }
+
+    
+    else if (shoes.brand === "62d838004fca1cb3de1808cb"){
+      return(
+        <div className='logoDetail'>
+          <img className="logosDetailImg" src="https://logodownload.org/wp-content/uploads/2014/07/adidas-logo.png" alt="adidas"/>
+        </div>)
+    }
+    else if (shoes.brand === "62d8392a4fca1cb3de1808cd"){
+      return(
+        <div className='logoDetail'>
+          
+          <img className="logosDetailImg" src="https://logodownload.org/wp-content/uploads/2019/05/jordan-logo.png" alt = ""/> 
+        
+        </div>)
+    }
+    else if (shoes.brand === "62d839d04fca1cb3de1808ce"){
+      return(
+        <div className='logoDetail'>
+          
+          <img className="logosDetailImg" src="https://www.nicepng.com/png/detail/251-2510586_new-balance-png-logo-ideas-new-balance-logo.png" alt="adidas"/> 
+        </div>)
+    }
+    else if (shoes.brand === "62d83a704fca1cb3de1808cf"){
+      return(
+        <div className='logoDetail'>
+        
+          <img className="logosDetailImg" src="https://logodownload.org/wp-content/uploads/2017/06/asics-logo.png" alt="adidas"/>
+        </div>)
+    }
+    else if (shoes.brand === "62d83b334fca1cb3de1808d1"){
+      return(
+        <div className='logoDetail'>
+          
+          <img className="logosDetailImg" src="https://1000marcas.net/wp-content/uploads/2020/10/Balenciaga-Logo-500x283.png" alt="adidas"/> 
+        </div>)
+    }
+    else if (shoes.brand === "62d83c814fca1cb3de1808d6"){
+      return(
+        <div className='logoDetail'>
+
+          <img className="logosDetailImg" src="https://assets.stickpng.com/images/58429610a6515b1e0ad75ad3.png" alt="dior"/>
+        </div>)
+    }
+    else if (shoes.brand === "62d83e2d4fca1cb3de1808da"){
+      return(
+        <div className='logoDetail'>
+          
+          <img className="logosDetailImg" src="https://download.logo.wine/logo/Louis_Vuitton/Louis_Vuitton-Logo.wine.png" alt="btn"/> 
+        </div>)
+    }
+    
+    console.log("holaaaas")
+  }
+
 
   return (
     <>
@@ -90,6 +154,17 @@ const DetailCard = ({ shoes }) => {
             {/* Nombre precio y talle */}
             <div className='boxFixed'>
               <div className=' text-base lg:text-lg text-center'>
+                {/* <div className='logoDetail'>
+                  <img
+                    className="logosDetailImg"
+                     
+                    src="https://logodownload.org/wp-content/uploads/2014/07/adidas-logo.png"
+                    alt=""
+                  />
+
+                </div> */}
+
+                {logoShoes()}
 
                 <h3 className='mb-2 text-2xl font-bold text-center h2Name'>{shoes.name}</h3>
                 <p className='mb-2'>⭐⭐⭐⭐☆</p>
@@ -113,7 +188,7 @@ const DetailCard = ({ shoes }) => {
 
                   <button
                     className='bg-green-600 text-white font-bold px-1 lg:px-5 py-2 lg:py-2 text-sm lg:text-base rounded-md hover:bg-indigo-700 shadow-md w-2/5 sm:w-2/3'
-                      onClick={() => addCarrito({shoes})}
+                    onClick={() => addCarrito({ shoes })}
                   >Agregar al carrito</button>
 
                   <button className='bg-green-600 text-white font-bold px-1 lg:px-5 py-2 lg:py-2 text-sm lg:text-base rounded-md hover:bg-indigo-700 shadow-md w-2/5 sm:w-2/3'>Comprar ahora</button>
