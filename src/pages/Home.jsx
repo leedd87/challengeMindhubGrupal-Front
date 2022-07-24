@@ -2,7 +2,7 @@ import React from "react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import SuperF from "../components/SuperF";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -125,7 +125,7 @@ const Home = () => {
       </div>
       <div></div>
 
-
+<SuperF/>
       <div className="footerLogo">
         <div className="containerLogos">
           <Swiper
