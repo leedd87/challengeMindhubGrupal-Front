@@ -14,6 +14,9 @@ import Details from './pages/Details'
 import shoesActions from './redux/actions/shoesActions';
 import AboutUs from './pages/AboutUs';
 import styled from 'styled-components';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -47,7 +50,9 @@ function App() {
 				</div>
 			</div></>)
         :
-        (<><NavBar/>
+        (<>
+        <ToastContainer />
+        <NavBar/>
           <Routes>
             <Route path='/signIn' element={<SignIn/>}/>
             <Route path='/signup' element={<SignUp/>}/>

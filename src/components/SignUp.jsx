@@ -23,7 +23,7 @@ function AccountSignUp(props){
         event.target.reset()
         // console.log(event);
         props.signUp(userData)
-        // console.log(userData);
+        //console.log(userData);
       }
     return(
         <div className='body'> 
