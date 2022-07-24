@@ -32,6 +32,8 @@ const DetailCard = ({ shoes }) => {
     }
 
     dispatch(shopActions.addToShop(product))
+
+    // localStorage.setItem('carrito', JSON.stringify() )
     console.log('alerta agregaste un producto')
 
   }

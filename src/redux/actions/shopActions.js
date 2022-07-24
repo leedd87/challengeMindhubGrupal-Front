@@ -27,7 +27,20 @@ const shopActions = {
                 payload: { product },
             })
         }
-    }
+    },
+
+    // verifyShopStorage: (shopStorage) => {
+
+    //     return async (dispatch, getState) => {
+
+    //         dispatch({
+    //             type: 'VERIFYSHOPSTORAGE',
+    //             payload: { shopStorage },
+    //         })
+    //     }
+    // },
+
+
 
 }
 

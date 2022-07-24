@@ -90,7 +90,7 @@ const NavBar = () => {
         console.log('eliminaste un producto')
     } // ELIMINO PRODUCTOS DEL CARRITO
 
-    localStorage.setItem('carrito', JSON.stringify(carrito)) // GUARDAR MI CARRITO EN EL LOCAL STORAGE
+    // localStorage.setItem('carrito', JSON.stringify(carrito)) // GUARDAR MI CARRITO EN EL LOCAL STORAGE
 
     return (
         <AppBar position="sticky" sx={{ backgroundColor: "#949494" }}>

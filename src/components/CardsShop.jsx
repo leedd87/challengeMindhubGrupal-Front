@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../styles/cardShop.css";
 import { Link as LinkRouter } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutl
 const CardsShop = ({ shoes }) => {
 
 	const dispatch = useDispatch();
-
+	const carrito = useSelector(store => store.shopReducer.productsInShop);
 
 
 	const addCarrito = ({ shoes }) => {
@@ -24,7 +24,10 @@ const CardsShop = ({ shoes }) => {
 			cant: 1
 		}
 
+		
 		dispatch(shopActions.addToShop(product))
+
+		// localStorage.setItem('producto', JSON.stringify(product))
 		console.log('alerta agregaste un producto')
 
 	}

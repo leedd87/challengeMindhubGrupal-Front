@@ -15,10 +15,20 @@ import Details from './pages/Details'
 import shoesActions from './redux/actions/shoesActions';
 import AboutUs from './pages/AboutUs';
 import styled from 'styled-components';
-import userActions from '../src/redux/actions/userActions'
+import userActions from '../src/redux/actions/userActions';
+import shopActions from './redux/actions/shopActions';
 
 function App() {
+	const dispatch = useDispatch();
+	const user = useSelector(store => store.userReducer.user);
+
+	// HOOKS
 	const [loading, setLoading] = useState(false);
+	// const [shopStorage, setShopStorage] = useState([]);
+
+	// const carrito = useSelector(store => store.shopReducer.productsInShop);
+	// setShopStorage(carrito)
+	// console.log(shopStorage)
 
 	useEffect(() => {
 		setLoading(true);
@@ -28,7 +38,6 @@ function App() {
 			, 2000);
 	}
 		, []);
-	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(shoesActions.getShoes())
@@ -40,11 +49,19 @@ function App() {
 			const token = localStorage.getItem('token')
 			dispatch(userActions.verifyToken(token))
 		}
+
+
+		// if(localStorage.getItem('carrito') !== null ) {
+
+		// 	const carrito = JSON.parse(localStorage.getItem('carrito') )
+
+		// 	dispatch(shopActions.verifyShopStorage(carrito))
+		// } else { console.log('no encontre nada')}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
-	const user = useSelector(store => store.userReducer.user)
-	// console.log(user.role)
+
 
 	return (
 		<SneakerStore>

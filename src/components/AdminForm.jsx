@@ -1,16 +1,9 @@
 import '../../src/styles/style.css'
-// import Box from '@mui/material/Box';
-// import InputLabel from '@mui/material/InputLabel';
-// import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
-// import Select from '@mui/material/Select';
 import { useState, useEffect } from 'react';
-
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import adminActions from '../redux/actions/adminActions';
 import shoesActions from '../redux/actions/shoesActions';
-
 
 export default function AdminForm() {
 
@@ -26,18 +19,10 @@ export default function AdminForm() {
 
     }, [reload])
 
-    // const getShoes = async () => {
-
-    //     let shoes = await dispatch(shoesActions.getShoes())
-
-    //     setShoes(shoes.data.response)
-
-    // }
-
     // AGREGAR SHOE
     const handleSubmit = async (e) => {
+
         e.preventDefault()
-        // console.log(e.target)
 
         const data = {
             name: e.target[0].value,
@@ -65,9 +50,7 @@ export default function AdminForm() {
         e.target[9].value = ''
         e.target[10].value = ''
 
-
         setReload(!reload)
-        // getShoes()
     }
 
 
@@ -76,7 +59,7 @@ export default function AdminForm() {
         e.preventDefault()
 
         const res = await dispatch(adminActions.removeShoe(e.target[0].value))
-        console.log(res.data.message)
+        // console.log(res.data.message)
         e.target[0].value = ''
 
         setReload(!reload)
@@ -90,6 +73,7 @@ export default function AdminForm() {
                 {/* ADD SHOE */}
                 <div>
                     <div className='title-form'>Add Shoes</div>
+                    
                     <form
                         className='form-admin'
                         onSubmit={handleSubmit}
