@@ -20,7 +20,7 @@ export default function GooglePay(){
                             type:'CARD',
                             parameters:{
                                 allowedAuthMethods:['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                                allowedCardNetworks:['MASTERCARD', 'VISA'],
+                                allowedCardNetworks:["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "MIR", "VISA"],
                             },
                             tokenizationSpecification: {
                                 type:'PAYMENT_GATEWAY',
@@ -45,7 +45,6 @@ export default function GooglePay(){
                 }}
                 onLoadPaymentData= {paymenData=>{
                     console.log(paymenData.paymentMethodData)
-                    // history.push('/confirm')
                 }}
             
             />
