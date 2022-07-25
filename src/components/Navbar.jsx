@@ -89,7 +89,7 @@ const NavBar = () => {
 
     const removeToShop = (producto) => {
         dispatch(shopActions.deleteToShop(producto))
-        console.log('eliminaste un producto')
+        // console.log('eliminaste un producto')
     } // ELIMINO PRODUCTOS DEL CARRITO
 
     // localStorage.setItem('carrito', JSON.stringify(carrito)) // GUARDAR MI CARRITO EN EL LOCAL STORAGE

@@ -28,7 +28,7 @@ const CardsShop = ({ shoes }) => {
 		dispatch(shopActions.addToShop(product))
 
 		// localStorage.setItem('producto', JSON.stringify(product))
-		console.log('alerta agregaste un producto')
+		// console.log('alerta agregaste un producto')
 
 	}
 

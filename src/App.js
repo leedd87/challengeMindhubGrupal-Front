@@ -51,7 +51,7 @@ function App() {
 			const carrito = JSON.parse(localStorage.getItem('carrito') )
 
 			dispatch(shopActions.verifyShopStorage(carrito))
-		} else { console.log('no encontre nada')}
+		} 
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])

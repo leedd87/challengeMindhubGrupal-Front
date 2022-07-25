@@ -36,7 +36,7 @@ export default function Paypal() {
 
     const createOrder = (data, actions) => {
         //Creo la orden de con los datos, esta puede ser general o con detalle de items
-        console.log(data)
+        // console.log(data)
         return actions.order.create({
             purchase_units: [
                 {
@@ -66,13 +66,13 @@ export default function Paypal() {
                 const { payer } = details;
 
                 setSuccess(true);
-                console.log('Capture result', details, JSON.stringify(details, null, 2)); //veo los datos en consola
+                // console.log('Capture result', details, JSON.stringify(details, null, 2)); //veo los datos en consola
 
                 var transaction = details.purchase_units[0].payments.captures[0];
 
                 alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
 
-                console.log(details)
+                // console.log(details)
 
                 setOrderID(transaction.id)
             });

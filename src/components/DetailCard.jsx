@@ -25,7 +25,7 @@ const DetailCard = ({ shoes }) => {
 
   const dispatch = useDispatch();
 
-  console.log("👠 ~ file: DetailCard.jsx ~ line 4 ~ DetailCard ~ shoes", shoes)
+  // console.log("👠 ~ file: DetailCard.jsx ~ line 4 ~ DetailCard ~ shoes", shoes)
 
 
   const addCarrito = ({ shoes }) => {
@@ -40,7 +40,7 @@ const DetailCard = ({ shoes }) => {
     dispatch(shopActions.addToShop(product))
 
     // localStorage.setItem('carrito', JSON.stringify() )
-    console.log('alerta agregaste un producto')
+    // console.log('alerta agregaste un producto')
   }
 
   const logoShoes = () => {
@@ -102,7 +102,7 @@ const DetailCard = ({ shoes }) => {
         </div>)
     }
 
-    console.log("holaaaas")
+    // console.log("holaaaas")
   }
 
 

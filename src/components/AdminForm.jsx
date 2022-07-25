@@ -36,7 +36,7 @@ export default function AdminForm() {
         }
 
         const res = await dispatch(adminActions.addShoe(data))
-        console.log(res.data.message)
+        // console.log(res.data.message)
 
         e.target[0].value = ''
         e.target[1].value = ''

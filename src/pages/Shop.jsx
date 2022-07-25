@@ -55,7 +55,7 @@ function Shoop() {
   }
 
   const order = (event) => {
-    console.log(event)
+    // console.log(event)
     if (event.target.value === "op1") {
       shoes?.sort((a, b) => a.price - b.price);
       setOrd(event.target.value)
@@ -71,7 +71,7 @@ function Shoop() {
 
 
   const handleChangeType = async (id) => {
-    console.log(id);
+    // console.log(id);
     const res = await dispatch(shoesActions.getShoesByType(id))
     setShoes(res.response.response)
     setfilterShoes(res.response.response)
@@ -79,7 +79,7 @@ function Shoop() {
 
   const handleChangeBrand = async (event) => {
     const res = await dispatch(shoesActions.getShoesByBrand(event.target.value))
-    console.log("🚀 ~ file: Shop.jsx ~ line 53 ~ handleChangeBrand ~ res", res)
+    // console.log("🚀 ~ file: Shop.jsx ~ line 53 ~ handleChangeBrand ~ res", res)
     setShoes(res.response.response)
     setfilterShoes(res.response.response)
     setBrand(event.target.value)
