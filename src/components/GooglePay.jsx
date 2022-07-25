@@ -4,7 +4,7 @@ import GooglePayButton from '@google-pay/button-react'
 
 export default function GooglePay(){
     const carrito = useSelector(store => store.shopReducer.productsInShop);
-    // console.log(carrito)
+    console.log(carrito)
     const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0)
     
     return(
@@ -20,7 +20,7 @@ export default function GooglePay(){
                             type:'CARD',
                             parameters:{
                                 allowedAuthMethods:['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                                allowedCardNetworks:["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "MIR", "VISA"],
+                                allowedCardNetworks:['MASTERCARD', 'VISA'],
                             },
                             tokenizationSpecification: {
                                 type:'PAYMENT_GATEWAY',
@@ -38,7 +38,7 @@ export default function GooglePay(){
                     transactionInfo: {
                         totalPriceStatus:'FINAL',
                         totalPriceLabel:'Total',
-                        totalPrice:`${priceTotal}`,
+                        totalPrice:{priceTotal},
                         currencyCode:'USD',
                         countryCode:'US'
                     },
