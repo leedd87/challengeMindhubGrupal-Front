@@ -1,20 +1,62 @@
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/superF.css";
+import shoesActions from "../redux/actions/shoesActions";
+import { useDispatch } from 'react-redux';
+import { Link as LinkRouter } from 'react-router-dom';
 
 function SuperF() {
   // Properties
   const [showResults, setShowResults] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
+  //const [score, setScore] = useState(0);
   const [answer, setAnswer] = useState([]);
+
+  const [reload, setReload] = useState(false);
+  const [getShoes, setGetShoes] = useState([]);
+  const [shoesFinal, setShoesFinal] = useState();
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(shoesActions.getShoes())
+      .then(res => setGetShoes(res.data.response))
+    // eslint-disable-next-line
+  }, [reload])
+
+
+  const shoesIdeal = async (data) => {
+
+    const typeId = data[0].isCorrect.id
+    const brandId = data[1].isCorrect.id
+    const priceId = data[2].isCorrect.id
+
+    const shoesType = getShoes.filter(shoe => shoe.type._id === typeId)
+    const shoesBrand = shoesType.filter(shoe => shoe.brand._id === brandId)
+
+    if (priceId === 0) {
+      shoesBrand.sort((a, b) => b.price - a.price)
+    }
+    else {
+      shoesBrand.sort((a, b) => a.price - b.price)
+    }
+    //console.log("🚀 ~ file: superF.JSX ~ line 32 ~ shoesIdeal ~ shoesType", shoesBrand)
+    if (shoesBrand.length !== 0) {
+      setShoesFinal(shoesBrand[0])
+      console.log(shoesBrand)
+      //console.log("tu zapatilla ideal es: ", shoesFinal)
+    }
+    else {
+      setShoesFinal("")
+      console.log("no encontramos coincidencias")
+    }
+    setReload(!reload)
+  };
+
   const questions = [
     {
       text: "Con que estilo te sentis mas identificado?",
       options: [
-        { id: "62d81e84db36588e63203de7", text: "Urban", isCorrect: false },
-        { id: "62d827534fca1cb3de1808b1", text: "Sport", isCorrect: false },
-        { id: "62d828964fca1cb3de1808bd", text: "Fancy", isCorrect: false },
+        { id: "62d81e84db36588e63203de7", text: "Urban", isCorrect: true },
+        { id: "62d827534fca1cb3de1808b1", text: "Sport", isCorrect: true },
+        { id: "62d828964fca1cb3de1808bd", text: "Fancy", isCorrect: true },
         //{ id: 3, text: "Washington DC", isCorrect: true },
       ],
     },
@@ -36,72 +78,87 @@ function SuperF() {
       options: [
         { id: 0, text: "No me importa la plata", isCorrect: true },
         { id: 1, text: "cuida mi bolsillo", isCorrect: false },
-      
+
       ],
     },
     {
       text: "Que color te gusta mas?",
       options: [
-        { id: 0, text: "Blanco", isCorrect: false },
+        { id: 0, text: "Blanco", isCorrect: true },
         { id: 1, text: "Negro", isCorrect: true },
         { id: 2, text: "Naranja", isCorrect: false },
         { id: 3, text: "Verde", isCorrect: false },
       ],
     },
-    
+
   ];
 
-  // Helper Functions
-
-  /* A possible answer was clicked */
-  const resultados = [];
   const optionClicked = (isCorrect) => {
-  //console.log("🚀 ~ file: superF.JSX ~ line 58 ~ optionClicked ~ isCorrect", isCorrect)
-    // Increment the score
-    // if (isCorrect) {
-    //   setScore(score + 1);
-    // }
-
-    //console.log("🚀 ~ file: superF.JSX ~ line 64 ~ optionClicked ~ currentQuestion", currentQuestion)
-    setAnswer(isCorrect)
-    console.log(answer)
-    
-    
+    setAnswer([...answer, { isCorrect }])
     if (currentQuestion + 1 < questions.length) {
-      //resultados.push(isCorrect)
-      //console.log(resultados)
       setCurrentQuestion(currentQuestion + 1);
-
     } else {
       setShowResults(true);
+      shoesIdeal(answer)
+      //console.log(answer)
     }
   };
 
-  /* Resets the game back to default */
   const restartGame = () => {
-    setScore(0);
+    setAnswer([])
+    //setScore(0);
     setCurrentQuestion(0);
     setShowResults(false);
   };
 
   return (
     <div className="containerSuperF">
-      {/* 1. Header  */}
-      <h1>USA Quiz 🇺🇸</h1>
-
-      {/* 2. Current Score  */}
-      <h2>Score: {score}</h2>
-
-      {/* 3. Show results or show the question game  */}
+      
       {showResults ? (
         /* 4. Final Results */
         <div className="final-results">
-          <h1>Final Results</h1>
-          <h2>
-            {score} out of {questions.length} correct - (
-            {(score / questions.length) * 100}%)
-          </h2>
-          <button onClick={() => restartGame()}>Restart game</button>
+          <h1 className="mb-8 text-lg">Final Results</h1>
+          {shoesFinal ?
+            (<div className="wrapper">
+              <div className="card">
+
+                <div className="front">
+                  {
+                    shoesFinal.brand ?
+                      <h1>{shoesFinal.brand.name}</h1>
+                      : null
+                  }
+                  {
+                    shoesFinal.type ?
+                      <h1>{shoesFinal.type.name}</h1>
+                      : null
+                  }
+
+                  {/* <h1>{shoesFinal?.type.name}</h1> */}
+                  <p>{shoesFinal.name}</p>
+                  <h2 className="price">U$S {shoesFinal.price}</h2>
+                </div>
+
+                <div className="right">
+                  <h2>{shoesFinal.brand.name}</h2>
+                  <p>{shoesFinal.name}</p>
+                  <h2 className="price">U$S {shoesFinal.price}</h2>
+
+                  <LinkRouter to={`/details/${shoesFinal._id}`} >
+                    <button>Detail</button>
+                  </LinkRouter>
+
+                </div>
+
+              </div>
+              <div className="img-wrapper">
+                <img src={shoesFinal.image[0]} alt={shoesFinal.name} />
+              </div>
+            </div>)
+            : <h1>No hay resultados</h1>
+          }
+          
+          <button onClick={() => restartGame()}>Restart</button>
         </div>
       ) : (
         /* 5. Question Card  */
