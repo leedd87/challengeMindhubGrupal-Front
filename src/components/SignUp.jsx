@@ -17,6 +17,7 @@ function AccountSignUp(props){
           photoUrl:event.target[4].value,
           country:event.target[5].value,
           from:'form-Signup',
+          role:'user'
         }
         event.target.reset()
         // console.log(event);
