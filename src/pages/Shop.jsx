@@ -82,6 +82,13 @@ function Shoop() {
                   <MenuItem value={0}>Nike</MenuItem>
                   <MenuItem value={1}>Adidas</MenuItem>
                   <MenuItem value={2}>New Balance</MenuItem>
+                  <MenuItem value={3}>Jordan</MenuItem>
+                  <MenuItem value={4}>Asics</MenuItem>
+                  <MenuItem value={5}>Balenciaga</MenuItem>
+                  <MenuItem value={6}>Dior</MenuItem>
+                  <MenuItem value={7}>Louis Vuitton</MenuItem>
+
+
 
                 </Select>
 

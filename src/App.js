@@ -23,7 +23,7 @@ function App() {
         <Route path='/adminForm' element={<AdminForm/>}/>
 		<Route path='/shop' element={<Shop/>}/>
 		<Route path='/' element={<Home/>}/>
-		<Route path='/details/:id' element={<Details/>}/>
+		<Route path='/details/' element={<Details/>}/>
       </Routes>
 	  <Footer/>
     </div>
