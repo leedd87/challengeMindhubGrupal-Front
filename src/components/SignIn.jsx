@@ -44,7 +44,7 @@ function SignIn(props){
             </div>
             <div className='overlay-ctn'>
                 <div className='overlay'>
-                    <div className='overlay-right'>
+                    <div className='overlay-right-s'>
                         <h1>Do not you have an account yet?</h1>
                         <LinkRouter to='/signup'>
                             <button className='accountbtn' id='signUp'>Sign Up</button>

@@ -162,16 +162,39 @@ p {
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
 }
-
+.overlay-left,
+.overlay-right-s{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 40px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
 .overlay-left {
   transform: translateX(-20%);
 }
-
-.overlay-right {
+.overlay-right-s{
   right: 0;
   transform: translateX(0);
   background-color: red;
-  background-image: url('https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80');
+  background-image: url('https://images.unsplash.com/photo-1512374382149-233c42b6a83b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+.overlay-right{
+  right: 0;
+  transform: translateX(0);
+  background-color: red;
+  background-image: url('https://images.unsplash.com/photo-1640391846040-6e9e41388ad4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -419,12 +442,17 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:#fff;
+  background-color:#e0e0e0;
 }
 .backColor{
-  background-color:#fff;
+  background-color:white;
   display: flex;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  /* background-image: url('https://s1.1zoom.me/b5352/331/Athletic_shoe_531437_1920x1080.jpg'); */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: linear-gradient(-30deg, rgba(188, 188, 188, 0.614) 0%,rgb(166, 166, 166) 40%, #828282 50%, #898989 100%);
 }
 .form-add{
   height: 70vh;
@@ -433,20 +461,14 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color:#fff;
-}
-.h2cont{
-  width: 100%;
-  display: flex;
-  justify-content:center;
-  align-items: center;
+  background-color:transparent;
 }
 .add-title{
   text-align: center;
   color: black;
   font-family:sans-serif;
-  font-weight: 400;
-  font-size: 30px !important;
+  font-weight:500;
+  font-size: 40px !important;
 }
 .input-boxes{
   width: 100%;
@@ -467,6 +489,13 @@ p {
   width: 100%;
   height: 5vh;
 }
+.h2cont{
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin: 10px;
+}
 .formDelete{
   height: 70vh;
 }
@@ -474,10 +503,10 @@ p {
   height: 100%;
   width: 40vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  background-color:#fff;
+  background-color:transparent;
 }
 .input-admin-delete{
   background-color: #eee;

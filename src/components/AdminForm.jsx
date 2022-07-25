@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import adminActions from "../redux/actions/adminActions";
 import shoesActions from "../redux/actions/shoesActions";
+import { color } from "@mui/system";
 
 export default function AdminForm() {
     const [shoes, setShoes] = useState([]);
@@ -65,7 +66,7 @@ export default function AdminForm() {
 
         setReload(!reload);
     };
-
+    const colors= ["Select Colorway","black", "grey", "brown", "white", "green", "orange", "cream", "blue", "red", "purple","multi"]
     return (
         <div className="adminFormCtn">
             <div className="backColor">
@@ -99,12 +100,11 @@ export default function AdminForm() {
                                 </select>
                             </div>
                             <div className="input-box-add">
-                                <input
-                                    className="input-admin"
-                                    type="text"
-                                    placeholder="Colorway"
-                                    required
-                                />
+                                <select className="input-admin">
+                                    {colors?.map((col,index)=>(
+                                        <option key={index}>{col}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div className="input-box-add">
                                 <input
@@ -177,21 +177,27 @@ export default function AdminForm() {
                 </div>
                 <div className="formDelete">
                     <form className="form-delete">
-                        <p className="text-xl text-center font-bold">Remove Shoes</p>
-                        <select name="type" id="" required className="input-admin-delete">
-                            <option>Select</option>
-                            {shoes?.map((shoe) => (
-                                <option key={shoe._id} value={shoe._id}>
-                                    {shoe.name}
-                                </option>
-                            ))}
-                        </select>
-                        <div className="button-ctn">
-                            <input
-                                className="accountbtn"
-                                type="submit"
-                                value="delete product"
-                            />
+                        <div className="h2cont">
+                            <h1 className="add-title">Remove Shoes</h1>
+                        </div>
+                        <div className="input-boxes">
+                            <div className="input-box-add">
+                                <select name="type" id="" required className="input-admin-delete">
+                                    <option>Select</option>
+                                    {shoes?.map((shoe) => (
+                                        <option key={shoe._id} value={shoe._id}>
+                                            {shoe.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className="button-ctn">
+                                <input
+                                    className="accountbtn"
+                                    type="submit"
+                                    value="delete product"
+                                />
+                            </div>
                         </div>
                     </form>
                 </div>
