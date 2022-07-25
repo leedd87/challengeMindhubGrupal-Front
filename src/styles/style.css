@@ -372,7 +372,7 @@ background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%); */
   position: relative;
 }
 .form-admin{
-  background-color:transparent !important;
+  /* background-color:transparent !important; */
 }
 .admin-ctn .title-form::before{
   content: '';

@@ -24,12 +24,7 @@ function App() {
 
 	// HOOKS
 	const [loading, setLoading] = useState(false);
-	// const [shopStorage, setShopStorage] = useState([]);
-
-	// const carrito = useSelector(store => store.shopReducer.productsInShop);
-	// setShopStorage(carrito)
-	// console.log(shopStorage)
-
+	
 	useEffect(() => {
 		setLoading(true);
 		setTimeout(() => {
@@ -44,12 +39,12 @@ function App() {
 		// eslint-disable-next-line
 	}, [])
 
+	// USE EFFECT PARA TRAER LOCAL STORAGE SI EXISTE
 	useEffect(() => {
 		if (localStorage.getItem('token') !== null) {
 			const token = localStorage.getItem('token')
 			dispatch(userActions.verifyToken(token))
 		}
-
 
 		if(localStorage.getItem('carrito') !== null ) {
 

@@ -53,7 +53,6 @@ export default function AdminForm() {
         setReload(!reload)
     }
 
-
     // REMOVE SHOE
     const handleSubmitDelete = async (e) => {
         e.preventDefault()
@@ -71,14 +70,14 @@ export default function AdminForm() {
             <div className='grid grid-cols-2'>
 
                 {/* ADD SHOE */}
-                <div>
-                    <div className='title-form'>Add Shoes</div>
+                <div className='border border-red-400'>
+                    <p className='text-xl text-center font-bold'>Add Shoes</p>
                     
                     <form
-                        className='form-admin'
+                        className='form-admin border border-blue-400'
                         onSubmit={handleSubmit}
                     >
-                        <div className='admin-details'>
+                        <div className='container'>
                             <div className='input-box'>
                                 <input className='input-admin' type='text' placeholder='Name' required />
                             </div>
@@ -156,11 +155,12 @@ export default function AdminForm() {
                             <input className='btn-admin' type='submit' value='send' />
                         </div>
                     </form>
+
                 </div>
 
                 {/* DELETE SHOE */}
-                <div>
-                    <div className='title-form'>Remove Shoes</div>
+                <div className='border border-red-400'>
+                    <p className='text-xl text-center font-bold'>Remove Shoes</p>
 
                     <form
                         className='form-admin'
@@ -181,6 +181,7 @@ export default function AdminForm() {
                         </div>
 
                     </form>
+
                 </div>
 
             </div>

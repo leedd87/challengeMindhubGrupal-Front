@@ -1,6 +1,5 @@
 const initialState = {
     productsInShop: [],
-    // productsInShopAux: [],
 }
 
 
@@ -8,16 +7,6 @@ const initialState = {
 const shopReducer = (state = initialState, action) => {
 
     let productsInShop = [...state.productsInShop];
-    // let productsInShop = [];
-
-    // if (localStorage.getItem('carrito') !== null) {
-
-    //     const carrito = JSON.parse(localStorage.getItem('carrito'))
-
-    //     productsInShop = [...carrito]
-
-    // } else { productsInShop = [...state.productsInShop] }
-
     
     switch (action.type) {
 
@@ -26,7 +15,7 @@ const shopReducer = (state = initialState, action) => {
             productsInShop = [...state.productsInShop];
             productsInShop.push(action.payload.product)
             
-            localStorage.setItem('carrito', JSON.stringify(productsInShop) )
+            localStorage.setItem('carrito', JSON.stringify(productsInShop) ) // hace que mi ls se vaya modificando en vivo
             return {
                 ...state,
                 productsInShop: productsInShop
@@ -38,7 +27,7 @@ const shopReducer = (state = initialState, action) => {
             productsInShop = [...state.productsInShop];
             let modifiedShop = productsInShop.filter(product => product.id !== action.payload.product.id)
 
-            localStorage.setItem('carrito', JSON.stringify(modifiedShop))
+            localStorage.setItem('carrito', JSON.stringify(modifiedShop)) // hace que mi ls se vaya modificando en vivo
             return {
                 ...state,
                 productsInShop: modifiedShop
