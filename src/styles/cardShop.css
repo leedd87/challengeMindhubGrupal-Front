@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Sriracha&display=swap');
+
 /* #container {
     
     margin: 1rem;
@@ -223,6 +225,7 @@ footer p.faded {
     right: 0;
     pointer-events: none;
     backface-visibility: hidden;
+    
   }
   
   @keyframes float{
@@ -329,9 +332,120 @@ position: fixed;
   margin: 1rem;
 
 }
+
+
+.imgZoom{
+  transition: transform 0.4s ease-out 0s;
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  max-width: calc(100vh - 300px);
+  min-width: 600px;
+  margin: 0 auto;
+
+}
+.imgZoom img:hover{
+  transition: transform 0.4s ease-out 0s;
+}
+.boxDetailsFixed{
+  display: flex;
+  background-color: #cccccc26;
+  /* align-items: center;
+  justify-content: center; */
+
+}
+.boxFixed{
+  position: sticky;
+  top: 20px;
+  bottom: 50px;
+  /* position: fixed;
+  border: solid 2px red;
+  /* position: fixed;
+  top: 80px;
+  left: 10px;
+  background: blue; */
+  /* width: 31%;
+  min-height: 50%; */
+  /* margin-bottom: 40%;  */
+  /*top: 80px;
+  right: 20px; */
+}
+.txtDescription, .metodosPago{
   
-  /* @media only screen and (max-width: 600px){
-    body{
-      transform: scale(.67);
-    }
-  } */
+  padding: 0.5rem;
+}
+.h2Name{
+  color:rgb(17, 17, 17);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.007em;
+}
+@media(width < 768px){
+  .boxFixed{
+   position: relative!important;
+    border: solid 2px rgb(54, 14, 232);
+  width: 100%;
+  height: 100%;
+ margin-bottom: 0;
+  }
+
+}
+
+/*btnColors*/
+.btnColors
+{
+  font-size: 18px;
+  color: #000000;
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+.btnColors:focus,
+.btnColors:hover {
+  color: rgb(15, 15, 15);
+}
+
+.btnColors:focus:after,
+.btnColors:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.btnColors:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: rgb(255, 0, 0);
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input{
+  font-size: 18px;
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}

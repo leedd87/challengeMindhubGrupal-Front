@@ -1,50 +1,53 @@
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "../styles/cardShop.css";
-// import shoesActions from "../redux/actions/shoesActions";
 import { Link as LinkRouter } from 'react-router-dom';
 
-//import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
+import shopActions from '../redux/actions/shopActions';
 
-//let shop = []; // carrito de compras
+import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
+
 
 const CardsShop = ({ shoes }) => {
 
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 
-	// const addCarrito = ({shoes}) => {
-	// 	console.log('add shop')
-	// 	// console.log(shoes)
 
-	// 	const data = {
-	// 		image: shoes.image[0],
-	// 		name: shoes.name,
-	// 		price: shoes.price,
-	// 		id: shoes._id,
-	// 		cant: 1
-	// 	}
-	// 	shop = [...shop, data];
+	const addCarrito = ({ shoes }) => {
 
-	// 	// console.log(shop)
-	// 	// console.log(carrito)
+		const product = {
+			image: shoes.image[0],
+			name: shoes.name,
+			price: shoes.price,
+			id: shoes._id,
+			cant: 1
+		}
 
-	// }
+		dispatch(shopActions.addToShop(product))
+		console.log('alerta agregaste un producto')
 
-
-	// const viewShop = () => {
-
-		
-
-	// }
+	}
 
 	return (
 		<div id="container">
 
 			<div className="wrapper">
 				<div className="card">
+
 					<div className="front">
-						<h1>{shoes.brand.name}</h1>
+						{
+							shoes.brand ?
+							<h1>{shoes.brand.name}</h1> 
+							:null
+						}
+						{
+							shoes.type ?
+							<h1>{shoes.type.name}</h1> 
+							:null
+						}
+						
+						{/* <h1>{shoes?.type.name}</h1> */}
 						<p>{shoes.name}</p>
 						<h2 className="price">U$S {shoes.price}</h2>
 					</div>
@@ -59,10 +62,12 @@ const CardsShop = ({ shoes }) => {
 
 						</ul>
 						<LinkRouter to={`/details/${shoes._id}`} >
-						<button>Detail</button>
+							<button>Detail</button>
 						</LinkRouter>
-						
-						
+						<span
+							onClick={() => addCarrito({ shoes })}
+						><AddShoppingCartOutlinedIcon /></span>
+
 					</div>
 
 				</div>
@@ -70,7 +75,7 @@ const CardsShop = ({ shoes }) => {
 					<img src={shoes.image[0]} alt={shoes.name} />
 				</div>
 			</div>
-			
+
 		</div>
 	);
 };
