@@ -3,7 +3,7 @@ const url="https://daftlab-back.herokuapp.com"
 
 const userActions={
     signUp:(userData)=>{
-        // console.log(userData);
+        console.log(userData);
         return async(dispatch, getState)=>{
             const user= await axios.post(`${url}/api/signUp` , {userData})
             // console.log(user)

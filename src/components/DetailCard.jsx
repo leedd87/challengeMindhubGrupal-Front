@@ -10,6 +10,7 @@ import Stack from '@mui/material/Stack';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -20,6 +21,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 const DetailCard = ({ shoes }) => {
+  // const dispatch = useDispatch();
+
   const dispatch = useDispatch();
 
   console.log("👠 ~ file: DetailCard.jsx ~ line 4 ~ DetailCard ~ shoes", shoes)
@@ -35,6 +38,8 @@ const DetailCard = ({ shoes }) => {
     }
 
     dispatch(shopActions.addToShop(product))
+
+    // localStorage.setItem('carrito', JSON.stringify() )
     console.log('alerta agregaste un producto')
   }
 

@@ -3,19 +3,30 @@ import { Link as LinkRouter } from 'react-router-dom';
 import userActions from '../../src/redux/actions/userActions'
 import { connect } from 'react-redux';
 import GoogleSignIn from './GoogleSignIn';
+// import { useNavigate } from 'react-router-dom';
 
 function SignIn(props){
+
+    // const navigate = useNavigate();
+
     const handleSubmit= async (event)=>{
+
         event.preventDefault()
+
         const userSignIn= {
             email: event.target[0].value,
             password: event.target[1].value,
             from: "form-SignIn"
         }
+
         //console.log(event)
         props.signIn(userSignIn)
         console.log(userSignIn);
     }
+
+
+
+
     return(
     <div className='body'> 
             <div className="container-signup" id="main">

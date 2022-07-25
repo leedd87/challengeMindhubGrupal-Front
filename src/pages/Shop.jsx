@@ -22,7 +22,7 @@ function Shoop() {
   const [reload, setReload] = React.useState(false);
   const [filterShoes, setfilterShoes] = React.useState([]);
 
-  console.log("🚀 ~ file: Shop.jsx ~ line 22 ~ Shoop ~ filterShoes", filterShoes)
+  // console.log("🚀 ~ file: Shop.jsx ~ line 22 ~ Shoop ~ filterShoes", filterShoes)
   useEffect(() => {
     //dispatch(shoesActions.filterShoes(inputSearch))
     getShoes()
@@ -46,7 +46,7 @@ function Shoop() {
 
   const getShoes = async (event) => {
     const res = await dispatch(shoesActions.getShoes())
-    console.log("🚀 ~ file: Shop.jsx ~ line 53 ~ handleChangeBrand ~ res", res)
+    // console.log("🚀 ~ file: Shop.jsx ~ line 53 ~ handleChangeBrand ~ res", res)
     setShoes(res.data.response)
     setfilterShoes(res.data.response)
     setInputSearch("")
