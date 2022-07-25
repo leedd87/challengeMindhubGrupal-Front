@@ -96,13 +96,13 @@ header {
 }
 
 #tags ul li {
-    display: inline-block;
-    padding: 10px;
-    background: rgba(0, 255, 0, .2);
-    margin-right: 5px;
-    border-radius: 5px;
-    font-weight: bold;
-    color: limegreen;
+  display: inline-block;
+  padding: 10px;
+  background: rgba(0, 255, 0, .2);
+  margin-right: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: limegreen;
 }
 
 footer {
@@ -150,7 +150,6 @@ footer p.faded {
   .card > div{
     position: absolute;
     width: 320px;
-    bottom: 44px;
     height: 450px;
     padding: 34px 21px;
     transition: all 350ms cubic-bezier(0.390, 0.575, 0.565, 1.000);
@@ -226,6 +225,7 @@ footer p.faded {
     right: 0;
     pointer-events: none;
     backface-visibility: hidden;
+    
   }
   
   @keyframes float{
@@ -318,7 +318,6 @@ footer p.faded {
   }
 .contFilterCards{
   display: flex;
-
 }
 .filter{
 display: flex;
@@ -378,12 +377,8 @@ position: fixed;
   
   padding: 0.5rem;
 }
-.metodosPago{
-  color: green;
-}
 .h2Name{
-  color:rgb(33, 37, 41);
-  font-size: 2rem;
+  color:rgb(17, 17, 17);
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.007em;
@@ -453,16 +448,4 @@ position: fixed;
   transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
   transition-duration: 400ms;
   transition-property: color;
-}
-.logoDetail{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.logosDetailImg{
-  height: 8rem;
-  margin-bottom: 1rem;
-}
-.css-jue3ft-MuiRating-root{
-justify-content:center ;
 }
