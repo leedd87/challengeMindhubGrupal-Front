@@ -1,50 +1,56 @@
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../styles/cardShop.css";
-// import shoesActions from "../redux/actions/shoesActions";
 import { Link as LinkRouter } from 'react-router-dom';
+
+import shopActions from '../redux/actions/shopActions';
 
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 
-let shop = []; // carrito de compras
 
 const CardsShop = ({ shoes }) => {
 
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
+	const carrito = useSelector(store => store.shopReducer.productsInShop);
 
 
-	const addCarrito = ({shoes}) => {
-		console.log('add shop')
-		// console.log(shoes)
+	const addCarrito = ({ shoes }) => {
 
-		const data = {
+		const product = {
 			image: shoes.image[0],
 			name: shoes.name,
 			price: shoes.price,
 			id: shoes._id,
 			cant: 1
 		}
-		shop = [...shop, data];
-
-		// console.log(shop)
-		// console.log(carrito)
-
-	}
-
-
-	// const viewShop = () => {
 
 		
+		dispatch(shopActions.addToShop(product))
 
-	// }
+		// localStorage.setItem('producto', JSON.stringify(product))
+		console.log('alerta agregaste un producto')
+
+	}
 
 	return (
 		<div id="container">
 
 			<div className="wrapper">
 				<div className="card">
+
 					<div className="front">
-						<h1>{shoes.brand.name}</h1>
+						{
+							shoes.brand ?
+							<h1>{shoes.brand.name}</h1> 
+							:null
+						}
+						{
+							shoes.type ?
+							<h1>{shoes.type.name}</h1> 
+							:null
+						}
+						
+						{/* <h1>{shoes?.type.name}</h1> */}
 						<p>{shoes.name}</p>
 						<h2 className="price">U$S {shoes.price}</h2>
 					</div>
@@ -55,20 +61,15 @@ const CardsShop = ({ shoes }) => {
 						<h2 className="price">U$S {shoes.price}</h2>
 						<ul>
 							<li>talles : 12 12</li>
-							<li>Colors:	⚪⚫</li>
+							<li>Color: {shoes.colorway}	</li>
 
 						</ul>
-
-						<LinkRouter to={'/details'} >
+						<LinkRouter to={`/details/${shoes._id}`} >
 							<button>Detail</button>
 						</LinkRouter>
-
-						<span 
-						className="cursor-pointer"
-							onClick={() => addCarrito({shoes})}
-						>
-							<AddShoppingCartOutlinedIcon />
-						</span>
+						<span
+							onClick={() => addCarrito({ shoes })}
+						><AddShoppingCartOutlinedIcon /></span>
 
 					</div>
 

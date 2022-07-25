@@ -3,7 +3,7 @@ const url="https://daftlab-back.herokuapp.com"
 
 const userActions={
     signUp:(userData)=>{
-        // console.log(userData);
+        console.log(userData);
         return async(dispatch, getState)=>{
             const user= await axios.post(`${url}/api/signUp` , {userData})
             // console.log(user)
@@ -27,7 +27,7 @@ const userActions={
                 dispatch({type:'USER', payload: user.data.response.userData})
             }   
             else{
-                        dispatch({
+                    dispatch({
                             type:"MESSAGE" ,
                             payload: {
                                 view:true,
@@ -41,14 +41,14 @@ const userActions={
         
         }
     },
-    // logOut:(closeUser)=>{
-    //     return async(dispatch, getState)=>{
-    //         const user= await axios.post(`${url}/api/logOut`,{closeUser})
-    //         localStorage.removeItem('token')
-    //         dispatch({type:'USER', payload:null})
-    //         return user
-    //     }
-    // },
+    logOut:(closeUser)=>{
+        return async(dispatch, getState)=>{
+            const user= await axios.post(`${url}/api/logOut`,{closeUser})
+            localStorage.removeItem('token')
+            dispatch({type:'USER', payload:null})
+            return user
+        }
+    },
     verifyToken:(token)=>{
         return async (dispatch, getState) =>{
             await axios.get(`${url}/api/logintoken`, {

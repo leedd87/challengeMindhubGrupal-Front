@@ -1,24 +1,32 @@
-import Avatar from '@mui/material/Avatar';
 import '../styles/style.css'
 import { Link as LinkRouter } from 'react-router-dom';
-import logoGoogle from '../../src/assets/logoGoogle.png'
-import logoFacebook from '../../src/assets/logoFacebook.png'
-import logoInstagram from '../../src/assets/logoInstagram.png'
 import userActions from '../../src/redux/actions/userActions'
 import { connect } from 'react-redux';
+import GoogleSignIn from './GoogleSignIn';
+// import { useNavigate } from 'react-router-dom';
 
 function SignIn(props){
+
+    // const navigate = useNavigate();
+
     const handleSubmit= async (event)=>{
+
         event.preventDefault()
+
         const userSignIn= {
             email: event.target[0].value,
             password: event.target[1].value,
             from: "form-SignIn"
         }
+
         //console.log(event)
         props.signIn(userSignIn)
-        // console.log(userSignIn);
+        console.log(userSignIn);
     }
+
+
+
+
     return(
     <div className='body'> 
             <div className="container-signup" id="main">
@@ -26,13 +34,11 @@ function SignIn(props){
                 <form onSubmit={handleSubmit}>
                     <h1>Welcome</h1>
                     <div className="social-ctn">
-                        <Avatar sx={{margin:'8px'}} src={logoGoogle}/>
-                        <Avatar sx={{margin:'8px'}} src={logoFacebook}/>
-                        <Avatar sx={{margin:'8px'}} src={logoInstagram}/>
+                        <GoogleSignIn/>
                     </div>
                     <h3>or</h3>
-                    <input type='text' placeholder='Email'/>
-                    <input type='password' placeholder='Password'/>
+                    <input className='signUp-input' type='text' placeholder='Email'/>
+                    <input className='signUp-input' type='password' placeholder='Password'/>
                     <button className='accountbtn'>Sign In</button>
                 </form>
             </div>
