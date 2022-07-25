@@ -13,6 +13,13 @@ const shopReducer = (state = initialState, action) => {
         case 'ADDTOSHOP':
 
             productsInShop = [...state.productsInShop];
+
+            
+            // if (action.payload.product.id ===)
+            // let productRepetido = productsInShop.map(product => product.id)
+
+            // productRepetido.cant = productRepetido.cant + 1
+            
             productsInShop.push(action.payload.product)
             
             localStorage.setItem('carrito', JSON.stringify(productsInShop) ) // hace que mi ls se vaya modificando en vivo
