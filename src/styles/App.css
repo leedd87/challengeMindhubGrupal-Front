@@ -36,13 +36,15 @@
 
 .bodyShop {
   display: flex;
+  flex-grow: 1;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   background-color: #e0e0e0;
-  width: 85%;
-  margin-left: 15%;
+  width: 100%;
+  min-height: 59.6vh;
+  /* margin-left: 15%; */
 
 }
 
@@ -65,9 +67,3 @@
   justify-content: center;
 }
 
-/* button {
-  color: black;
-  background-color: violet;
-  height: 2rem;
-  border: black solid;
-} */

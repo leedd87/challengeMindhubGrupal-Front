@@ -26,8 +26,8 @@ function SignIn(props){
                         <GoogleSignIn/>
                     </div>
                     <h3>or</h3>
-                    <input type='text' placeholder='Email'/>
-                    <input type='password' placeholder='Password'/>
+                    <input className='signUp-input' type='text' placeholder='Email'/>
+                    <input className='signUp-input' type='password' placeholder='Password'/>
                     <button className='accountbtn'>Sign In</button>
                 </form>
             </div>

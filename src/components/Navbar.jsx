@@ -16,7 +16,8 @@ import logo from '../assets/logo.png';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Drawer from 'react-modern-drawer'
-import DeleteIcon from '@mui/icons-material/Delete';
+import CancelIcon from '@mui/icons-material/Cancel';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import 'react-modern-drawer/dist/index.css'
 import '../styles/style.css'
@@ -28,6 +29,7 @@ import userActions from '../redux/actions/userActions';
 
 import shopActions from '../redux/actions/shopActions';
 import PayPal from './PayPal';
+import GooglePay from './GooglePay';
 
 
 
@@ -159,22 +161,7 @@ const NavBar = () => {
                     </Box>
 
                     <Box>
-
-
-                        {/* BOTON CARRITO */}
-                        <div
-                            onClick={toggleDrawer}
-                            className='flex items-center justify-center'
-                        >
-                            <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
-                            {
-                                carrito.length !== 0
-                                    ? <span className='text-lg'>{carrito.length}</span>
-                                    : <></>
-                            }
-                        </div>
-
-
+                    {/* BOTON CARRITO */}
                         <Drawer
                             open={isOpen}
                             onClose={toggleDrawer}
@@ -184,6 +171,7 @@ const NavBar = () => {
                             <div>
 
                                 <div className='h2-ctn'>
+                                    <AddShoppingCartIcon sx={{color:'black'}}/>
                                     <h1 className='title-cart-shop'>SHOPPING CART</h1>
                                 </div>
 
@@ -195,27 +183,33 @@ const NavBar = () => {
                                             (
                                                 carrito.map(producto => {
                                                     return (
-                                                        <div key={producto.id} className='mb-5 bg-gray-100 p-3 rounded-md'>
+                                                      
                                                             <div className="products">
-                                                                <img
-                                                                    className="imgShops"
-                                                                    src={producto.image}
-                                                                    alt={producto.name}
-                                                                />
-                                                                <div>
-                                                                    <h3 style={{ color: 'black' }}>{producto.name}</h3>
-                                                                    <p style={{ color: 'black' }}>$ {producto.price} USD</p>
+                                                                <div className='imgdiv'>
+                                                                    <img
+                                                                        className="imgShops"
+                                                                        src={producto.image}
+                                                                        alt={producto.name}
+                                                                    />
+                                                                </div>
+                                                                <div className='titlediv'>
+                                                                    <h3 style={{ color: 'white' }}>{producto.name}</h3>
+                                                                    <p style={{ color: 'white' }}>$ {producto.price} USD</p>
+                                                                    <p>Unit: {producto.cant}</p>
+                                                                </div>
+                                                                <div
+                                                                    className='btndiv'
+                                                                    onClick={() => removeToShop(producto)}
+                                                                >
+                                                                    <button className="btndelet">
+                                                                        <CancelIcon
+                                                                            sx={{ cursor: 'pointer', margin: '5px', color: 'white' }}
+                                                                        />
+                                                                    </button>
                                                                 </div>
                                                             </div>
 
-                                                            <div
-                                                                onClick={() => removeToShop(producto)}
-                                                            >
-                                                                <DeleteIcon
-                                                                    sx={{ cursor: 'pointer', marginRight: '5px', color: 'black' }}
-                                                                />
-                                                            </div>
-                                                        </div>
+                                                        
                                                     )
                                                 })
 
@@ -234,15 +228,16 @@ const NavBar = () => {
                                         <p>Total $ {priceTotal} USD</p>
                                     </div>
                                     <div className='ctn-btn-pagos'>
-                                        {/* <button className='paypal-btn'><span style={{ color: '#003586' }}>Pay</span><span style={{ color: '#009ddd' }}>Pal</span></button> */}
                                         <PayPal />
-                                        <button className='mp-btn'>Mercado Pago</button>
+                                        <GooglePay/>
+                                        {/* <button className='mp-btn'>Mercado Pago</button> */}
                                     </div>
                                 </div>
 
 
                             </div>
                         </Drawer>
+                        
                     </Box>
                     <Typography
                         variant="h5"
@@ -272,6 +267,17 @@ const NavBar = () => {
                             </LinkRouter>
                         ))}
                     </Box>
+                        <div
+                                onClick={toggleDrawer}
+                                className='flex items-center justify-center'
+                            >
+                                <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
+                                {
+                                    carrito.length !== 0
+                                        ? <span className='text-lg'>{carrito.length}</span>
+                                        : <></>
+                                }
+                        </div>
                     <MenuItem>
 
                         <Box sx={{ flexGrow: 0 }}>
@@ -325,16 +331,7 @@ const NavBar = () => {
                         </Box>
 
                     </MenuItem>
-
                     <Box sx={{ flexGrow: 0 }}>
-
-                        {/* ICON R */}
-                        {/* <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip> */}
-
                         <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"
@@ -369,8 +366,6 @@ const NavBar = () => {
                                 </Box>
                             }
                         </Menu>
-
-
                     </Box>
 
                 </Toolbar>

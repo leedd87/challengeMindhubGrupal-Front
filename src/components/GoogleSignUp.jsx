@@ -1,32 +1,22 @@
-import React,{useEffect,useState} from "react";
+import React,{useEffect} from "react";
 import jwt_decode from 'jwt-decode';
 import userActions from "../redux/actions/userActions";
 import { useDispatch } from "react-redux";
 import { connect } from 'react-redux';
-import axios from 'axios'
 
 function GoogleSignUp(props){
     const dispatch= useDispatch();
-    // const [country, setCountry] = useState({})
-
-    // useEffect(() => {
-    //     axios.get("https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572")
-    //         .then(response => {
-    //             const apiResponse = response;
-    //             setCountry(apiResponse)
-    //         })
-    // }, []);
 
     const handleCallbackResponse=(response)=>{
         let userObject = jwt_decode(response.credential)
-
+        // console.log(userObject)
         dispatch(userActions.signUp({
                 firstName:userObject.given_name,
                 lastName:userObject.family_name,
                 email:userObject.email,
                 password:userObject.sub,
                 photoUrl:userObject.picture,
-                country: "Argentina",
+                country:'Argentina',
                 from:'google',
                 role:'user'
         }))

@@ -45,14 +45,14 @@ const Details = () => {
             </div>
 
             {/* Comentarios */}
-            <div className='mb-10 flex justify-center items-center h-20 border border-red-400'>
+            {/* <div className='mb-10 flex justify-center items-center h-20 border border-red-400'>
                 <p className='uppercase font-bold'>comentarios</p>
-            </div>
+            </div> */}
 
             {/* Footer */}
-            <div className='flex justify-center items-center h-20 border border-red-400'>
+            {/* <div className='flex justify-center items-center h-20 border border-red-400'>
                 <p className='uppercase font-bold'>Footer</p>
-            </div>
+            </div> */}
             
 
         </div>
