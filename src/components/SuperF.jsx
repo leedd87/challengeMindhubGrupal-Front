@@ -20,17 +20,19 @@ function SuperF() {
       .then(res => setGetShoes(res.data.response))
     // eslint-disable-next-line
   }, [reload])
-
+  const colores = getShoes.map(shoe => shoe.colorway)
+  console.log("🚀 ~ file: superF.JSX ~ line 24 ~ SuperF ~ colores", new Set(colores))
 
   const shoesIdeal = async (data) => {
 
     const typeId = data[0].isCorrect.id
     const brandId = data[1].isCorrect.id
     const priceId = data[2].isCorrect.id
+    const color = data[3].isCorrect.text
 
     const shoesType = getShoes.filter(shoe => shoe.type._id === typeId)
     const shoesBrand = shoesType.filter(shoe => shoe.brand._id === brandId)
-
+    const shoesColor = shoesBrand.filter(shoe => shoe.colorway === color)
     if (priceId === 0) {
       shoesBrand.sort((a, b) => b.price - a.price)
     }
@@ -39,8 +41,8 @@ function SuperF() {
     }
     //console.log("🚀 ~ file: superF.JSX ~ line 32 ~ shoesIdeal ~ shoesType", shoesBrand)
     if (shoesBrand.length !== 0) {
-      setShoesFinal(shoesBrand[0])
-      console.log(shoesBrand)
+      setShoesFinal(shoesColor)
+      console.log(shoesColor)
       //console.log("tu zapatilla ideal es: ", shoesFinal)
     }
     else {
@@ -84,23 +86,39 @@ function SuperF() {
     {
       text: "Que color te gusta mas?",
       options: [
-        { id: 0, text: "Blanco", isCorrect: true },
-        { id: 1, text: "Negro", isCorrect: true },
-        { id: 2, text: "Naranja", isCorrect: false },
-        { id: 3, text: "Verde", isCorrect: false },
+        { id: 0, text: "white", isCorrect: true },
+        { id: 1, text: "black", isCorrect: true },
+        { id: 2, text: "grey", isCorrect: false },
+        { id: 3, text: "brown", isCorrect: false },
+        { id: 4, text: "green", isCorrect: true },
+        { id: 5, text: "orange", isCorrect: true },
+        { id: 6, text: "cream", isCorrect: false },
+        { id: 7, text: "blue", isCorrect: false },
+        { id: 8, text: "red", isCorrect: true },
+        { id: 9, text: "purple", isCorrect: true },
+        { id: 10, text: "multi", isCorrect: true },
       ],
     },
+    {
+      text: "Ver resultados",
+      options: [
+        { id: 0, text: "yes", isCorrect: true }
+      ]
+    }
 
   ];
 
   const optionClicked = (isCorrect) => {
+    console.log("🚀 ~ file: superF.JSX ~ line 97 ~ optionClicked ~ isCorrect", answer)
     setAnswer([...answer, { isCorrect }])
+    setAnswer([...answer, { isCorrect }])
+    console.log("🚀 ~ file: superF.JSX ~ line 99 ~ optionClicked ~ isCorrect", isCorrect)
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setShowResults(true);
       shoesIdeal(answer)
-      //console.log(answer)
+
     }
   };
 
@@ -113,52 +131,58 @@ function SuperF() {
 
   return (
     <div className="containerSuperF">
-      
+
       {showResults ? (
         /* 4. Final Results */
+
         <div className="final-results">
           <h1 className="mb-8 text-lg">Final Results</h1>
           {shoesFinal ?
-            (<div className="wrapper">
-              <div className="card">
+            
+              shoesFinal.map(shoeFinal => {
+                return (<div className="wrapper">
+                  <div className="card">
 
-                <div className="front">
-                  {
-                    shoesFinal.brand ?
-                      <h1>{shoesFinal.brand.name}</h1>
-                      : null
-                  }
-                  {
-                    shoesFinal.type ?
-                      <h1>{shoesFinal.type.name}</h1>
-                      : null
-                  }
+                    <div className="front">
+                      {
+                        shoesFinal.brand ?
+                          <h1>{shoeFinal.brand.name}</h1>
+                          : null
+                      }
+                      {
+                        shoesFinal.type ?
+                          <h1>{shoeFinal.type.name}</h1>
+                          : null
+                      }
 
-                  {/* <h1>{shoesFinal?.type.name}</h1> */}
-                  <p>{shoesFinal.name}</p>
-                  <h2 className="price">U$S {shoesFinal.price}</h2>
-                </div>
+                      {/* <h1>{shoesFinal?.type.name}</h1> */}
+                      <p>{shoeFinal.name}</p>
+                      <h2 className="price">U$S {shoeFinal.price}</h2>
+                    </div>
 
-                <div className="right">
-                  <h2>{shoesFinal.brand.name}</h2>
-                  <p>{shoesFinal.name}</p>
-                  <h2 className="price">U$S {shoesFinal.price}</h2>
+                    <div className="right">
+                      <h2>{shoeFinal.brand.name}</h2>
+                      <p>{shoeFinal.name}</p>
+                      <h2 className="price">U$S {shoeFinal.price}</h2>
 
-                  <LinkRouter to={`/details/${shoesFinal._id}`} >
-                    <button>Detail</button>
-                  </LinkRouter>
+                      <LinkRouter to={`/details/${shoeFinal._id}`} >
+                        <button>Detail</button>
+                      </LinkRouter>
 
-                </div>
+                    </div>
 
-              </div>
-              <div className="img-wrapper">
-                <img src={shoesFinal.image[0]} alt={shoesFinal.name} />
-              </div>
-            </div>)
+                  </div>
+                  <div className="img-wrapper">
+                    <img src={shoeFinal.image[0]} alt={shoeFinal.name} />
+                  </div>
+                </div>)
+              })
+            
+
             : <h1>No hay resultados</h1>
           }
-          
-          <button onClick={() => restartGame()}>Restart</button>
+
+          <button className="btnReset" onClick={() => restartGame()}>Restart</button>
         </div>
       ) : (
         /* 5. Question Card  */
