@@ -111,7 +111,6 @@ function SuperF() {
   const optionClicked = (isCorrect) => {
     console.log("🚀 ~ file: superF.JSX ~ line 97 ~ optionClicked ~ isCorrect", answer)
     setAnswer([...answer, { isCorrect }])
-    setAnswer([...answer, { isCorrect }])
     console.log("🚀 ~ file: superF.JSX ~ line 99 ~ optionClicked ~ isCorrect", isCorrect)
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
@@ -140,8 +139,8 @@ function SuperF() {
           {shoesFinal ?
             
               shoesFinal.map(shoeFinal => {
-                return (<div className="wrapper">
-                  <div className="card">
+                return (<div className="wrapper" key={shoeFinal._id}>
+                  <div className="card" >
 
                     <div className="front">
                       {

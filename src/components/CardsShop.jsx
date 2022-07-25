@@ -58,7 +58,7 @@ const CardsShop = ({ shoes }) => {
 						<h2 className="price">U$S {shoes.price}</h2>
 						<ul>
 							<li>talles : 12 12</li>
-							<li>Colors:	⚪⚫</li>
+							<li>Color: {shoes.colorway}	</li>
 
 						</ul>
 						<LinkRouter to={`/details/${shoes._id}`} >
