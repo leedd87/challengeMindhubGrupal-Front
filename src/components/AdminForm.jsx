@@ -16,7 +16,7 @@ export default function AdminForm() {
         // getShoes()
         dispatch(shoesActions.getShoes())
             .then(res => setShoes(res.data.response))
-
+        // eslint-disable-next-line
     }, [reload])
 
     // AGREGAR SHOE
@@ -57,7 +57,8 @@ export default function AdminForm() {
     const handleSubmitDelete = async (e) => {
         e.preventDefault()
 
-        const res = await dispatch(adminActions.removeShoe(e.target[0].value))
+        // const res = await dispatch(adminActions.removeShoe(e.target[0].value))
+        dispatch(adminActions.removeShoe(e.target[0].value))
         // console.log(res.data.message)
         e.target[0].value = ''
 

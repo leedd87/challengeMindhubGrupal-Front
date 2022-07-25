@@ -42,7 +42,7 @@ const settings = [
 ];
 
 const NavBar = () => {
-    
+
     const dispatch = useDispatch()
 
     // HOOKS NAVBAR
@@ -170,10 +170,10 @@ const NavBar = () => {
                                                 carrito.map(producto => {
                                                     return (
 
-                                                        <div className="products">
-                                                            <div className='imgdiv'>
+                                                        <div className="products rounded-md">
+                                                            <div className='imgdiv rounded-md'>
                                                                 <img
-                                                                    className="imgShops"
+                                                                    className="imgShops rounded-md"
                                                                     src={producto.image}
                                                                     alt={producto.name}
                                                                 />
@@ -212,29 +212,35 @@ const NavBar = () => {
                                 {/* FOOTER */}
                                 <div className='total-ctn'>
 
-                                    <div className='price-ctn mb-2'>
+                                    <div className='price-ctn mb-5'>
                                         <p>Total $ {priceTotal} USD</p>
                                     </div>
 
 
                                     <button
                                         onClick={clearAllShop}
-                                        className='text-center rounded-md bg-red-600 hover:bg-red-500 cursor-pointer font-bold py-3 px-8'>Vaciar carrito</button>
+                                        className='text-center rounded-md bg-red-600 hover:bg-red-500 cursor-pointer font-bold py-3 px-8'
+                                    >
+                                        Remove all
+                                    </button>
 
-
-                                    <div className='ctn-btn-pagos'>
-                                        <PayPal />
-                                        <GooglePay />
-                                        {/* <button className='mp-btn'>Mercado Pago</button> */}
-                                    </div>
+                                    {
+                                        user
+                                            ? <div className='ctn-btn-pagos'>
+                                                <PayPal />
+                                                <GooglePay />
+                                            </div>
+                                            : <p className='text-black mt-5 text-lg'>Pleace{' '}<LinkRouter to='/signIn' className='uppercase font-bold'>signin</LinkRouter>{' '}to realice the purchase</p>
+                                    }
+                                    
                                 </div>
-
 
                             </div>
 
                         </Drawer>
 
                     </Box>
+
                     <Typography
                         variant="h5"
                         noWrap
@@ -278,21 +284,6 @@ const NavBar = () => {
                         }
                     </div>
                     <MenuItem>
-
-                        {/* ACA VA EL BOTON CARRITO */}
-
-                        {/* BOTON CARRITO */}
-                        {/* <div
-                            onClick={toggleDrawer}
-                            className='flex items-center justify-center mx-5'
-                        >
-                            <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
-                            {
-                                carrito.length !== 0
-                                    ? <span className='text-lg'>{carrito.length}</span>
-                                    : <></>
-                            }
-                        </div> */}
 
                         {/* BOTON ADMIN */}
                         {

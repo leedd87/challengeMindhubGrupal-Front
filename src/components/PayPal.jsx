@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
 import { useSelector } from 'react-redux';
 
