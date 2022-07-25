@@ -8,26 +8,18 @@ export default function Paypal() {
     const [orderID, setOrderID] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
 
-    // console.log(1, orderID);
-    // console.log(2, success);
-    // console.log(3, ErrorMessage);
-
     useEffect(() => {
 
-        PayPalCheckOut()//LLamo al cdn de PayPal cada vez que cambia el carrito
+        PayPalCheckOut()
 
         // eslint-disable-next-line
     }, []);
 
     // DATOS DE MI CARRITO
 
-    const carrito = useSelector(store => store.shopReducer.productsInShop); // GUARDO MI CARRITO
+    const carrito = useSelector(store => store.shopReducer.productsInShop);
+    const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0)
 
-    const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
-
-    // console.log(priceTotal)
-
-    //CDN
     const initialOptions = {
         'client-id': 'AQNs4aLkZG4-jD319sRvEnf0itmOm4qN1OF8wXTOfn32-_VQPbZLF6G7e4Qf4VX8zDlNR9SLHkZGGuKp',
         currency: 'USD',
@@ -35,8 +27,7 @@ export default function Paypal() {
     }
 
     const createOrder = (data, actions) => {
-        //Creo la orden de con los datos, esta puede ser general o con detalle de items
-        console.log(data)
+        // console.log(data)
         return actions.order.create({
             purchase_units: [
                 {
@@ -44,11 +35,12 @@ export default function Paypal() {
                     amount: {
                         value: priceTotal,
                     },
-
-                },
-
-
-            ],
+                    description:'Compra en daftlab',
+                    item_list:{
+                        items:carrito
+                    }
+                    
+                }]
 
 
         });
@@ -104,6 +96,6 @@ export default function Paypal() {
     }
 
     return (
-        <PayPalCheckOut />
+        <PayPalCheckOut/>
     );
 }
