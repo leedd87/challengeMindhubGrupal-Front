@@ -29,6 +29,9 @@ const CardsShop = ({ shoes }) => {
 
 		// localStorage.setItem('producto', JSON.stringify(product))
 		console.log('alerta agregaste un producto')
+		// const carrito = useSelector(store => store.shopReducer.productsInShop);
+		// console.log(carrito)
+
 
 	}
 

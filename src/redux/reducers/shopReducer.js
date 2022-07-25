@@ -14,20 +14,40 @@ const shopReducer = (state = initialState, action) => {
 
             productsInShop = [...state.productsInShop];
 
-            
-            // if (action.payload.product.id ===)
-            // let productRepetido = productsInShop.map(product => product.id)
+            let productRepetido = productsInShop.find(product => product.id === action.payload.product.id)
 
-            // productRepetido.cant = productRepetido.cant + 1
-            
-            productsInShop.push(action.payload.product)
-            
-            localStorage.setItem('carrito', JSON.stringify(productsInShop) ) // hace que mi ls se vaya modificando en vivo
-            return {
-                ...state,
-                productsInShop: productsInShop
+            if (productRepetido === undefined) {
 
-            };
+                productsInShop.push(action.payload.product)
+                
+                localStorage.setItem('carrito', JSON.stringify(productsInShop) ) // hace que mi ls se vaya modificando en vivo
+                return {
+                    ...state,
+                    productsInShop: productsInShop
+    
+                };
+            } else { // SI ESTA REPETIDO ENTRA ACA
+
+                productRepetido.cant = productRepetido.cant + 1;
+                // productRepetido.price = productRepetido.price * productRepetido.cant
+                // console.log(productRepetido)
+
+                // let nuevoProducto =
+
+                // productRepetido.price = unidad.price * productRepetido.cant
+                
+                // productsInShop.push(productRepetido)
+
+                localStorage.setItem('carrito', JSON.stringify(productsInShop)) // hace que mi ls se vaya modificando en vivo
+                return {
+                    ...state,
+                    productsInShop: productsInShop
+
+                };
+
+
+            }
+            
 
         case 'DELETETOSHOP':
 

@@ -84,8 +84,11 @@ const NavBar = () => {
     // const dispatch = useDispatch();
 
     const carrito = useSelector(store => store.shopReducer.productsInShop); // GUARDO MI CARRITO
+    console.log(carrito)
 
-    const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
+    // const carritoSinRepetidos = carrito.map(product => product.id)
+
+    const priceTotal = carrito.reduce((total, producto) => total + producto.price * producto.cant, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
 
     const removeToShop = (producto) => {
         dispatch(shopActions.deleteToShop(producto))
@@ -198,7 +201,7 @@ const NavBar = () => {
                                                             </div>
                                                             <div className='titlediv'>
                                                                 <h3 style={{ color: 'white' }}>{producto.name}</h3>
-                                                                <p style={{ color: 'white' }}>$ {producto.price} USD</p>
+                                                                <p style={{ color: 'white' }}>Price unit: USD {producto.price}</p>
                                                                 <p>Unit: {producto.cant}</p>
                                                             </div>
                                                             <div
