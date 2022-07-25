@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 
 export default function Paypal() {
     // HOOKS
-    const [success, setSuccess] = useState(false);
-    const [orderID, setOrderID] = useState(false);
-    const [ErrorMessage, setErrorMessage] = useState("");
+    // const [success, setSuccess] = useState(false);
+    // const [orderID, setOrderID] = useState(false);
+    // const [ErrorMessage, setErrorMessage] = useState("");
 
     // console.log(1, orderID);
     // console.log(2, success);
@@ -65,7 +65,7 @@ export default function Paypal() {
 
                 const { payer } = details;
 
-                setSuccess(true);
+                // setSuccess(true);
                 console.log('Capture result', details, JSON.stringify(details, null, 2)); //veo los datos en consola
 
                 var transaction = details.purchase_units[0].payments.captures[0];
@@ -73,8 +73,10 @@ export default function Paypal() {
                 alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
 
                 console.log(details)
+                console.log(payer)
 
-                setOrderID(transaction.id)
+
+                // setOrderID(transaction.id)
             });
     };
 
@@ -83,7 +85,8 @@ export default function Paypal() {
     }
 
     const onError = (data, actions) => { //Capturo error en caso de que exista
-        setErrorMessage("An Error occured with your payment ");
+        // setErrorMessage("An Error occured with your payment ");
+        console.log("An Error occured with your payment");
     };
 
 

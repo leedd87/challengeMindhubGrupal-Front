@@ -31,71 +31,50 @@ import shopActions from '../redux/actions/shopActions';
 import PayPal from './PayPal';
 import GooglePay from './GooglePay';
 
-
-
-
 const pages = [
     { to: '/', name: 'Home' },
     { to: '/shop', name: 'Shop' },
     { to: '/about', name: 'About' }
 ];
 
-
 const settings = [
     { to: '/account', name: 'Account ' },
-    // { to: '/signup', name: 'SignUp' }
 ];
 
-
 const NavBar = () => {
+    
     const dispatch = useDispatch()
-    const logOut = () => {
-        dispatch(userActions.logOut(user.email))
-        // console.log(user.email);
-    }
 
-
+    // HOOKS NAVBAR
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
-
+    const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
+    const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
+    const handleCloseNavMenu = () => setAnchorElNav(null);
+    const handleCloseUserMenu = () => setAnchorElUser(null);
     const [isOpen, setIsOpen] = useState(false)
-    const toggleDrawer = () => {
-        setIsOpen((prevState) => !prevState)
-    }
-    const user = useSelector(store => store.userReducer.user)
-
+    const toggleDrawer = () => setIsOpen((prevState) => !prevState)
 
     // CODIGO
-    // const dispatch = useDispatch();
 
-    const carrito = useSelector(store => store.shopReducer.productsInShop); // GUARDO MI CARRITO
-    console.log(carrito)
+    // GUARDO MI USUARIO
+    const user = useSelector(store => store.userReducer.user)
 
-    // const carritoSinRepetidos = carrito.map(product => product.id)
+    // DESLOGEO
+    const logOut = () => dispatch(userActions.logOut(user.email))
 
-    const priceTotal = carrito.reduce((total, producto) => total + producto.price * producto.cant, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
+    // GUARDO MI CARRITO
+    const carrito = useSelector(store => store.shopReducer.productsInShop)
 
-    const removeToShop = (producto) => {
-        dispatch(shopActions.deleteToShop(producto))
-        console.log('eliminaste un producto')
-    } // ELIMINO PRODUCTOS DEL CARRITO
+    // CALCULA EL PRECIO TOTAL DEL CARRITO
+    const priceTotal = carrito.reduce((total, producto) => total + producto.price * producto.cant, 0)
 
-    // localStorage.setItem('carrito', JSON.stringify(carrito)) // GUARDAR MI CARRITO EN EL LOCAL STORAGE
+    // ELIMINO PRODUCTOS DEL CARRITO
+    const removeToShop = (producto) => dispatch(shopActions.deleteToShop(producto))
+
+    // ELIMINO TODO EL CARRITO
+    const clearAllShop = () => dispatch(shopActions.deleteAllToShop())
+
 
     return (
         <AppBar position="sticky" sx={{ backgroundColor: "#949494" }}>
@@ -176,13 +155,13 @@ const NavBar = () => {
                             className='drawer-ctn'
                         >
                             <div>
-
+                                {/* TITULO */}
                                 <div className='h2-ctn'>
                                     <AddShoppingCartIcon sx={{ color: 'black' }} />
                                     <h1 className='title-cart-shop'>SHOPPING CART</h1>
                                 </div>
 
-
+                                {/* ARTICULOS */}
                                 <div className="article-ctn">
 
                                     {
@@ -201,7 +180,7 @@ const NavBar = () => {
                                                             </div>
                                                             <div className='titlediv'>
                                                                 <h3 style={{ color: 'white' }}>{producto.name}</h3>
-                                                                <p style={{ color: 'white' }}>Price unit: USD {producto.price}</p>
+                                                                <p style={{ color: 'white' }}>USD {producto.price}</p>
                                                                 <p>Unit: {producto.cant}</p>
                                                             </div>
                                                             <div
@@ -230,10 +209,19 @@ const NavBar = () => {
 
                                 </div>
 
+                                {/* FOOTER */}
                                 <div className='total-ctn'>
-                                    <div className='price-ctn'>
+
+                                    <div className='price-ctn mb-2'>
                                         <p>Total $ {priceTotal} USD</p>
                                     </div>
+
+
+                                    <button
+                                        onClick={clearAllShop}
+                                        className='text-center rounded-md bg-red-600 hover:bg-red-500 cursor-pointer font-bold py-3 px-8'>Vaciar carrito</button>
+
+
                                     <div className='ctn-btn-pagos'>
                                         <PayPal />
                                         <GooglePay />
@@ -243,6 +231,7 @@ const NavBar = () => {
 
 
                             </div>
+
                         </Drawer>
 
                     </Box>
