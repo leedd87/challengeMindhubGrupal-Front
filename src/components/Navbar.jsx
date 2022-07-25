@@ -16,7 +16,8 @@ import logo from '../assets/logo.png';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Drawer from 'react-modern-drawer'
-import DeleteIcon from '@mui/icons-material/Delete';
+import CancelIcon from '@mui/icons-material/Cancel';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import 'react-modern-drawer/dist/index.css'
 import '../styles/style.css'
@@ -169,6 +170,7 @@ const NavBar = () => {
                             <div>
 
                                 <div className='h2-ctn'>
+                                    <AddShoppingCartIcon sx={{color:'black'}}/>
                                     <h1 className='title-cart-shop'>SHOPPING CART</h1>
                                 </div>
 
@@ -180,27 +182,32 @@ const NavBar = () => {
                                             (
                                                 carrito.map(producto => {
                                                     return (
-                                                        <div key={producto.id} className='mb-5 bg-gray-100 p-3 rounded-md'>
+                                                      
                                                             <div className="products">
-                                                                <img
-                                                                    className="imgShops"
-                                                                    src={producto.image}
-                                                                    alt={producto.name}
-                                                                />
-                                                                <div>
-                                                                    <h3 style={{ color: 'black' }}>{producto.name}</h3>
-                                                                    <p style={{ color: 'black' }}>$ {producto.price} USD</p>
+                                                                <div className='imgdiv'>
+                                                                    <img
+                                                                        className="imgShops"
+                                                                        src={producto.image}
+                                                                        alt={producto.name}
+                                                                    />
+                                                                </div>
+                                                                <div className='titlediv'>
+                                                                    <h3 style={{ color: 'white' }}>{producto.name}</h3>
+                                                                    <p style={{ color: 'white' }}>$ {producto.price} USD</p>
+                                                                </div>
+                                                                <div
+                                                                    className='btndiv'
+                                                                    onClick={() => removeToShop(producto)}
+                                                                >
+                                                                    <button class="btndelet">
+                                                                        <CancelIcon
+                                                                            sx={{ cursor: 'pointer', margin: '5px', color: 'white' }}
+                                                                        />
+                                                                    </button>
                                                                 </div>
                                                             </div>
 
-                                                            <div
-                                                                onClick={() => removeToShop(producto)}
-                                                            >
-                                                                <DeleteIcon
-                                                                    sx={{ cursor: 'pointer', marginRight: '5px', color: 'black' }}
-                                                                />
-                                                            </div>
-                                                        </div>
+                                                        
                                                     )
                                                 })
 
