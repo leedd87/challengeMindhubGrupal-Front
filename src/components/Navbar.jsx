@@ -21,7 +21,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import 'react-modern-drawer/dist/index.css'
 import '../styles/style.css'
-
+import toast from 'react-hot-toast';
 
 import PersonIcon from '@mui/icons-material/Person';
 import { Link as LinkRouter } from 'react-router-dom';
@@ -61,7 +61,11 @@ const NavBar = () => {
     const user = useSelector(store => store.userReducer.user)
 
     // DESLOGEO
-    const logOut = () => dispatch(userActions.logOut(user.email))
+    const logOut = async () => {
+        const res = await dispatch(userActions.logOut(user.email))
+        toast.success(`${res.data.message}`)
+        // console.log(res.data.message)
+    }
 
     // GUARDO MI CARRITO
     const carrito = useSelector(store => store.shopReducer.productsInShop)
@@ -70,10 +74,16 @@ const NavBar = () => {
     const priceTotal = carrito.reduce((total, producto) => total + producto.price * producto.cant, 0)
 
     // ELIMINO PRODUCTOS DEL CARRITO
-    const removeToShop = (producto) => dispatch(shopActions.deleteToShop(producto))
+    const removeToShop = (producto) => {
+        dispatch(shopActions.deleteToShop(producto))
+        toast.error('Product deleted')
+    }
 
     // ELIMINO TODO EL CARRITO
-    const clearAllShop = () => dispatch(shopActions.deleteAllToShop())
+    const clearAllShop = () => {
+        dispatch(shopActions.deleteAllToShop())
+        toast.error('No products in cart')
+    }
 
 
     return (
@@ -232,7 +242,7 @@ const NavBar = () => {
                                             </div>
                                             : <p className='text-black mt-5 text-lg'>Pleace{' '}<LinkRouter to='/signIn' className='uppercase font-bold'>signin</LinkRouter>{' '}to realice the purchase</p>
                                     }
-                                    
+
                                 </div>
 
                             </div>

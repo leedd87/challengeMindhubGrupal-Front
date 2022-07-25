@@ -1,6 +1,7 @@
 import '../../src/styles/style.css'
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 
 import adminActions from '../redux/actions/adminActions';
 import shoesActions from '../redux/actions/shoesActions';
@@ -36,7 +37,8 @@ export default function AdminForm() {
         }
 
         const res = await dispatch(adminActions.addShoe(data))
-        console.log(res.data.message)
+        // console.log(res.data.message)
+        toast.success(`${res.data.message}`)
 
         e.target[0].value = ''
         e.target[1].value = ''
@@ -57,8 +59,9 @@ export default function AdminForm() {
     const handleSubmitDelete = async (e) => {
         e.preventDefault()
 
-        // const res = await dispatch(adminActions.removeShoe(e.target[0].value))
-        dispatch(adminActions.removeShoe(e.target[0].value))
+        const res = await dispatch(adminActions.removeShoe(e.target[0].value))
+        // dispatch(adminActions.removeShoe(e.target[0].value))
+        toast.success(`${res.data.message}`)
         // console.log(res.data.message)
         e.target[0].value = ''
 

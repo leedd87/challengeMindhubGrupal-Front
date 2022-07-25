@@ -21,7 +21,7 @@ function SuperF() {
     // eslint-disable-next-line
   }, [reload])
   const colores = getShoes.map(shoe => shoe.colorway)
-  console.log("🚀 ~ file: superF.JSX ~ line 24 ~ SuperF ~ colores", new Set(colores))
+  // console.log("🚀 ~ file: superF.JSX ~ line 24 ~ SuperF ~ colores", new Set(colores))
 
   const shoesIdeal = async (data) => {
 

@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
+import shopActions from "../redux/actions/shopActions";
+
 
 export default function Paypal() {
     // HOOKS
@@ -11,6 +14,8 @@ export default function Paypal() {
     // console.log(1, orderID);
     // console.log(2, success);
     // console.log(3, ErrorMessage);
+
+    const dispatch = useDispatch()
 
     useEffect(() => {
 
@@ -36,7 +41,7 @@ export default function Paypal() {
 
     const createOrder = (data, actions) => {
         //Creo la orden de con los datos, esta puede ser general o con detalle de items
-        console.log(data)
+        // console.log(data)
         return actions.order.create({
             purchase_units: [
                 {
@@ -58,35 +63,32 @@ export default function Paypal() {
 
     const onApprove = (data, actions) => { //recibo el resultado de mi operacion
 
-        // console.log(data)
-
         return actions.order.capture()
             .then(function (details) {
 
                 const { payer } = details;
 
-                // setSuccess(true);
-                console.log('Capture result', details, JSON.stringify(details, null, 2)); //veo los datos en consola
-
                 var transaction = details.purchase_units[0].payments.captures[0];
 
-                alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+                toast(
+                    `Transaction ${transaction.status}\n\nThanks for your purchase ${payer.name.given_name} ${payer.name.surname}`,
+                    {
+                        duration: 7000,
+                    }
+                );
 
-                console.log(details)
-                console.log(payer)
-
-
-                // setOrderID(transaction.id)
+                if (transaction.status === 'COMPLETED') {
+                    dispatch(shopActions.deleteAllToShop())
+                }
             });
     };
 
     const onCancel = (data) => {
-        console.log('You have cancelled the payment!', data);
+        toast.error('You have cancelled the payment!');
     }
 
     const onError = (data, actions) => { //Capturo error en caso de que exista
-        // setErrorMessage("An Error occured with your payment ");
-        console.log("An Error occured with your payment");
+        toast.error('No products in cart')
     };
 
 

@@ -10,6 +10,8 @@ import Stack from '@mui/material/Stack';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import toast from 'react-hot-toast';
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -40,7 +42,8 @@ const DetailCard = ({ shoes }) => {
     dispatch(shopActions.addToShop(product))
 
     // localStorage.setItem('carrito', JSON.stringify() )
-    console.log('alerta agregaste un producto')
+    // console.log('alerta agregaste un producto')
+    toast.success('Product successfully added')
   }
 
   const logoShoes = () => {

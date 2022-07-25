@@ -3,11 +3,13 @@ import { Link as LinkRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import userActions from '../../src/redux/actions/userActions'
 import GoogleSignUp from './GoogleSignUp';
+import toast from 'react-hot-toast';
+
 
 function AccountSignUp(props) {
     const countrys = ["Select Country", "Argentina", "Uruguay", "Chile", "Bolivia", "Peru", "Brazil", "Colombia", "Venezuela", "Paraguay", "Ecuador", 'Other']
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         const userData = {
             firstName: event.target[0].value,
@@ -19,10 +21,31 @@ function AccountSignUp(props) {
             from: 'form-Signup',
             role: 'user'
         }
-        event.target.reset()
+
         // console.log(event);
-        props.signUp(userData)
-        // console.log(userData);
+        const res = await props.signUp(userData)
+
+        // console.log(res.data.message)
+        // console.log(res.data.success)
+
+        if (res.data.success) {
+
+            toast.success(`${res.data.message}`)
+            event.target.reset()
+
+        } else {
+            toast.success(`${res.data.message}`)
+            event.target.reset()
+        }
+
+        // if (res.data.message.length !== 1) {
+        //     res.data.message.map(mes => {
+        //         toast.error(`${mes.message}`)
+        //     })
+        // } else {
+        // if(res.data)
+        //     event.target.reset()
+        // }
     }
     return (
         <div className='body'>
@@ -34,12 +57,12 @@ function AccountSignUp(props) {
                             <GoogleSignUp />
                         </div>
                         <h3>or</h3>
-                        <input className='signUp-input' type='text' placeholder='FirstName' />
-                        <input className='signUp-input' type='text' placeholder='LastName' />
-                        <input className='signUp-input' type='text' placeholder='Email' />
-                        <input className='signUp-input' type='password' placeholder='Password' />
-                        <input className='signUp-input' type='text' placeholder='Profile Pic' />
-                        <select className='signUp-input' style={{ cursor: 'pointer' }} name='country'>
+                        <input className='signUp-input' type='text' placeholder='FirstName' required />
+                        <input className='signUp-input' type='text' placeholder='LastName' required />
+                        <input className='signUp-input' type='text' placeholder='Email' required />
+                        <input className='signUp-input' type='password' placeholder='Password' required />
+                        <input className='signUp-input' type='text' placeholder='Profile Pic' required />
+                        <select className='signUp-input' style={{ cursor: 'pointer' }} name='country' required>
                             {countrys.map((country, index) =>
                                 <option style={{ cursor: 'pointer' }} key={index}>{country}</option>
                             )}
