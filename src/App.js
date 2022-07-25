@@ -15,35 +15,48 @@ import Details from './pages/Details'
 import shoesActions from './redux/actions/shoesActions';
 import AboutUs from './pages/AboutUs';
 import styled from 'styled-components';
-import userActions from '../src/redux/actions/userActions'
+import userActions from '../src/redux/actions/userActions';
+import shopActions from './redux/actions/shopActions';
 
 function App() {
-	const [loading, setLoading] = useState(false);
+	const dispatch = useDispatch();
+	const user = useSelector(store => store.userReducer.user);
 
+	// HOOKS
+	const [loading, setLoading] = useState(false);
+	
 	useEffect(() => {
 		setLoading(true);
 		setTimeout(() => {
 			setLoading(false);
 		}
-			, 3500);
+			, 2000);
 	}
 		, []);
-	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(shoesActions.getShoes())
 		// eslint-disable-next-line
 	}, [])
 
+	// USE EFFECT PARA TRAER LOCAL STORAGE SI EXISTE
 	useEffect(() => {
 		if (localStorage.getItem('token') !== null) {
 			const token = localStorage.getItem('token')
 			dispatch(userActions.verifyToken(token))
 		}
+
+		if(localStorage.getItem('carrito') !== null ) {
+
+			const carrito = JSON.parse(localStorage.getItem('carrito') )
+
+			dispatch(shopActions.verifyShopStorage(carrito))
+		} else { console.log('no encontre nada')}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
-	const user = useSelector(store => store.userReducer.user)
+
 
 	return (
 		<SneakerStore>
@@ -68,7 +81,15 @@ function App() {
 									{!user && <Route path='/signIn' element={<SignIn />} />}
 									{!user && <Route path='/signup' element={<SignUp />} />}
 									{!user && <Route path='/account' element={<Account />} />}
-									<Route path='/adminForm' element={<AdminForm />} />
+
+									{
+										user &&
+											user.role === 'admin'
+											? <Route path='/adminForm' element={<AdminForm />} />
+											: null
+
+									}
+
 									<Route path='/shop' element={<Shop />} />
 									<Route path='/about' element={<AboutUs />} />
 									<Route path='/*' element={<Home/>} />

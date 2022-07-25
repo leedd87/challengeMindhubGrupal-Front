@@ -92,13 +92,14 @@ const NavBar = () => {
         console.log('eliminaste un producto')
     } // ELIMINO PRODUCTOS DEL CARRITO
 
-    localStorage.setItem('carrito', JSON.stringify(carrito)) // GUARDAR MI CARRITO EN EL LOCAL STORAGE
+    // localStorage.setItem('carrito', JSON.stringify(carrito)) // GUARDAR MI CARRITO EN EL LOCAL STORAGE
 
     return (
         <AppBar position="sticky" sx={{ backgroundColor: "#949494" }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
 
+                    {/* LOGO */}
                     <Typography
                         variant="h6"
                         noWrap
@@ -122,6 +123,7 @@ const NavBar = () => {
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -132,6 +134,7 @@ const NavBar = () => {
                         >
                             <MenuIcon />
                         </IconButton>
+
                         <Menu
                             id="menu-appbar"
                             anchorEl={anchorElNav}
@@ -158,10 +161,11 @@ const NavBar = () => {
                                 </LinkRouter>
                             ))}
                         </Menu>
+
                     </Box>
 
                     <Box>
-                    {/* BOTON CARRITO */}
+                        {/* BOTON CARRITO */}
                         <Drawer
                             open={isOpen}
                             onClose={toggleDrawer}
@@ -171,7 +175,7 @@ const NavBar = () => {
                             <div>
 
                                 <div className='h2-ctn'>
-                                    <AddShoppingCartIcon sx={{color:'black'}}/>
+                                    <AddShoppingCartIcon sx={{ color: 'black' }} />
                                     <h1 className='title-cart-shop'>SHOPPING CART</h1>
                                 </div>
 
@@ -183,33 +187,33 @@ const NavBar = () => {
                                             (
                                                 carrito.map(producto => {
                                                     return (
-                                                      
-                                                            <div className="products">
-                                                                <div className='imgdiv'>
-                                                                    <img
-                                                                        className="imgShops"
-                                                                        src={producto.image}
-                                                                        alt={producto.name}
-                                                                    />
-                                                                </div>
-                                                                <div className='titlediv'>
-                                                                    <h3 style={{ color: 'white' }}>{producto.name}</h3>
-                                                                    <p style={{ color: 'white' }}>$ {producto.price} USD</p>
-                                                                    <p>Unit: {producto.cant}</p>
-                                                                </div>
-                                                                <div
-                                                                    className='btndiv'
-                                                                    onClick={() => removeToShop(producto)}
-                                                                >
-                                                                    <button className="btndelet">
-                                                                        <CancelIcon
-                                                                            sx={{ cursor: 'pointer', margin: '5px', color: 'white' }}
-                                                                        />
-                                                                    </button>
-                                                                </div>
-                                                            </div>
 
-                                                        
+                                                        <div className="products">
+                                                            <div className='imgdiv'>
+                                                                <img
+                                                                    className="imgShops"
+                                                                    src={producto.image}
+                                                                    alt={producto.name}
+                                                                />
+                                                            </div>
+                                                            <div className='titlediv'>
+                                                                <h3 style={{ color: 'white' }}>{producto.name}</h3>
+                                                                <p style={{ color: 'white' }}>$ {producto.price} USD</p>
+                                                                <p>Unit: {producto.cant}</p>
+                                                            </div>
+                                                            <div
+                                                                className='btndiv'
+                                                                onClick={() => removeToShop(producto)}
+                                                            >
+                                                                <button className="btndelet">
+                                                                    <CancelIcon
+                                                                        sx={{ cursor: 'pointer', margin: '5px', color: 'white' }}
+                                                                    />
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+
                                                     )
                                                 })
 
@@ -229,7 +233,7 @@ const NavBar = () => {
                                     </div>
                                     <div className='ctn-btn-pagos'>
                                         <PayPal />
-                                        <GooglePay/>
+                                        <GooglePay />
                                         {/* <button className='mp-btn'>Mercado Pago</button> */}
                                     </div>
                                 </div>
@@ -237,7 +241,7 @@ const NavBar = () => {
 
                             </div>
                         </Drawer>
-                        
+
                     </Box>
                     <Typography
                         variant="h5"
@@ -248,7 +252,6 @@ const NavBar = () => {
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
-
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
@@ -258,6 +261,10 @@ const NavBar = () => {
                     >
                         <img src={logo} alt="logo" style={{ "height": "5rem" }} />
                     </Typography>
+
+
+
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((op, index) => (
                             <LinkRouter to={op.to} key={index} onClick={handleCloseNavMenu} className="linkR">
@@ -267,20 +274,47 @@ const NavBar = () => {
                             </LinkRouter>
                         ))}
                     </Box>
-                        <div
-                                onClick={toggleDrawer}
-                                className='flex items-center justify-center'
-                            >
-                                <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
-                                {
-                                    carrito.length !== 0
-                                        ? <span className='text-lg'>{carrito.length}</span>
-                                        : <></>
-                                }
-                        </div>
+                    <div
+                        onClick={toggleDrawer}
+                        className='flex items-center justify-center'
+                    >
+                        <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
+                        {
+                            carrito.length !== 0
+                                ? <span className='text-lg'>{carrito.length}</span>
+                                : <></>
+                        }
+                    </div>
                     <MenuItem>
 
+                        {/* ACA VA EL BOTON CARRITO */}
+
+                        {/* BOTON CARRITO */}
+                        {/* <div
+                            onClick={toggleDrawer}
+                            className='flex items-center justify-center mx-5'
+                        >
+                            <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
+                            {
+                                carrito.length !== 0
+                                    ? <span className='text-lg'>{carrito.length}</span>
+                                    : <></>
+                            }
+                        </div> */}
+
+                        {/* BOTON ADMIN */}
+                        {
+                            user &&
+                                user.role === 'admin'
+                                ? <LinkRouter
+                                    to='/adminForm'
+                                >
+                                    <button className='text-3xl mr-4'>👮‍♀️</button>
+                                </LinkRouter>
+                                : <></>
+                        }
                         <Box sx={{ flexGrow: 0 }}>
+
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                     {user ?
@@ -294,6 +328,7 @@ const NavBar = () => {
                                     }
                                 </IconButton>
                             </Tooltip>
+
                             <Menu
                                 sx={{ mt: '45px' }}
                                 id="menu-appbar"
@@ -328,6 +363,7 @@ const NavBar = () => {
                                     </Box>
                                 }
                             </Menu>
+
                         </Box>
 
                     </MenuItem>
