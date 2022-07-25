@@ -5,7 +5,8 @@ import userActions from '../../src/redux/actions/userActions'
 import GoogleSignUp from './GoogleSignUp';
 
 function AccountSignUp(props){
-    
+    const countrys= ["Select Country","Argentina", "Uruguay","Chile","Bolivia","Peru","Brazil","Colombia","Venezuela","Paraguay","Ecuador",'Other']
+
     const handleSubmit=(event)=>{
         event.preventDefault()
         const userData ={
@@ -16,6 +17,7 @@ function AccountSignUp(props){
           photoUrl:event.target[4].value,
           country:event.target[5].value,
           from:'form-Signup',
+          role:'user'
         }
         event.target.reset()
         // console.log(event);
@@ -32,13 +34,16 @@ function AccountSignUp(props){
                             <GoogleSignUp/>
                         </div>
                         <h3>or</h3>
-                        <input type='text' placeholder='FirstName'/>
-                        <input type='text' placeholder='LastName'/>
-                        <input type='text' placeholder='Email'/>
-                        <input type='password' placeholder='Password'/>
-                        <input type='text' placeholder='Profile Pic'/>
-                        {/* <input type='file' placeholder='Profile Pic'/> */}
-                        <input type='text' placeholder='Country'/>
+                        <input className='signUp-input' type='text' placeholder='FirstName'/>
+                        <input className='signUp-input' type='text' placeholder='LastName'/>
+                        <input className='signUp-input' type='text' placeholder='Email'/>
+                        <input className='signUp-input' type='password' placeholder='Password'/>
+                        <input className='signUp-input' type='text' placeholder='Profile Pic'/>
+                        <select className='signUp-input' style={{cursor:'pointer'}} name='country'>
+                            {countrys.map((country,index)=>
+                                <option style={{cursor:'pointer'}} key={index}>{country}</option>
+                            )}
+                        </select>
                         <button  type="submit" value="submit" className='accountbtn'>Sign Up</button>
                     </form>
                 </div>

@@ -2,13 +2,16 @@
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif !important;
 }
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Sriracha&display=swap');
+
 .body{
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 90vh;
+  background-color: #e0e0e0;
   /* background: linear-gradient(-30deg, rgba(33, 102, 180, 0.614) 0%, rgb(26, 89, 190) 50%, #609855 50%, #6eaa75 100%); */
 }
 .container-signup {
@@ -58,7 +61,8 @@ p{
   letter-spacing: 0.5px;
   margin: 15px 0 20px;
 }
-input{
+
+.signUp-input{
   background-color: #eee;
   padding: 12px 15px;
   margin: 8px 15px;
@@ -187,8 +191,6 @@ background-color: white;
   gap: 3rem;
   flex-wrap: wrap;
 }
-
-
 #demo-simple-select{
   height: 0.1rem;
   width: 5rem;
@@ -216,7 +218,6 @@ justify-content: center;
 align-items: center;
 gap: 0.5rem;
 height: 2.5rem;
-
 }
 .btn{
   padding: 10px;
@@ -235,31 +236,69 @@ height: 2.5rem;
   min-height: 100% !important;
   overflow-y: scroll;
 }
-.drawer-ctn::-webkit-scrollbar{
-  width: 10px !important;
-}
-.drawer-ctn::-webkit-scrollbar-thumb{
-  background-color:#121212;
-  border-radius: 20px;
-}
 .article-ctn{
-  /* background-color:#ebebeb; */
-  margin: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   border-radius: 10px;
   overflow-y: scroll;
-  height: 650px;
+  height: 65vh;
+  margin-bottom: 10px;
 }
 .products{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color:#dddddd;
+  min-width:25vw;
+  min-height:20vh !important;
+  margin: 10px;
+  box-shadow: 0 8px 6px -6px black;
+
+}
+.imgdiv{
+  background-color:#F2F2F2;
+  height: 100%;
+  box-shadow: 0 8px 6px -6px black;
+  width: 40%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  /* margin-bottom: rem; */
-  /* border: 1px solid red; */
 }
+.titlediv{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.btndiv{
+  height: 100%;
+  width: 10%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+/* BTN */
+.btndelet{
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ .icon{
+  color: white;
+ }
 .total-ctn{
   display: flex;
   justify-content: center;
@@ -278,24 +317,22 @@ height: 2.5rem;
   color:black;
 }
 .h2-ctn{
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
   text-align: center;
-  /* margin-top: 10px; */
-  /* margin-bottom: 10px; */
   margin: 10px 0;
-  /* border: 1px solid red; */
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .title-cart-shop{
-  text-decoration: underline gray;
-  color: black;
-  font-size: 20px;
+  font-size: 30px;
+  font-family: 'Poppins', sans-serif !important;
+  color:black;
+  margin: 5px;
+  font-weight:200 !important;
 }
 .imgShops{
   width:8vw;
-  margin: 20px;
   border-radius: 10px;
 }
 .ctn-btn-pagos{
@@ -316,7 +353,6 @@ height: 2.5rem;
   border-radius: 5px;
   font-size: 20px;
   cursor: pointer;
-  /* border: 1px solid red; */
 }
 .mp-btn{
   background-color: #009ee3;
@@ -324,11 +360,9 @@ height: 2.5rem;
   width: 50%;
   border-radius: 5px;
   border: none;
-  /* margin-top: 10px; */
   color: white;
   font-size: 20px;
   cursor: pointer;
-  /* border: 1px solid red; */
 }
 
 /* ADMIN FORM */
