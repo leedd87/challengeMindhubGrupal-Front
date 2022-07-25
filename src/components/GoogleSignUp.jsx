@@ -17,6 +17,7 @@ function GoogleSignUp(props){
                 password:userObject.sub,
                 photoUrl:userObject.picture,
                 country:'Argentina',
+                role:'user',
                 from:'google',
         }))
     }
