@@ -29,6 +29,7 @@ import userActions from '../redux/actions/userActions';
 
 import shopActions from '../redux/actions/shopActions';
 import PayPal from './PayPal';
+import GooglePay from './GooglePay';
 
 
 
@@ -194,12 +195,13 @@ const NavBar = () => {
                                                                 <div className='titlediv'>
                                                                     <h3 style={{ color: 'white' }}>{producto.name}</h3>
                                                                     <p style={{ color: 'white' }}>$ {producto.price} USD</p>
+                                                                    <p>Unit: {producto.cant}</p>
                                                                 </div>
                                                                 <div
                                                                     className='btndiv'
                                                                     onClick={() => removeToShop(producto)}
                                                                 >
-                                                                    <button class="btndelet">
+                                                                    <button className="btndelet">
                                                                         <CancelIcon
                                                                             sx={{ cursor: 'pointer', margin: '5px', color: 'white' }}
                                                                         />
@@ -226,9 +228,9 @@ const NavBar = () => {
                                         <p>Total $ {priceTotal} USD</p>
                                     </div>
                                     <div className='ctn-btn-pagos'>
-                                        {/* <button className='paypal-btn'><span style={{ color: '#003586' }}>Pay</span><span style={{ color: '#009ddd' }}>Pal</span></button> */}
                                         <PayPal />
-                                        <button className='mp-btn'>Mercado Pago</button>
+                                        <GooglePay/>
+                                        {/* <button className='mp-btn'>Mercado Pago</button> */}
                                     </div>
                                 </div>
 
