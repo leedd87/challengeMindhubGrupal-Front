@@ -3,9 +3,11 @@ import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
 import { useSelector, useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import shopActions from "../redux/actions/shopActions";
+import userActions from "../redux/actions/userActions";
 
 
 export default function Paypal() {
+
     // HOOKS
     // const [success, setSuccess] = useState(false);
     // const [orderID, setOrderID] = useState(false);
@@ -16,17 +18,21 @@ export default function Paypal() {
     // console.log(3, ErrorMessage);
 
     const dispatch = useDispatch()
+    // const dispatch = useDispatch();
+
 
     useEffect(() => {
 
-        PayPalCheckOut()//LLamo al cdn de PayPal cada vez que cambia el carrito
+        PayPalCheckOut() //LLamo al cdn de PayPal cada vez que cambia el carrito
 
         // eslint-disable-next-line
     }, []);
 
     // DATOS DE MI CARRITO
+    const user = useSelector(store => store.userReducer.user);
 
     const carrito = useSelector(store => store.shopReducer.productsInShop); // GUARDO MI CARRITO
+    console.log(carrito)
 
     const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
 
@@ -41,36 +47,57 @@ export default function Paypal() {
 
     const createOrder = (data, actions) => {
         //Creo la orden de con los datos, esta puede ser general o con detalle de items
-        // console.log(data)
+        console.log('DATA',data)
         return actions.order.create({
             purchase_units: [
                 {
-                    description: "items",
+                    description: "products",
                     amount: {
                         value: priceTotal,
                     },
-
                 },
-
-
             ],
-
-
         });
     };
 
+    // const createOrder = (data, actions) => {
+    //     // console.log(data)
+    //     return actions.order.create({
+    //         purchase_units: carrito.map((item) => {
+    //             console.log(item)
+    //             return {
+    //                 description: item.name,
+    //                 payer: {
+    //                     name: {
+    //                         given_name: user.firstName,
+    //                         surname: user.lastName,
+    //                     },
+    //                     email_adress: user.email,
+    //                     cant: item.cant
 
+    //                 },
+    //                 amount: {
+    //                     value: priceTotal
+    //                 }
+    //             }
+    //         })
+
+
+    //     });
+    // };
 
     const onApprove = (data, actions) => { //recibo el resultado de mi operacion
 
         return actions.order.capture()
             .then(function (details) {
 
+                // console.log(details)
+
                 const { payer } = details;
 
                 var transaction = details.purchase_units[0].payments.captures[0];
 
-                toast(
+                toast.success(
                     `Transaction ${transaction.status}\n\nThanks for your purchase ${payer.name.given_name} ${payer.name.surname}`,
                     {
                         duration: 7000,
@@ -79,6 +106,17 @@ export default function Paypal() {
 
                 if (transaction.status === 'COMPLETED') {
                     dispatch(shopActions.deleteAllToShop())
+
+                    // console.log('TRANSACTION:', transaction)
+                    // console.log('DETAIL', details)
+                    // console.log('PAYER', payer)
+                    
+                    // console.log('EMAIL', payer.email_adress)
+                    // console.log('CARRITO',carrito)
+                    // console.log('PRICETOTAL',priceTotal)
+
+
+                    dispatch(userActions.paypalEmail(payer.email_address, carrito))
                 }
             });
     };
@@ -89,6 +127,7 @@ export default function Paypal() {
 
     const onError = (data, actions) => { //Capturo error en caso de que exista
         toast.error('No products in cart')
+        // console.log('no anda')
     };
 
 

@@ -21,6 +21,7 @@ const userActions={
             // console.log(user.data.message)
         }
     },
+
     signIn:(userSignIn)=>{
         return async (dispatch, getState)=>{
             const user= await axios.post(`${url}/api/login`,{userSignIn})
@@ -44,6 +45,7 @@ const userActions={
         
         }
     },
+
     logOut:(closeUser)=>{
         return async(dispatch, getState)=>{
             const user= await axios.post(`${url}/api/logOut`,{closeUser})
@@ -52,6 +54,7 @@ const userActions={
             return user
         }
     },
+
     verifyToken:(token)=>{
         return async (dispatch, getState) =>{
             const res = await axios.get(`${url}/api/logintoken`, {
@@ -90,6 +93,15 @@ const userActions={
                     }
                     
                 })
+        }
+    },
+
+    paypalEmail: (email, data) => {
+
+        console.log(email, data);
+        
+        return async (dispatch, getState) => {
+            await axios.post(url + '/api/email', { email, data })
         }
     }
 }

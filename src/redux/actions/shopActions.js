@@ -47,8 +47,6 @@ const shopActions = {
         }
     },
 
-
-
 }
 
 export default shopActions;
