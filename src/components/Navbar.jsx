@@ -197,7 +197,7 @@ const NavBar = () => {
                                                                 />
                                                             </div>
                                                             <div className='titlediv'>
-                                                                <h3 style={{ color: 'white' }}>{producto.name}</h3>
+                                                                <p className='name-product' style={{ color: 'white' }}>{producto.name}</p>
                                                                 <p style={{ color: 'white' }}>$ {producto.price} USD</p>
                                                                 <p>Unit: {producto.cant}</p>
                                                             </div>

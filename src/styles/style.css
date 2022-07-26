@@ -333,7 +333,10 @@ p {
   align-items: center;
   flex-direction: column;
 }
-
+.name-product{
+  text-align: center;
+  width: 80%;
+}
 .btndiv {
   height: 100%;
   width: 10%;
@@ -448,11 +451,14 @@ p {
   background-color:white;
   display: flex;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  /* background-image: url('https://s1.1zoom.me/b5352/331/Athletic_shoe_531437_1920x1080.jpg'); */
+  background-image: url('https://images.unsplash.com/photo-1518656306295-aa28b28b2504?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+  background-image: url('https://images.unsplash.com/photo-1536250141241-b11c84eff38b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background: linear-gradient(-30deg, rgba(188, 188, 188, 0.614) 0%,rgb(166, 166, 166) 40%, #828282 50%, #898989 100%);
+  border-radius: 5px;
+  /* background: linear-gradient(-30deg, rgba(188, 188, 188, 0.614) 0%,rgb(166, 166, 166) 40%, #828282 50%, #898989 100%); */
 }
 .form-add{
   height: 70vh;
@@ -465,7 +471,7 @@ p {
 }
 .add-title{
   text-align: center;
-  color: black;
+  color:black;
   font-family:sans-serif;
   font-weight:500;
   font-size: 40px !important;
@@ -475,7 +481,7 @@ p {
   height: 100%;
 }
 .input-admin{
-  background-color: #eee;
+  background-color:#fff;
   padding: 6px 6px;
   margin:5px;
   width: 100%;
@@ -483,6 +489,10 @@ p {
   border-radius: 5px;
   border: none;
   outline: none;
+}
+.input-admin::placeholder{
+  color: black !important;
+  font-weight: 300;
 }
 .btn-admin{
   background-color:#afc68a;
@@ -509,7 +519,7 @@ p {
   background-color:transparent;
 }
 .input-admin-delete{
-  background-color: #eee;
+  background-color:#fff;
   padding: 10px;
   border-radius: 5px;
   border: none;

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector } from 'react-redux';
 import GooglePayButton from '@google-pay/button-react'
 
 export default function GooglePay(){
     const carrito = useSelector(store => store.shopReducer.productsInShop);
-    console.log(carrito)
+    // console.log(carrito)
     const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0)
     
     return(
@@ -38,15 +38,27 @@ export default function GooglePay(){
                     transactionInfo: {
                         totalPriceStatus:'FINAL',
                         totalPriceLabel:'Total',
-                        totalPrice:{priceTotal},
+                        totalPrice:`${priceTotal}`,
                         currencyCode:'USD',
                         countryCode:'US'
                     },
+                    shippingAddressRequired:true,
+                    callbackIntents:["PAYMENT_AUTHORIZATION"]
                 }}
-                onLoadPaymentData= {paymenData=>{
-                    console.log(paymenData.paymentMethodData)
+                onLoadPaymentData= {paymentRequest=>{
+                    console.log(paymentRequest.paymentMethodData)
+                    console.log('pago realizado')
+                    // alert('pago realizado')
                 }}
-            
+                onPaymentAuthorized={paymentData=>{
+                    // console.log(paymentData)
+                    return {
+                        transactionState : 'SUCCESS'
+                    }
+                }}
+                existingPaymentMethodRequired = 'false'
+                buttonColor='black'
+                buttonType='buy'
             />
         </>
     )
