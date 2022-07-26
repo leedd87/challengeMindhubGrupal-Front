@@ -6,9 +6,12 @@ export default function GooglePay(){
     const carrito = useSelector(store => store.shopReducer.productsInShop);
     // console.log(carrito)
     const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0)
-    
+    const user = useSelector(store => store.userReducer.user);
+
     return(
         <>
+            {user ?
+            
             <GooglePayButton
                 environment="TEST"
                 buttonSizeMode="fill"
@@ -60,6 +63,7 @@ export default function GooglePay(){
                 buttonColor='black'
                 buttonType='buy'
             />
+            :null}
         </>
     )
 }
