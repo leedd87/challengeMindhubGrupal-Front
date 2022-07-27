@@ -18,13 +18,13 @@ function Footer() {
 
                         <div className="flex flex-col items-start">
 
-                            <a className="m-0" href="https://www.linkedin.com/in/david-lee-full-stack-dev/"><LinkedInIcon /> David</a>
-                            <a className="m-0" href="https://daftlab.herokuapp.com/"><LinkedInIcon /> Alejo</a>
-                            <a className="m-0" href="https://www.linkedin.com/in/alexis-yusti-6a018423a/"><LinkedInIcon /> Alexis</a>
-                            <a className="m-0" href="https://www.linkedin.com/in/laura-silva-06121a238/"><LinkedInIcon /> Laura</a>
-                            <a className="m-0" href="https://daftlab.herokuapp.com/"><LinkedInIcon /> Flor</a>
-                            <a className="m-0" href="https://daftlab.herokuapp.com/"><LinkedInIcon /> Brayny</a>
-                            <a className="m-0" href="https://www.linkedin.com/in/tomasaybar/"><LinkedInIcon /> Tomas</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/david-lee-full-stack-dev/"><LinkedInIcon /> David</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/alejo-veron-41bb62168/"><LinkedInIcon /> Alejo</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/alexis-yusti-6a018423a/"><LinkedInIcon /> Alexis</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/laura-silva-06121a238/"><LinkedInIcon /> Laura</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/florencia-romano-4ba3481a0/"><LinkedInIcon /> Flor</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/brayny-stefan-palomino-laos-464216238/"><LinkedInIcon /> Brayny</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/tomasaybar/"><LinkedInIcon /> Tomas</a>
 
                         </div>
 
