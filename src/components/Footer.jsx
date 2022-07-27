@@ -12,16 +12,22 @@ function Footer() {
 
             <div className="footer">
 
-                <div className="grid grid-cols-4 w-full">
+                <div className="grid grid-cols-4 w-1/2">
 
-                    <div className="col-span-2 flex flex-col items-center justify-center">
-                        <a className="m-0"><LinkedInIcon /> David</a>
-                        <a className="m-0"><LinkedInIcon /> Alejo</a>
-                        <a className="m-0"><LinkedInIcon /> Alexis</a>
-                        <a className="m-0"><LinkedInIcon /> Laura</a>
-                        <a className="m-0"><LinkedInIcon /> Florencia</a>
-                        <a className="m-0"><LinkedInIcon /> Brayny</a>
-                        <a className="m-0"><LinkedInIcon /> Tomas</a>
+                    <div className="col-span-2 flex flex-col items-center justify-around">
+
+                        <div className="flex flex-col items-start">
+
+                            <a className="m-0" href="https://www.linkedin.com/in/david-lee-full-stack-dev/"><LinkedInIcon /> David</a>
+                            <a className="m-0" href="https://daftlab.herokuapp.com/"><LinkedInIcon /> Alejo</a>
+                            <a className="m-0" href="https://www.linkedin.com/in/alexis-yusti-6a018423a/"><LinkedInIcon /> Alexis</a>
+                            <a className="m-0" href="https://www.linkedin.com/in/laura-silva-06121a238/"><LinkedInIcon /> Laura</a>
+                            <a className="m-0" href="https://daftlab.herokuapp.com/"><LinkedInIcon /> Flor</a>
+                            <a className="m-0" href="https://daftlab.herokuapp.com/"><LinkedInIcon /> Brayny</a>
+                            <a className="m-0" href="https://www.linkedin.com/in/tomasaybar/"><LinkedInIcon /> Tomas</a>
+
+                        </div>
+
                     </div>
 
                     <div className="col-span-2 flex justify-center items-center flex-col">
