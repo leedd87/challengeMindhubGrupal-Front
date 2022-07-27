@@ -277,7 +277,7 @@ h2 {
   border: none;
   box-shadow: none;
   background: none;
-  color: wheat;
+  color: #fff;
   /* font-family: 'Exo 2'; */
   font-weight: 300;
   font-size: 15px;
@@ -447,7 +447,8 @@ h2 {
   position: absolute;
   width: 0%;
   height: 2px;
-  background-color: rgb(255, 0, 0);
+  /* background-color: rgb(255, 0, 0); */
+  background-color: #1363DFE6;
   transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
   transition-duration: 400ms;
   transition-property: width, left;
