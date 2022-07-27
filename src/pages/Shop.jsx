@@ -13,6 +13,7 @@ import Select from '@mui/material/Select';
 import DeleteIcon from '@mui/icons-material/Delete';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import FilterAltOffIcon from '@mui/icons-material/FilterAltOff';
+
 function Shoop() {
   const dispatch = useDispatch()
   const [inputSearch, setInputSearch] = useState("")
@@ -160,7 +161,7 @@ function Shoop() {
 
       {/* CONTENEDOR DE CARDS */}
       <div className='contFilterCards'>
-
+    
         <div className='bodyShop mb-10'>
 
           {
@@ -179,7 +180,7 @@ function Shoop() {
                 )
 
               })) ?
-                (<h1>holaaa</h1>) : null
+                (<h1>mmmmmmmmmmmm</h1>) : null
 
           }
 

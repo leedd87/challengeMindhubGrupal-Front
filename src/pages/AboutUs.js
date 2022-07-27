@@ -150,29 +150,7 @@ Shoes sold on StockX are considered deadstock, which means that they're authenti
 							You will receive a shipping confirmation email once the order has shipped from our warehouse. It will contain information to track your order.
 							</Text>
 						</Collapse>
-						<Collapse title="Option D">
-							<Text>
-
-							</Text>
-						</Collapse>
-						<Collapse title="Option E">
-							<Text>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore
-								magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation ullamco laboris nisi ut aliquip ex ea
-								commodo consequat.
-							</Text>
-						</Collapse>
-						<Collapse title="Option F">
-							<Text>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore
-								magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation ullamco laboris nisi ut aliquip ex ea
-								commodo consequat.
-							</Text>
-						</Collapse>
+						
 					</Collapse.Group>
 				</div>
 			<div className="five-cont">
@@ -717,4 +695,9 @@ h1, h3, h5{
 		text-align: center;
 		text-decoration: none !important;
 	}
-`;
+.nextui-c-fMAxGR :last-child {
+    padding: 30px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 1.5rem;}
+`

@@ -62,7 +62,8 @@ function App() {
 
 									</div>
 								</div>
-							</div></>)
+							</div>
+							</>)
 						:
 						(
 							<>
@@ -199,4 +200,6 @@ const SneakerStore = styled.div`
 		opacity: 0;
 	}
 }
+
+
 `
