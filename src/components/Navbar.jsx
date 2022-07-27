@@ -16,12 +16,10 @@ import logo from '../assets/logo.png';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Drawer from 'react-modern-drawer'
-import CancelIcon from '@mui/icons-material/Cancel';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import LocalMallIcon from '@mui/icons-material/LocalMall';
 import 'react-modern-drawer/dist/index.css'
 import '../styles/style.css'
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import PersonIcon from '@mui/icons-material/Person';
 import { Link as LinkRouter } from 'react-router-dom';
@@ -30,7 +28,7 @@ import userActions from '../redux/actions/userActions';
 import shopActions from '../redux/actions/shopActions';
 import PayPal from './PayPal';
 import GooglePay from './GooglePay';
-
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 
@@ -206,7 +204,7 @@ const NavBar = () => {
                                                                 onClick={() => removeToShop(producto)}
                                                             >
                                                                 <button className="btndelet">
-                                                                    <CancelIcon
+                                                                    <DeleteIcon
                                                                         sx={{ cursor: 'pointer', margin: '5px', color: 'white' }}
                                                                     />
                                                                 </button>
@@ -278,10 +276,13 @@ const NavBar = () => {
                         onClick={toggleDrawer}
                         className='flex items-center justify-center'
                     >
-                        <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
+                        <ShoppingCartIcon sx={{ cursor: 'pointer', margin: '10px' }} />
                         {
                             carrito.length !== 0
-                                ? <span className='text-lg'>{carrito.length}</span>
+                                ? 
+                                <div className='text-lg'>
+                                    <span>{carrito.length}</span>
+                                </div>
                                 : <></>
                         }
                     </div>
@@ -323,7 +324,7 @@ const NavBar = () => {
                                         </Box>
                                         :
                                         <Box>
-                                            <PersonIcon fontSize='large' />
+                                            <PersonIcon fontSize='large' sx={{color:'white'}}/>
                                         </Box>
                                     }
                                 </IconButton>

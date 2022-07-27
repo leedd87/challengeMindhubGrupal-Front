@@ -183,24 +183,33 @@ p {
 .overlay-right-s{
   right: 0;
   transform: translateX(0);
-  background-color: red;
   background-image: url('https://images.unsplash.com/photo-1512374382149-233c42b6a83b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   object-fit: cover;
+  transition:5s;
 }
 .overlay-right{
   right: 0;
   transform: translateX(0);
-  background-color: red;
   background-image: url('https://images.unsplash.com/photo-1640391846040-6e9e41388ad4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   object-fit: cover;
+  transition:5s;
 }
-
+.text-lg{
+  transform: translateY(-.8rem);
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .container .right-panel-active .overlay-left {
   transform: translateX(0);
 }
