@@ -201,10 +201,14 @@ p {
 .Header {
   display: flex;
   justify-content: center;
-  background-color: white;
+  /* background-color: white; */
+  background-color: #fff;
   height: 10vh;
   padding-top: 2%;
   padding-bottom: 2%;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 }
 
 .MuiButtonBase-root {
@@ -240,6 +244,10 @@ p {
 
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
   padding: 10px 18px !important;
+}
+
+.css-1c06h5h-MuiPaper-root-MuiAppBar-root {
+  background-color: #000 !important;
 }
 
 .css-15v22id-MuiAccordionDetails-root {

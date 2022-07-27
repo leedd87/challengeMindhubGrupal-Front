@@ -108,6 +108,9 @@ const NavBar = () => {
                     >
                         <LinkRouter
                             to='/'
+                            style={{
+                                backgroundColor: '#fff'
+                            }}
                         >
                             <img src={logo} alt="logo" style={{ "height": "5rem" }} />
                         </LinkRouter>
@@ -265,6 +268,7 @@ const NavBar = () => {
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
+                            backgroundColor: '#fff'
                         }}
                     >
                         <img src={logo} alt="logo" style={{ "height": "5rem" }} />
@@ -316,7 +320,7 @@ const NavBar = () => {
                                         </Box>
                                         :
                                         <Box>
-                                            <PersonIcon fontSize='large' />
+                                            <PersonIcon fontSize='large' sx={{ color: '#fff' }} />
                                         </Box>
                                     }
                                 </IconButton>

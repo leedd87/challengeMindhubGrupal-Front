@@ -161,7 +161,7 @@ function Shoop() {
       {/* CONTENEDOR DE CARDS */}
       <div className='contFilterCards'>
 
-        <div className='bodyShop mb-10'>
+        <div className='bodyShop'>
 
           {
             filterShoes.length > 0 ?
