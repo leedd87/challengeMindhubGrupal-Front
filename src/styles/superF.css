@@ -155,7 +155,7 @@
   background-color:white ;
 color:#090909!important;
 }
-.black{
+.black-sf{
   background-color:rgb(0, 0, 0) ;
 
 }
@@ -195,12 +195,20 @@ color:#090909!important;
   background-position: center;
   background-size: cover;
 }
-.multi:hover, .purple:hover, .white:hover, .red:hover, .blue:hover, .cream:hover, .orange:hover, .gren:hover, .brown:hover , .grey:hover,  .black:hover{
+.multi:hover, .purple:hover, .white:hover, .red:hover, .blue:hover, .cream:hover, .orange:hover, .gren:hover, .brown:hover , .grey:hover,  .black-sf:hover{
   transform: scale(1.2) translateY(-20px);
   left: 0;
   -webkit-filter: drop-shadow(0 10px 10px rgba(0,0,0,.8));
   filter: drop-shadow(0 10px 10px rgba(0,0,0,.8))
 }
+/* .multi:hover, .purple:hover, .white:hover, .red:hover, .blue:hover, .cream:hover, .orange:hover, .gren:hover, .brown:hover , .grey:hover{
+  transform: scale(1.2) translateY(-20px);
+  left: 0;
+  -webkit-filter: drop-shadow(0 10px 10px rgba(0,0,0,.8));
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,.8))
+} */
+
+
 .btn1{
   filter: none!important;
   background-size: cover;

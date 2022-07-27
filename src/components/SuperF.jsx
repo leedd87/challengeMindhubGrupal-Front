@@ -94,7 +94,7 @@ function SuperF() {
       text: "What color do you like best?",
       options: [
         { id: 0, text: "white", class: "color white" },
-        { id: 1, text: "black", class: "color black" },
+        { id: 1, text: "black", class: "color black-sf" },
         { id: 2, text: "grey", class: "color grey" },
         { id: 3, text: "brown", class: "color brown" },
         { id: 4, text: "green", class: "color gren" },

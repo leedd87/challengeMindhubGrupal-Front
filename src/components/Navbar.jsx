@@ -94,7 +94,7 @@ const NavBar = () => {
                 <Toolbar disableGutters>
 
                     {/* LOGO */}
-                    
+
                     <Typography
                         variant="h6"
                         noWrap
@@ -115,7 +115,7 @@ const NavBar = () => {
                                 backgroundColor: '#fff'
                             }}
                         >
-                            <img src={logo} alt="logo" style={{ "height": "5rem", backgroundColor:"whitesmoke" }} />
+                            <img src={logo} alt="logo" style={{ "height": "5rem", backgroundColor: "whitesmoke" }} />
                         </LinkRouter>
 
                     </Typography>
@@ -274,7 +274,7 @@ const NavBar = () => {
                             backgroundColor: '#fff'
                         }}
                     >
-                        <img src={logo} alt="logo" style={{ "height": "5rem",  backgroundColor:"whitesmoke"  }} />
+                        <img src={logo} alt="logo" style={{ "height": "5rem", backgroundColor: "whitesmoke" }} />
                     </Typography>
 
 
@@ -296,8 +296,8 @@ const NavBar = () => {
                         <ShoppingCartIcon sx={{ cursor: 'pointer', margin: '10px' }} />
                         {
                             carrito.length !== 0
-                                ? 
-                                <div className='text-lg'>
+                                ?
+                                <div className='badge'>
                                     <span>{carrito.length}</span>
                                 </div>
                                 : <></>
