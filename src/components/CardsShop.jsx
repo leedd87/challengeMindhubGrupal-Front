@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import "../styles/cardShop.css";
 import { Link as LinkRouter } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 import shopActions from '../redux/actions/shopActions';
 
@@ -11,7 +12,7 @@ import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutl
 const CardsShop = ({ shoes }) => {
 
 	const dispatch = useDispatch();
-
+	// const carrito = useSelector(store => store.shopReducer.productsInShop);
 
 
 	const addCarrito = ({ shoes }) => {
@@ -23,9 +24,11 @@ const CardsShop = ({ shoes }) => {
 			id: shoes._id,
 			cant: 1
 		}
-
+		
 		dispatch(shopActions.addToShop(product))
-		console.log('alerta agregaste un producto')
+
+		// console.log('alerta agregaste un producto')
+		toast.success('Product successfully added')
 
 	}
 

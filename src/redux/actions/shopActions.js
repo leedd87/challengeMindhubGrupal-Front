@@ -5,8 +5,6 @@ const shopActions = {
 
     addToShop: (product) => {
 
-        // console.log(product);
-
         return async (dispatch, getState) => {
 
             dispatch({
@@ -18,8 +16,6 @@ const shopActions = {
 
     deleteToShop: (product) => {
 
-        // console.log(product)
-
         return async (dispatch, getState) => {
 
             dispatch({
@@ -27,7 +23,29 @@ const shopActions = {
                 payload: { product },
             })
         }
-    }
+    },
+
+    verifyShopStorage: (shopStorage) => {
+
+        return async (dispatch, getState) => {
+
+            dispatch({
+                type: 'VERIFYSHOPSTORAGE',
+                payload: { shopStorage },
+            })
+        }
+    },
+
+    deleteAllToShop: () => {
+
+        return async (dispatch, getState) => {
+
+            dispatch({
+                type: 'DELETEALLTOSHOP',
+                // payload: { product },
+            })
+        }
+    },
 
 }
 

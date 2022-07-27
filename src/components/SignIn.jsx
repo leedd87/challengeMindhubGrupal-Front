@@ -3,19 +3,32 @@ import { Link as LinkRouter } from 'react-router-dom';
 import userActions from '../../src/redux/actions/userActions'
 import { connect } from 'react-redux';
 import GoogleSignIn from './GoogleSignIn';
+import toast from 'react-hot-toast';
+
+// import { useNavigate } from 'react-router-dom';
 
 function SignIn(props){
+
+    // const navigate = useNavigate();
+
     const handleSubmit= async (event)=>{
+
         event.preventDefault()
+
         const userSignIn= {
             email: event.target[0].value,
             password: event.target[1].value,
             from: "form-SignIn"
         }
-        //console.log(event)
-        props.signIn(userSignIn)
-        console.log(userSignIn);
+
+        const res = await props.signIn(userSignIn)
+        toast.success(`${res.data.message}`)
+
     }
+
+
+
+
     return(
     <div className='body'> 
             <div className="container-signup" id="main">
@@ -33,7 +46,7 @@ function SignIn(props){
             </div>
             <div className='overlay-ctn'>
                 <div className='overlay'>
-                    <div className='overlay-right'>
+                    <div className='overlay-right-s'>
                         <h1>Do not you have an account yet?</h1>
                         <LinkRouter to='/signup'>
                             <button className='accountbtn' id='signUp'>Sign Up</button>

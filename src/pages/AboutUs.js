@@ -6,7 +6,7 @@ function AboutUs() {
 	return (
 		<AboutUsConteiner>
 			<div className="titlecont">About Us</div>
-			
+
 			{/* <div className="first-cont">
 				<div className="a">
 					DAFTLAB{" "}
@@ -51,24 +51,24 @@ function AboutUs() {
 			<h1>The gallery of the store, memorable moments of the sneaker culture</h1>
 			<div className="contenedor">
 				<div className="div1">
-				
+
 				</div>
 				<div className="div2">
 
 				</div>
 				<div className="div3">
 					<div className="objetivo"></div>
-					</div>
+				</div>
 				<div className="div4">
-					
+
 				</div>
 				<div className="div5">
 				</div>
 				<div className="div6">
-				DAFTLAB{" "}
+					DAFTLAB{" "}
 					<span>
 						is an American retailer of athletic footwear. It is a national
-						company, which was founded in 2019. 
+						company, which was founded in 2019.
 						DAFTLAB has around 100
 						stores in operation worldwide and it is headquartered in New
 						York City, United States.
@@ -84,10 +84,10 @@ function AboutUs() {
 
 				</div>
 				<div className="div10">
-					
+
 				</div>
 				<div className="div10">
-				Sneaker collecting is the acquisition and trading of sneakers as a hobby. It is often manifested by the use and collection of shoes made for particular sports, particularly basketball and skateboarding. A person involved in sneaker collecting is sometimes called a sneakerhead.
+					Sneaker collecting is the acquisition and trading of sneakers as a hobby. It is often manifested by the use and collection of shoes made for particular sports, particularly basketball and skateboarding. A person involved in sneaker collecting is sometimes called a sneakerhead.
 				</div>
 				<div className="div11">
 
@@ -96,13 +96,13 @@ function AboutUs() {
 
 				</div>
 				<div className="div13">
-				
+
 				</div>
-				</div>
-				<h3>¿What do you want for buy a new sneaker?</h3>
-				<div className="parent">
+			</div>
+			<h3>¿What do you want for buy a new sneaker?</h3>
+			<div className="parent">
 				<div className="div14">
-				
+
 				</div>
 				<div className="div15">
 					<h3>A classic store of sneakers</h3>
@@ -112,41 +112,42 @@ function AboutUs() {
 					<span>DAFTLAB inspects every pair to make sure whatever the buyer receives is 100% authentic.</span>
 				</div>
 				<div className="div17">
-				
+
 				</div>
 				<div className="div18">
 					<span>
-Shoes sold on StockX are considered deadstock, which means that they're authentic, new and unworn at the time of sale. Deadstock sneakers are also sold with the original box including the box lid and the box label indicating the shoe size, as would be acceptable for sale at a retail location.</span>
+						Shoes sold on StockX are considered deadstock, which means that they're authentic, new and unworn at the time of sale. Deadstock sneakers are also sold with the original box including the box lid and the box label indicating the shoe size, as would be acceptable for sale at a retail location.
+					</span>
 				</div>
 				<div className="div19">
-				
+
 				</div>
 				<div className="div20">
-				
+
 				</div>
-				</div>
+			</div>
 
 			<h5>Frequently Asked Questions</h5>
 
 			<div className="a">
-					
-					<Collapse.Group>
-						<Collapse title="How I can know about my order?">
-							<Text>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore
-								magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation ullamco laboris nisi ut aliquip ex ea
-								commodo consequat.
-							</Text>
-						</Collapse>
-						<Collapse title="Can I Pay with credit or debit card at your store?">
-							<Text>
+
+				<Collapse.Group>
+					<Collapse title="How I can know about my order?">
+						<Text>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore
+							magna aliqua. Ut enim ad minim veniam, quis nostrud
+							exercitation ullamco laboris nisi ut aliquip ex ea
+							commodo consequat.
+						</Text>
+					</Collapse>
+					<Collapse title="Can I Pay with credit or debit card at your store?">
+						<Text>
 							Some shops and private tables are accepting credit cards, Mercado Pago etc. But just to be sure, bring enough cash with you to avoid any disappointment.
-							</Text>
-						</Collapse>
-						<Collapse title="How Can I Track My Order?">
-							<Text>
+						</Text>
+					</Collapse>
+					<Collapse title="How Can I Track My Order?">
+						<Text>
 							You will receive a shipping confirmation email once the order has shipped from our warehouse. It will contain information to track your order.
 							</Text>
 						</Collapse>
@@ -155,34 +156,34 @@ Shoes sold on StockX are considered deadstock, which means that they're authenti
 				</div>
 			<div className="five-cont">
 				<div className="payments-methods">
-					
+
 					<img
 						src="https://allbike.com.ar/wp-content/uploads/2022/01/kuder-mercadopago-blanco-negro.png"
 						alt="mercado-pago"
 						id="mercado-pago"
 						className="payload"
-						/>
+					/>
 					<img
 						src="https://images.squarespace-cdn.com/content/v1/5e7218f0d6425741be5a9df9/1589548860801-DGSUZZOECOJY092S5C9P/logos_zahlungsarten_paypal.png"
 						alt="paypal"
 						id="paypal"
 						className="payload"
-						/>
+					/>
 					<img
 						src="https://cdn-icons-png.flaticon.com/512/61/61555.png"
 						alt="visa"
 						id="visa"
 						className="payload"
-						/>
+					/>
 					<img
 						src="https://icon-library.com/images/mastercard-icon/mastercard-icon-10.jpg"
 						alt="mastercard"
 						id="mastercard"
 						className="payload"
-						/>
-				</div> 
+					/>
 				</div>
-			
+			</div>
+
 		</AboutUsConteiner>
 	);
 }
@@ -504,6 +505,10 @@ padding: 20px;
 	text-align: center;
 	border-radius: 10px;
 	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 .div7 {
 	grid-area: 8/ 7 / 11 / 9;
@@ -550,6 +555,10 @@ padding: 20px;
 	text-align: center;
 	border-radius: 10px;
 	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 
 .div11 {
@@ -635,6 +644,10 @@ padding: 20px;
 	text-align: center;
 	border-radius: 10px;
 	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 .div17 {
 	grid-area: 8 / 1 / 21 / 4; 
@@ -662,6 +675,9 @@ padding: 20px;
 	text-align: center;
 	border-radius: 10px;
 	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .div19 {
 	grid-area: 15 / 4 / 21 / 6; 

@@ -16,9 +16,12 @@ const userActions={
                     success:user.data.success
             }
             })
-            console.log(user.data.message)
+
+            return user
+            // console.log(user.data.message)
         }
     },
+
     signIn:(userSignIn)=>{
         return async (dispatch, getState)=>{
             const user= await axios.post(`${url}/api/login`,{userSignIn})
@@ -36,11 +39,13 @@ const userActions={
                         }
                         
                     })
-                    console.log(user.data.message)
+                    // console.log(user.data.message)
                 }
+                return user
         
         }
     },
+
     logOut:(closeUser)=>{
         return async(dispatch, getState)=>{
             const user= await axios.post(`${url}/api/logOut`,{closeUser})
@@ -49,9 +54,10 @@ const userActions={
             return user
         }
     },
+
     verifyToken:(token)=>{
         return async (dispatch, getState) =>{
-            await axios.get(`${url}/api/logintoken`, {
+            const res = await axios.get(`${url}/api/logintoken`, {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }
@@ -67,6 +73,8 @@ const userActions={
                                 success:user.data.success
                             }
                         })
+
+                        return res
                     } 
                         else{
                             localStorage.removeItem('token')
@@ -85,6 +93,15 @@ const userActions={
                     }
                     
                 })
+        }
+    },
+
+    paypalEmail: (email, data) => {
+
+        console.log(email, data);
+        
+        return async (dispatch, getState) => {
+            await axios.post(url + '/api/email', { email, data })
         }
     }
 }
