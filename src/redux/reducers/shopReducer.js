@@ -2,8 +2,6 @@ const initialState = {
     productsInShop: [],
 }
 
-
-
 const shopReducer = (state = initialState, action) => {
 
     let productsInShop = [...state.productsInShop];
@@ -14,7 +12,7 @@ const shopReducer = (state = initialState, action) => {
 
             productsInShop = [...state.productsInShop];
 
-            let productRepetido = productsInShop.find(product => product.id === action.payload.product.id)
+            let productRepetido = productsInShop.find(product => product.id === action.payload.product.id) // BUSCA PRODUCTO REPETIDOS  
 
             if (productRepetido === undefined) { // SI NO ESTA REPETIDO ENTRA ACA
 

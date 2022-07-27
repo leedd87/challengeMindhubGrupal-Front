@@ -372,16 +372,6 @@ width:100%;
      .container .imgbox:hover img {
       transform: translateX(-100px);
     }
-    /* .container .details {
-      width: 100% !important;
-      height: auto;
-      padding: 20px; 
-    }
-    
-     .container .details p {
-      max-width: 100%;
-      margin-left: 0;
-    } */
   }
  
 /*-----Footer----*/
@@ -394,22 +384,16 @@ width:100%;
     flex-direction: column;
     flex-wrap: wrap;
     min-height: 15vh;
-}
-.containBtnFooter{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 90%;
+    padding: 15px 0;
 }
 .menu, .icons{
     width: 8rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
     color: #fefefe;
-    height: 5rem;
+    /* padding: 10px; */
+    /* height: 5rem; */
 }
 .menu button{
     color: #000000!important;
