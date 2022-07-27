@@ -95,7 +95,7 @@ const NavBar = () => {
     // localStorage.setItem('carrito', JSON.stringify(carrito)) // GUARDAR MI CARRITO EN EL LOCAL STORAGE
 
     return (
-        <AppBar position="fixed" sx={{ backgroundColor: "#000000" }}>
+        <AppBar position="sticky" sx={{ backgroundColor: "#000000" }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
 

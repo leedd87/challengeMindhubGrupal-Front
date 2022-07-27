@@ -449,3 +449,17 @@ position: fixed;
   transition-duration: 400ms;
   transition-property: color;
 }
+.logoDetail{
+  /* border: 2px solid red; */
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.logosDetailImg{
+  height: 10rem;
+}
+.css-jue3ft-MuiRating-root {
+  justify-content: center;
+}

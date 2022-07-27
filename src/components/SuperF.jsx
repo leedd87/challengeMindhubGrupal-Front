@@ -109,7 +109,7 @@ function SuperF() {
     {
       text: "View results",
       options: [
-        { id: 0, text: "yes", class: "btnYes" }
+        { id: 0, text: "Yes", class: "btnYes" }
       ]
     }
 
@@ -142,7 +142,7 @@ function SuperF() {
         /* 4. Final Results */
 
         <div className="final-results">
-          <h1 className="mb-8 text-lg question-text">Final Results</h1>
+          <h1 className="mb-8 text-lg question-text resultF">Final Results</h1>
           <div className="containerCarsFinal">
             {shoesFinal ?
 
@@ -203,7 +203,7 @@ function SuperF() {
             Question: {currentQuestion + 1} out of {questions.length}
           </h2> */}
           <h3 className="question-text">{questions[currentQuestion].text}</h3>
-              <div></div>
+            
           {/* List of possible answers  */}
           <ul className="ulSuperF">
             {questions[currentQuestion].options.map((option) => {
