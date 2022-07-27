@@ -1,5 +1,4 @@
 import React from "react";
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import SuperF from "../components/SuperF";
@@ -24,11 +23,14 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+
 const Home = () => {
   return (
     <>
       <div className="carouselHome">
-        <Swiper
+        
+        <SuperF/>
+        {/* <Swiper
           slidesPerView={1}
           spaceBetween={30}
           loop={true}
@@ -61,7 +63,7 @@ const Home = () => {
               alt="img3"
             />
           </SwiperSlide>
-        </Swiper>
+        </Swiper> */}
       </div>
       <div className="containerPopulares">
         <div className="titleDivPopular">
@@ -125,7 +127,7 @@ const Home = () => {
       </div>
       <div></div>
 
-<SuperF/>
+
       <div className="footerLogo">
         <div className="containerLogos">
           <Swiper

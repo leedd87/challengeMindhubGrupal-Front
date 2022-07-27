@@ -12,14 +12,15 @@ function GoogleSignUp(props){
         let userObject = jwt_decode(response.credential)
         // console.log(userObject)
         dispatch(userActions.signUp({
-            firstName: userObject.given_name,
-            lastName: userObject.family_name,
-            email: userObject.email,
-            password: userObject.sub,
-            photoUrl: userObject.picture,
-            country: 'argentina',
-            from: 'google',
-            role: 'user'
+                firstName:userObject.given_name,
+                lastName:userObject.family_name,
+                email:userObject.email,
+                password:userObject.sub,
+                photoUrl:userObject.picture,
+                country:'Argentina',
+                role:'user',
+                from:'google',
+                role:'user'
         }))
     }
     useEffect(() => {
