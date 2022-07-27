@@ -119,6 +119,7 @@ const SneakerStore = styled.div`
 		flex-direction: row;
 		justify-content: space-around;
 		height: 100vh;
+		background: #222;
 		@media (max-width: 1120px) {
 			flex-direction: column;
 		}
@@ -127,7 +128,7 @@ const SneakerStore = styled.div`
 	width: 90%;
     height: 480px;
     border-radius: 10px;
-    background: #55ff;
+    background: #222;
     overflow: hidden;
     transform: translate(10px, 10px);
     align-self: center;
