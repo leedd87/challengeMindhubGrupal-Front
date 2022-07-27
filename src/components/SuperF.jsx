@@ -144,7 +144,7 @@ function SuperF() {
         <div className="final-results">
           <h1 className="mb-8 text-lg question-text resultF">Final Results</h1>
           <div className="containerCarsFinal">
-            {shoesFinal ?
+            {shoesFinal.length !== 0 ?
 
               shoesFinal.map(shoeFinal => {
                 return (
