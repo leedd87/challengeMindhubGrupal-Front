@@ -149,8 +149,8 @@ function Shoop() {
                                 onChange={order}
                                 label="Brand"
                             >
-                                <MenuItem value={"op1"}>menor a mayor</MenuItem>
-                                <MenuItem value={"op2"}>mayor a menor</MenuItem>
+                                <MenuItem value={"op1"}>Lowest to highest price</MenuItem>
+                                <MenuItem value={"op2"}>Highest to lowest price</MenuItem>
 
                             </Select>
                         </FormControl>

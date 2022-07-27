@@ -194,7 +194,7 @@ const DetailCard = ({ shoes }) => {
                   <button
                     className='bg-green-600 text-white font-bold px-1 lg:px-5 py-2 lg:py-2 text-sm lg:text-base rounded-md hover:bg-indigo-700 shadow-md w-2/5 sm:w-2/3'
                     onClick={() => addCarrito({ shoes })}
-                  >Agregar al carrito</button>
+                  >Add to cart</button>
 
                   {/* <button className='bg-green-600 text-white font-bold px-1 lg:px-5 py-2 lg:py-2 text-sm lg:text-base rounded-md hover:bg-indigo-700 shadow-md w-2/5 sm:w-2/3'>Comprar ahora</button> */}
 

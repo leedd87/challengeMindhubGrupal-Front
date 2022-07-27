@@ -47,7 +47,7 @@ function SuperF() {
     }
     else {
       setShoesFinal("")
-      console.log("no encontramos coincidencias")
+      // console.log("no encontramos coincidencias")
     }
     setReload(!reload)
   };
@@ -187,7 +187,7 @@ function SuperF() {
               })
 
 
-              : <h1>No hay resultados</h1>
+              : <h1>No matches found</h1>
             }
           </div>
           <button className="btnReset" onClick={() => restartGame()}>Restart</button>

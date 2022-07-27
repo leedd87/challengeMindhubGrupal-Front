@@ -191,7 +191,9 @@ color:#090909!important;
 
 }
 .multi{
-  background-image: url("https://cdn2.vectorstock.com/i/1000x1000/74/16/bright-multicolor-background-vector-16857416.jpg");
+  /* background-color: #fff; */
+  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1TQ_7-5-yOTfz0vfKuBrWGOMV3-oAmeWlZw&usqp=CAU"); */
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7gY-XrASx7zLo0I26IUcASdQdlbSTDGREtA&usqp=CAU");
   background-position: center;
   background-size: cover;
 }
