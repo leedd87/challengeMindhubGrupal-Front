@@ -18,13 +18,16 @@ import styled from 'styled-components';
 import userActions from '../src/redux/actions/userActions';
 import shopActions from './redux/actions/shopActions';
 
+import { Toaster } from 'react-hot-toast'; // TOSTADA
+
+
 function App() {
 	const dispatch = useDispatch();
 	const user = useSelector(store => store.userReducer.user);
 
 	// HOOKS
 	const [loading, setLoading] = useState(false);
-	
+
 	useEffect(() => {
 		setLoading(true);
 		setTimeout(() => {
@@ -41,17 +44,17 @@ function App() {
 
 	// USE EFFECT PARA TRAER LOCAL STORAGE SI EXISTE
 	useEffect(() => {
+
 		if (localStorage.getItem('token') !== null) {
 			const token = localStorage.getItem('token')
 			dispatch(userActions.verifyToken(token))
+
 		}
 
-		if(localStorage.getItem('carrito') !== null ) {
-
-			const carrito = JSON.parse(localStorage.getItem('carrito') )
-
+		if (localStorage.getItem('carrito') !== null) {
+			const carrito = JSON.parse(localStorage.getItem('carrito'))
 			dispatch(shopActions.verifyShopStorage(carrito))
-		} else { console.log('no encontre nada')}
+		} 
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
@@ -76,6 +79,7 @@ function App() {
 						:
 						(
 							<>
+								<Toaster />
 								<NavBar />
 								<Routes>
 									{!user && <Route path='/signIn' element={<SignIn />} />}
@@ -92,7 +96,7 @@ function App() {
 
 									<Route path='/shop' element={<Shop />} />
 									<Route path='/about' element={<AboutUs />} />
-									<Route path='/*' element={<Home/>} />
+									<Route path='/*' element={<Home />} />
 									<Route path='/details/:id' element={<Details />} />
 								</Routes>
 								<Footer />

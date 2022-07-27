@@ -10,6 +10,8 @@ import Stack from '@mui/material/Stack';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import toast from 'react-hot-toast';
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -40,7 +42,8 @@ const DetailCard = ({ shoes }) => {
     dispatch(shopActions.addToShop(product))
 
     // localStorage.setItem('carrito', JSON.stringify() )
-    console.log('alerta agregaste un producto')
+    // console.log('alerta agregaste un producto')
+    toast.success('Product successfully added')
   }
 
   const logoShoes = () => {
@@ -100,7 +103,7 @@ const DetailCard = ({ shoes }) => {
         </div>)
     }
 
-    console.log("holaaaas")
+    //console.log("holaaaas")
   }
 
 
@@ -193,7 +196,7 @@ const DetailCard = ({ shoes }) => {
                     onClick={() => addCarrito({ shoes })}
                   >Agregar al carrito</button>
 
-                  <button className='bg-green-600 text-white font-bold px-1 lg:px-5 py-2 lg:py-2 text-sm lg:text-base rounded-md hover:bg-indigo-700 shadow-md w-2/5 sm:w-2/3'>Comprar ahora</button>
+                  {/* <button className='bg-green-600 text-white font-bold px-1 lg:px-5 py-2 lg:py-2 text-sm lg:text-base rounded-md hover:bg-indigo-700 shadow-md w-2/5 sm:w-2/3'>Comprar ahora</button> */}
 
 
                 </div>

@@ -21,7 +21,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import 'react-modern-drawer/dist/index.css'
 import '../styles/style.css'
-
+import toast from 'react-hot-toast';
 
 import PersonIcon from '@mui/icons-material/Person';
 import { Link as LinkRouter } from 'react-router-dom';
@@ -31,68 +31,60 @@ import shopActions from '../redux/actions/shopActions';
 import PayPal from './PayPal';
 import GooglePay from './GooglePay';
 
-
-
-
 const pages = [
     { to: '/', name: 'Home' },
     { to: '/shop', name: 'Shop' },
     { to: '/about', name: 'About' }
 ];
 
-
 const settings = [
     { to: '/account', name: 'Account ' },
-    // { to: '/signup', name: 'SignUp' }
 ];
 
-
 const NavBar = () => {
+
     const dispatch = useDispatch()
-    const logOut = () => {
-        dispatch(userActions.logOut(user.email))
-        // console.log(user.email);
-    }
 
-
+    // HOOKS NAVBAR
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
-
+    const handleOpenNavMenu = (event) => setAnchorElNav(event.currentTarget);
+    const handleOpenUserMenu = (event) => setAnchorElUser(event.currentTarget);
+    const handleCloseNavMenu = () => setAnchorElNav(null);
+    const handleCloseUserMenu = () => setAnchorElUser(null);
     const [isOpen, setIsOpen] = useState(false)
-    const toggleDrawer = () => {
-        setIsOpen((prevState) => !prevState)
-    }
-    const user = useSelector(store => store.userReducer.user)
-
+    const toggleDrawer = () => setIsOpen((prevState) => !prevState)
 
     // CODIGO
-    // const dispatch = useDispatch();
 
-    const carrito = useSelector(store => store.shopReducer.productsInShop); // GUARDO MI CARRITO
+    // GUARDO MI USUARIO
+    const user = useSelector(store => store.userReducer.user)
 
-    const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
+    // DESLOGEO
+    const logOut = async () => {
+        const res = await dispatch(userActions.logOut(user.email))
+        toast.success(`${res.data.message}`)
+        // console.log(res.data.message)
+    }
 
+    // GUARDO MI CARRITO
+    const carrito = useSelector(store => store.shopReducer.productsInShop)
+
+    // CALCULA EL PRECIO TOTAL DEL CARRITO
+    const priceTotal = carrito.reduce((total, producto) => total + producto.price * producto.cant, 0)
+
+    // ELIMINO PRODUCTOS DEL CARRITO
     const removeToShop = (producto) => {
         dispatch(shopActions.deleteToShop(producto))
-        console.log('eliminaste un producto')
-    } // ELIMINO PRODUCTOS DEL CARRITO
+        toast.error('Product deleted')
+    }
 
-    // localStorage.setItem('carrito', JSON.stringify(carrito)) // GUARDAR MI CARRITO EN EL LOCAL STORAGE
+    // ELIMINO TODO EL CARRITO
+    const clearAllShop = () => {
+        dispatch(shopActions.deleteAllToShop())
+        toast.error('No products in cart')
+    }
+
 
     return (
         <AppBar position="sticky" sx={{ backgroundColor: "#000000" }}>
@@ -117,6 +109,9 @@ const NavBar = () => {
                     >
                         <LinkRouter
                             to='/'
+                            style={{
+                                backgroundColor: '#fff'
+                            }}
                         >
                             <img src={logo} alt="logo" style={{ "height": "5rem", backgroundColor:"whitesmoke" }} />
                         </LinkRouter>
@@ -174,13 +169,13 @@ const NavBar = () => {
                             className='drawer-ctn'
                         >
                             <div>
-
+                                {/* TITULO */}
                                 <div className='h2-ctn'>
                                     <AddShoppingCartIcon sx={{ color: 'black' }} />
                                     <h1 className='title-cart-shop'>SHOPPING CART</h1>
                                 </div>
 
-
+                                {/* ARTICULOS */}
                                 <div className="article-ctn">
 
                                     {
@@ -189,17 +184,17 @@ const NavBar = () => {
                                                 carrito.map(producto => {
                                                     return (
 
-                                                        <div className="products">
-                                                            <div className='imgdiv'>
+                                                        <div className="products rounded-md">
+                                                            <div className='imgdiv rounded-md'>
                                                                 <img
-                                                                    className="imgShops"
+                                                                    className="imgShops rounded-md"
                                                                     src={producto.image}
                                                                     alt={producto.name}
                                                                 />
                                                             </div>
                                                             <div className='titlediv'>
                                                                 <h3 style={{ color: 'white' }}>{producto.name}</h3>
-                                                                <p style={{ color: 'white' }}>$ {producto.price} USD</p>
+                                                                <p style={{ color: 'white' }}>USD {producto.price}</p>
                                                                 <p>Unit: {producto.cant}</p>
                                                             </div>
                                                             <div
@@ -228,22 +223,38 @@ const NavBar = () => {
 
                                 </div>
 
+                                {/* FOOTER */}
                                 <div className='total-ctn'>
-                                    <div className='price-ctn'>
+
+                                    <div className='price-ctn mb-5'>
                                         <p>Total $ {priceTotal} USD</p>
                                     </div>
-                                    <div className='ctn-btn-pagos'>
-                                        <PayPal />
-                                        <GooglePay />
-                                        {/* <button className='mp-btn'>Mercado Pago</button> */}
-                                    </div>
+
+
+                                    <button
+                                        onClick={clearAllShop}
+                                        className='text-center rounded-md bg-red-600 hover:bg-red-500 cursor-pointer font-bold py-3 px-8'
+                                    >
+                                        Remove all
+                                    </button>
+
+                                    {
+                                        user
+                                            ? <div className='ctn-btn-pagos'>
+                                                <PayPal />
+                                                <GooglePay />
+                                            </div>
+                                            : <p className='text-black mt-5 text-lg'>Pleace{' '}<LinkRouter to='/signIn' className='uppercase font-bold'>signin</LinkRouter>{' '}to realice the purchase</p>
+                                    }
+
                                 </div>
 
-
                             </div>
+
                         </Drawer>
 
                     </Box>
+
                     <Typography
                         variant="h5"
                         noWrap
@@ -258,6 +269,7 @@ const NavBar = () => {
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
+                            backgroundColor: '#fff'
                         }}
                     >
                         <img src={logo} alt="logo" style={{ "height": "5rem",  backgroundColor:"whitesmoke"  }} />
@@ -288,21 +300,6 @@ const NavBar = () => {
                     </div>
                     <MenuItem>
 
-                        {/* ACA VA EL BOTON CARRITO */}
-
-                        {/* BOTON CARRITO */}
-                        {/* <div
-                            onClick={toggleDrawer}
-                            className='flex items-center justify-center mx-5'
-                        >
-                            <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
-                            {
-                                carrito.length !== 0
-                                    ? <span className='text-lg'>{carrito.length}</span>
-                                    : <></>
-                            }
-                        </div> */}
-
                         {/* BOTON ADMIN */}
                         {
                             user &&
@@ -324,7 +321,7 @@ const NavBar = () => {
                                         </Box>
                                         :
                                         <Box>
-                                            <PersonIcon fontSize='large' />
+                                            <PersonIcon fontSize='large' sx={{ color: '#fff' }} />
                                         </Box>
                                     }
                                 </IconButton>
