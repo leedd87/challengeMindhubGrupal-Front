@@ -50,8 +50,6 @@ const DetailCard = ({ shoes }) => {
         <img className="logosDetailImg" src="https://logos-world.net/wp-content/uploads/2020/04/Nike-Logo-700x394.png" alt="adidas" />
       </div>)
     }
-
-
     else if (shoes.brand === "62d838004fca1cb3de1808cb") {
       return (
         <div className='logoDetail'>

@@ -13,6 +13,16 @@ import Select from '@mui/material/Select';
 import DeleteIcon from '@mui/icons-material/Delete';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import FilterAltOffIcon from '@mui/icons-material/FilterAltOff';
+import { Swiper, SwiperSlide } from "swiper/react";
+import SuperF from "../components/SuperF";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "../styles/styleHome.css";
+// import required modules
+import { Autoplay, Pagination, Navigation } from "swiper";
+
 function Shoop() {
   const dispatch = useDispatch()
   const [inputSearch, setInputSearch] = useState("")
@@ -22,6 +32,7 @@ function Shoop() {
   const [reload, setReload] = React.useState(false);
   const [filterShoes, setfilterShoes] = React.useState([]);
 
+  
   // console.log("🚀 ~ file: Shop.jsx ~ line 22 ~ Shoop ~ filterShoes", filterShoes)
   useEffect(() => {
     //dispatch(shoesActions.filterShoes(inputSearch))
@@ -91,6 +102,7 @@ function Shoop() {
 
   return (
     <>
+
       <div className='Header bg-gray-300 py-5'>
 
         <div className='filtersShop'>

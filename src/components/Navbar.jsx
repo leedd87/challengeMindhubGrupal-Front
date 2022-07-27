@@ -95,11 +95,12 @@ const NavBar = () => {
     // localStorage.setItem('carrito', JSON.stringify(carrito)) // GUARDAR MI CARRITO EN EL LOCAL STORAGE
 
     return (
-        <AppBar position="sticky" sx={{ backgroundColor: "#949494" }}>
+        <AppBar position="fixed" sx={{ backgroundColor: "#000000" }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
 
                     {/* LOGO */}
+                    
                     <Typography
                         variant="h6"
                         noWrap
@@ -117,7 +118,7 @@ const NavBar = () => {
                         <LinkRouter
                             to='/'
                         >
-                            <img src={logo} alt="logo" style={{ "height": "5rem" }} />
+                            <img src={logo} alt="logo" style={{ "height": "5rem", backgroundColor:"whitesmoke" }} />
                         </LinkRouter>
 
                     </Typography>
@@ -259,7 +260,7 @@ const NavBar = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        <img src={logo} alt="logo" style={{ "height": "5rem" }} />
+                        <img src={logo} alt="logo" style={{ "height": "5rem",  backgroundColor:"whitesmoke"  }} />
                     </Typography>
 
 
