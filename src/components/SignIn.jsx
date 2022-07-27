@@ -3,6 +3,8 @@ import { Link as LinkRouter } from 'react-router-dom';
 import userActions from '../../src/redux/actions/userActions'
 import { connect } from 'react-redux';
 import GoogleSignIn from './GoogleSignIn';
+import toast from 'react-hot-toast';
+
 // import { useNavigate } from 'react-router-dom';
 
 function SignIn(props){
@@ -19,9 +21,9 @@ function SignIn(props){
             from: "form-SignIn"
         }
 
-        //console.log(event)
-        props.signIn(userSignIn)
-        console.log(userSignIn);
+        const res = await props.signIn(userSignIn)
+        toast.success(`${res.data.message}`)
+
     }
 
 
