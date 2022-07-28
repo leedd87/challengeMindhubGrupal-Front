@@ -4,13 +4,16 @@ import userActions from "../redux/actions/userActions";
 import { useDispatch } from "react-redux";
 import { connect } from 'react-redux';
 
-function GoogleSignUp(props){
+function GoogleSignUp(){
     
     const dispatch= useDispatch();
 
     const handleCallbackResponse = (response) => {
+
         let userObject = jwt_decode(response.credential)
+
         // console.log(userObject)
+        
         dispatch(userActions.signUp({
                 firstName:userObject.given_name,
                 lastName:userObject.family_name,
@@ -18,7 +21,6 @@ function GoogleSignUp(props){
                 password:userObject.sub,
                 photoUrl:userObject.picture,
                 country:'Argentina',
-                role:'user',
                 from:'google',
                 role:'user'
         }))

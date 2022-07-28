@@ -24,7 +24,7 @@ const CardsShop = ({ shoes }) => {
 			id: shoes._id,
 			cant: 1
 		}
-		
+
 		dispatch(shopActions.addToShop(product))
 
 		// console.log('alerta agregaste un producto')
@@ -41,25 +41,25 @@ const CardsShop = ({ shoes }) => {
 					<div className="front">
 						{
 							shoes.brand ?
-							<h1>{shoes.brand.name}</h1> 
-							:null
+								<h1>{shoes.brand.name}</h1>
+								: null
 						}
 						{
 							shoes.type ?
-							<h1>{shoes.type.name}</h1> 
-							:null
+								<h1>{shoes.type.name}</h1>
+								: null
 						}
-						
+
 						{/* <h1>{shoes?.type.name}</h1> */}
-						<p>{shoes.name}</p>
+						<p className="front-name">{shoes.name}</p>
 						<h2 className="price">U$S {shoes.price}</h2>
 					</div>
 
 					<div className="right">
 						<h2>{shoes.brand.name}</h2>
-						<p>{shoes.name}</p>
+						<p className="w-4/5">{shoes.name}</p>
 						<h2 className="price">U$S {shoes.price}</h2>
-						<ul>
+						<ul className="mt-3">
 							<li>talles : 12 12</li>
 							<li>Color: {shoes.colorway}	</li>
 
@@ -68,12 +68,14 @@ const CardsShop = ({ shoes }) => {
 							<button>Detail</button>
 						</LinkRouter>
 						<span
+							className="btn-addCartShop"
 							onClick={() => addCarrito({ shoes })}
 						><AddShoppingCartOutlinedIcon /></span>
 
 					</div>
 
 				</div>
+
 				<div className="img-wrapper">
 					<img src={shoes.image[0]} alt={shoes.name} />
 				</div>

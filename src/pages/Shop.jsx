@@ -99,66 +99,77 @@ function Shoop() {
         <>
             <div className='Header bg-gray-300 py-5'>
 
-                <div className='filtersShop'>
-                    <Box>
-                        <button className='btnColors' onClick={() => handleChangeType("62d81e84db36588e63203de7")}>Urban</button>
-                    </Box>
-                    <Box>
-                        <button className='btnColors' onClick={() => handleChangeType("62d827534fca1cb3de1808b1")}>Sport</button>
-                    </Box>
-                    <Box>
-                        <button className='btnColors' onClick={() => handleChangeType("62d828964fca1cb3de1808bd")}>Fancy</button>
-                    </Box>
+                {/* CONTENEDOR DE FILTROS */}
+                <div className='filtersShop flex lg:items-center lg:justify-between flex-col md:flex-row'>
+
+                    {/* urban sport fancy */}
+                    <div className='flex mb-5 lg:mb-0'>
+
+                        <Box className='ml-5'>
+                            <button className='btnColors' onClick={() => handleChangeType("62d81e84db36588e63203de7")}>Urban</button>
+                        </Box>
+
+                        <Box className='ml-5'>
+                            <button className='btnColors' onClick={() => handleChangeType("62d827534fca1cb3de1808b1")}>Sport</button>
+                        </Box>
+
+                        <Box className='ml-5'>
+                            <button className='btnColors' onClick={() => handleChangeType("62d828964fca1cb3de1808bd")}>Fancy</button>
+                        </Box>
+                    </div>
 
                     <div>
                         <input value={inputSearch} className='input text-center' type="text" placeholder='Search Shoes' onChange={(e) => setInputSearch(e.target.value)} />
                     </div>
 
-                    <Box>
-                        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                            <InputLabel id="demo-simple-select-standard-label">Brand</InputLabel>
-                            <Select
-                                labelId="demo-simple-select-standard-label"
-                                id="demo-simple-select-standard"
-                                value={brand}
-                                onChange={handleChangeBrand}
-                                label="Brand"
-                            >
-                                <MenuItem value="">
-                                    <em>None</em>
-                                </MenuItem>
-                                <MenuItem value={"62d836532f6e1f16ca3df337"}>Nike</MenuItem>
-                                <MenuItem value={"62d838004fca1cb3de1808cb"}>Adidas</MenuItem>
-                                <MenuItem value={"62d8392a4fca1cb3de1808cd"}>Jordan</MenuItem>
-                                <MenuItem value={"62d839d04fca1cb3de1808ce"}>New Balance</MenuItem>
-                                <MenuItem value={"62d83a704fca1cb3de1808cf"}>Asics</MenuItem>
-                                <MenuItem value={"62d83b334fca1cb3de1808d1"}>Balenciaga</MenuItem>
-                                <MenuItem value={"62d83c814fca1cb3de1808d6"}>Dior</MenuItem>
-                                <MenuItem value={"62d83e2d4fca1cb3de1808da"}>Louis Vuittom</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Box>
+                    {/* options */}
+                    <div className='flex items-center text-'>
+                        <Box className='ml-5'>
+                            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                                <InputLabel id="demo-simple-select-standard-label">Brand</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-standard-label"
+                                    id="demo-simple-select-standard"
+                                    value={brand}
+                                    onChange={handleChangeBrand}
+                                    label="Brand"
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={"62d836532f6e1f16ca3df337"}>Nike</MenuItem>
+                                    <MenuItem value={"62d838004fca1cb3de1808cb"}>Adidas</MenuItem>
+                                    <MenuItem value={"62d8392a4fca1cb3de1808cd"}>Jordan</MenuItem>
+                                    <MenuItem value={"62d839d04fca1cb3de1808ce"}>New Balance</MenuItem>
+                                    <MenuItem value={"62d83a704fca1cb3de1808cf"}>Asics</MenuItem>
+                                    <MenuItem value={"62d83b334fca1cb3de1808d1"}>Balenciaga</MenuItem>
+                                    <MenuItem value={"62d83c814fca1cb3de1808d6"}>Dior</MenuItem>
+                                    <MenuItem value={"62d83e2d4fca1cb3de1808da"}>Louis Vuittom</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
 
-                    <Box>
-                        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                            <InputLabel id="demo-simple-select-standard-label">Price</InputLabel>
-                            <Select
-                                labelId="demo-simple-select-standard-label"
-                                id="demo-simple-select-standard"
-                                value={ord}
-                                onChange={order}
-                                label="Brand"
-                            >
-                                <MenuItem value={"op1"}>Lowest to highest price</MenuItem>
-                                <MenuItem value={"op2"}>Highest to lowest price</MenuItem>
+                        <Box className='ml-5'>
+                            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                                <InputLabel id="demo-simple-select-standard-label">Price</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-standard-label"
+                                    id="demo-simple-select-standard"
+                                    value={ord}
+                                    onChange={order}
+                                    label="Brand"
+                                >
+                                    <MenuItem value={"op1"}>Lowest to highest price</MenuItem>
+                                    <MenuItem value={"op2"}>Highest to lowest price</MenuItem>
 
-                            </Select>
-                        </FormControl>
-                    </Box>
+                                </Select>
+                            </FormControl>
+                        </Box>
 
-                    <Box>
-                        <button className='btnColors' onClick={() => getShoes()} ><DeleteIcon /></button>
-                    </Box>
+                        <Box className='ml-5'>
+                            <button className='btnColors' onClick={() => getShoes()} ><DeleteIcon /></button>
+                        </Box>
+                    </div>
 
                 </div>
 
