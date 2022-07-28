@@ -228,10 +228,18 @@
   .EZDrawer .EZDrawer__checkbox:checked ~ .EZDrawer__container{
     width: 50vw !important;
   }
-  .article-ctn{
+  .products{
     width: 70% !important;
   }
 }
+
+@media screen and (max-width:650px){
+  .products{
+    width: 60vw !important;
+    background-color: red;
+  }
+}
+
 @media screen and (max-width:1000px){
   .EZDrawer .EZDrawer__checkbox:checked ~ .EZDrawer__container{
     width: 70vw !important;
@@ -557,7 +565,6 @@
 
 .imgShops {
   width: 8vw;
-  border-radius: 10px;
 }
 
 .ctn-btn-pagos {
