@@ -101,13 +101,13 @@ function Shoop() {
             <div className='Header bg-gray-300 py-5'>
 
                 <div className='filtersShop'>
-                    <Box>
+                    <Box className='hidden md:block'>
                         <button className='btnColors' onClick={() => handleChangeType("62d81e84db36588e63203de7")}>Urban</button>
                     </Box>
-                    <Box>
+                    <Box className='hidden md:block'>
                         <button className='btnColors' onClick={() => handleChangeType("62d827534fca1cb3de1808b1")}>Sport</button>
                     </Box>
-                    <Box>
+                    <Box className='hidden md:block'>
                         <button className='btnColors' onClick={() => handleChangeType("62d828964fca1cb3de1808bd")}>Fancy</button>
                     </Box>
 
@@ -115,7 +115,7 @@ function Shoop() {
                         <input value={inputSearch} className='input text-center' type="text" placeholder='Search Shoes' onChange={(e) => setInputSearch(e.target.value)} />
                     </div>
 
-                    <Box>
+                    <Box className='hidden md:block'>
                         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                             <InputLabel id="demo-simple-select-standard-label">Brand</InputLabel>
                             <Select
@@ -140,7 +140,7 @@ function Shoop() {
                         </FormControl>
                     </Box>
 
-                    <Box>
+                    <Box className='hidden md:block'>
                         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                             <InputLabel id="demo-simple-select-standard-label">Price</InputLabel>
                             <Select
@@ -157,7 +157,7 @@ function Shoop() {
                         </FormControl>
                     </Box>
 
-                    <Box>
+                    <Box className='hidden md:block'>
                         <button className='btnColors' onClick={() => getShoes()} ><DeleteIcon /></button>
                     </Box>
 

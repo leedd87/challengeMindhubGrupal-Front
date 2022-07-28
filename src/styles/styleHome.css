@@ -193,7 +193,7 @@ flex-direction: column;
   }
 /*------card*------*/
 
-.container {
+.containerBP {
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -204,7 +204,7 @@ flex-direction: column;
     margin: 20px
   }
   
-  .container .imgbox {
+  .containerBP .imgbox {
     position: relative;
     display: flex;
     justify-content:center;
@@ -215,7 +215,7 @@ flex-direction: column;
   }
   
   
-  .container .imgbox::before {
+  .containerBP .imgbox::before {
     content: 'Nike';
     position: absolute;
     top: 0;
@@ -228,16 +228,16 @@ flex-direction: column;
   .imgbox2{
     background-color: #ededed !important;
   }
-  .container .imgbox2::before {
+  .containerBP .imgbox2::before {
     content: 'Adidas';
   }
   .imgbox3{
     background-color:#fc2929 !important;
   }
-  .container .imgbox3::before {
+  .containerBP .imgbox3::before {
     content: 'NB';
   }
-  .container .imgbox img {
+  .containerBP .imgbox img {
     position: relative;
     width: 550px;
     transform: rotate(-23deg);
@@ -248,7 +248,7 @@ flex-direction: column;
   
   /* Make image hover just in big viewport */
   @media (min-width: 1081px) {
-    .container .imgbox:hover img {
+    .containerBP .imgbox:hover img {
       transform: scale(.7) rotate(0deg);
       left: 0;
       -webkit-filter: drop-shadow(0 10px 10px rgba(0,0,0,.8));
@@ -361,26 +361,26 @@ flex-direction: column;
   
   @media (max-width: 1080px) {
     
-    .container {
+    .containerBP {
       height: auto
     }
     
-    .container .imgbox {
+    .containerBP .imgbox {
       padding: 40px;
       width: 100% !important;
-      height: auto;
+      /* height: auto; */
       text-align: center;
       /* overflow: hidden;*/
     } 
     
-    .container .imgbox img {
+    .containerBP .imgbox img {
       left: 20px;
       max-width: 100%;
       transform: rotate(10deg);
       transition: transform .3s ease-in-out
     }
     
-     .container .imgbox:hover img {
+     .containerBP .imgbox:hover img {
       transform: translateX(-100px);
     }
   }
@@ -422,11 +422,25 @@ flex-direction: column;
         width: 40%;
         height: 16rem;
         margin: 1rem;
-       }
+      }
+    .containerBP .imgbox::before {
+      font-size: 4em;
+    }
+    .containerBoxPupular .containerBP{
+      height: 49vh!important;
+    }
 }
 @media (width < 570px){
     .box{
         width: 80%;
         height: 12rem;
        }
+       .containerBoxPupular .containerBP{
+        height: 32vh!important;
+      }
+
     }
+/*Nav*/
+.css-1lfs2tq-MuiTypography-root{
+margin-right: 0!important;
+}
