@@ -35,9 +35,19 @@ function AccountSignUp(props) {
     }
     return (
         <div className='body'>
-            <div className="container-signup" id="main">
+            <div className="container-signup-s">
                 <div className='overlay-ctn-signin'>
-                    <form className='formRegistro' onSubmit={handleSubmit} >
+                    <div className='overlay-signup'>
+                        <div className='overlay-right'>
+                            <h1 className='title-signup'>Have you already created an account?</h1>
+                            <LinkRouter to='/signIn'>
+                                <button className='accountbtn' id='signUp'>Sign In</button>
+                            </LinkRouter>
+                        </div>
+                    </div>
+                </div>
+                <div className="sign-up-ctn">
+                    <form className='formRegistro-signup' onSubmit={handleSubmit}>
                         <h1 className='title-signup'>Create Account</h1>
                         <div className="social-ctn">
                             <GoogleSignUp />
@@ -54,17 +64,13 @@ function AccountSignUp(props) {
                             )}
                         </select>
                         <button type="submit" value="submit" className='accountbtn'>Sign Up</button>
-                    </form>
-                </div>
-                <div className="sign-up-ctn">
-                    <div className='overlay'>
-                        <div className='overlay-right'>
-                            <h1 className='title-signup'>Have you already created an account?</h1>
+                        <div className='responsive-btn'>
+                            <h1 className='title-signup-res'>Have you already created an account?</h1>
                             <LinkRouter to='/signIn'>
-                                <button className='accountbtn' id='signUp'>Sign In</button>
+                                <button className='btn-responsive' id='signUp'>Sign In</button>
                             </LinkRouter>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
