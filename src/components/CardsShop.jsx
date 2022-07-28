@@ -51,23 +51,24 @@ const CardsShop = ({ shoes }) => {
 						}
 						
 						{/* <h1>{shoes?.type.name}</h1> */}
-						<p>{shoes.name}</p>
+						<p className="frontName">{shoes.name}</p>
 						<h2 className="price">U$S {shoes.price}</h2>
+						
 					</div>
 
 					<div className="right">
 						<h2>{shoes.brand.name}</h2>
-						<p>{shoes.name}</p>
+						<p className="w-4/5">{shoes.name}</p>
 						<h2 className="price">U$S {shoes.price}</h2>
-						<ul>
-							<li>talles : 12 12</li>
+						<ul className="mt-3">
+							{/* <li>talles : 12 12</li> */}
 							<li>Color: {shoes.colorway}	</li>
 
 						</ul>
 						<LinkRouter to={`/details/${shoes._id}`} >
 							<button>Detail</button>
 						</LinkRouter>
-						<span
+						<span className="btn-addCartShop" 
 							onClick={() => addCarrito({ shoes })}
 						><AddShoppingCartOutlinedIcon /></span>
 
@@ -75,7 +76,7 @@ const CardsShop = ({ shoes }) => {
 
 				</div>
 				<div className="img-wrapper">
-					<img src={shoes.image[0]} alt={shoes.name} />
+					<img className="imgCardShop" src={shoes.image[0]} alt={shoes.name} />
 				</div>
 			</div>
 

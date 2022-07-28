@@ -181,7 +181,7 @@ function SuperF() {
 
                     </div>
                     <div className="img-wrapper">
-                      <img src={shoeFinal.image[0]} alt={shoeFinal.name} />
+                      <img className="imgCardsf" src={shoeFinal.image[0]} alt={shoeFinal.name} />
                     </div>
                   </div>)
               })
@@ -202,23 +202,19 @@ function SuperF() {
           {/* <h2>
             Question: {currentQuestion + 1} out of {questions.length}
           </h2> */}
-          <h3 className="question-text">{questions[currentQuestion].text}</h3>
+          <h3 className="question-text text-4xl md:text-6xl">{questions[currentQuestion].text}</h3>
             
           {/* List of possible answers  */}
           <ul className="ulSuperF">
             {questions[currentQuestion].options.map((option) => {
               return (
-                
                   <li
                     key={option.id}
                     className={option.class}
                     onClick={() => optionClicked(option)}
                   >
                     <p>{option.text}</p>
-        
                   </li>
-              
-
               );
             })}
           </ul>

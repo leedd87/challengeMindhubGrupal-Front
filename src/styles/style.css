@@ -6,15 +6,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Sriracha&display=swap');
 
+/* FORMULARIOS */
+/* FORMULARIOS */
 .body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 90vh;
   background-color: #e0e0e0;
-  /* background: linear-gradient(-30deg, rgba(33, 102, 180, 0.614) 0%, rgb(26, 89, 190) 50%, #609855 50%, #6eaa75 100%); */
 }
-
 .container-signup {
   position: relative;
   width: 70vw;
@@ -25,16 +25,30 @@
   overflow: hidden;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-
+.container-signup-s{
+  position: relative;
+  width: 70vw;
+  max-width: 100%;
+  min-height: 75vh;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
 .sign-up,
 .sign-in {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-  transition: all 0.6s ease-in-out;
 }
-
+.sign-up,
+.sign-up-ctn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
 .sign-up {
   width: 50%;
   opacity: 0;
@@ -45,8 +59,12 @@
   width: 50%;
   z-index: 2;
 }
+.sign-up-ctn{
+  width: 50%;
+  z-index: 2;
+}
 
-form {
+.formRegistro{
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -56,18 +74,20 @@ form {
   height: 100%;
   text-align: center;
 }
-
-h1 {
-  font-weight: bold;
-  margin: 0;
+.formRegistro-signup{
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
 }
-
-p {
-  font-size: 14px;
-  font-weight: 100;
-  line-height: 20px;
-  letter-spacing: 0.5px;
-  margin: 15px 0 20px;
+.title-signup {
+  font-weight:600;
+  margin: 0;
+  font-size: 25px;
 }
 
 .signUp-input {
@@ -92,30 +112,13 @@ p {
   outline: none;
   letter-spacing: 1px;
   text-transform: uppercase;
-  transition: transform 80ms ease-in;
   cursor: pointer;
 }
-
-.accountbtn:active {
-  transform: scale(0.90);
-}
-
 #signIn,
 #signUp {
   background-color: transparent;
   border: 2px solid #fff;
 }
-
-.container .right-panel-active .sign-in {
-  transform: translateX(100%);
-}
-
-.container .right-panel-active .sign-up {
-  transform: translateX(100%);
-  opacity: 1;
-  z-index: 5;
-}
-
 .overlay-ctn {
   position: absolute;
   top: 0;
@@ -123,14 +126,17 @@ p {
   width: 50%;
   height: 100%;
   overflow: hidden;
-  transition: transform 0.6s ease-in-out;
   z-index: 100;
 }
-
-.container .right-panel-active .overlay-ctn {
-  transform: translateX(-100%);
+.overlay-ctn-signin{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 100;
 }
-
 .overlay {
   position: relative;
   color: #fff;
@@ -139,12 +145,15 @@ p {
   height: 100%;
   width: 200%;
   background: linear-gradient(to right, #0a1929, #afc68a);
-  transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
 }
-
-.container .right-panel-active .overlay {
-  transform: translateX(50%);
+.overlay-signup{
+  position: relative;
+  color: #fff;
+  background-color: #afc68a;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  background: linear-gradient(to right, #0a1929, #afc68a);
 }
 
 .overlay-left,
@@ -159,8 +168,6 @@ p {
   top: 0;
   height: 100%;
   width: 50%;
-  transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
 }
 .overlay-left,
 .overlay-right-s{
@@ -174,21 +181,14 @@ p {
   top: 0;
   height: 100%;
   width: 50%;
-  transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
-}
-.overlay-left {
-  transform: translateX(-20%);
 }
 .overlay-right-s{
   right: 0;
-  transform: translateX(0);
   background-image: url('https://images.unsplash.com/photo-1512374382149-233c42b6a83b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   object-fit: cover;
-  transition:5s;
 }
 .overlay-right{
   right: 0;
@@ -198,7 +198,6 @@ p {
   background-size: cover;
   background-repeat: no-repeat;
   object-fit: cover;
-  transition:5s;
 }
 .badge{
   transform: translateY(-.8rem);
@@ -210,29 +209,175 @@ p {
   justify-content: center;
   align-items: center;
 }
-.container .right-panel-active .overlay-left {
-  transform: translateX(0);
-}
-
-.container .right-panel-active .overlay-right {
-  transform: translateX(20%);
-}
-
 .social-ctn {
   margin: 20px;
   display: flex;
 }
-
 .icons {
   background-color: none;
   border-radius: 50%;
   margin: 5px;
 }
+/* FORMULARIOS HASTA ACA */
+/* FORMULARIOS HASTA ACA */
+@media screen and (max-width:1300px) {
+  .container {
+    min-height: 70vh !important;
+  }
+}
+@media screen and (max-width:1500px){
+  .EZDrawer .EZDrawer__checkbox:checked ~ .EZDrawer__container{
+    width: 50vw !important;
+  }
+  .products{
+    width: 70% !important;
+  }
+}
+
+@media screen and (max-width:650px){
+  .products{
+    width: 60vw !important;
+    background-color: red;
+  }
+}
+
+@media screen and (max-width:1000px){
+  .EZDrawer .EZDrawer__checkbox:checked ~ .EZDrawer__container{
+    width: 70vw !important;
+  }
+  .backColor{
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 10px;
+    width: 90vw !important;
+    min-height: 70vh !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-add{
+    width: 90vw !important;
+  }
+  .input-admin{
+    width: 100% !important;
+  }
+  .formDelete{
+    width: 90vw !important;
+    height: 40vh !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .form-delete{
+    width: 90vw !important;
+  }
+  .input-admin-delete{
+    width: 100% !important;
+  }
+}
+@media screen and (max-width:860px){
+  .accountbtn{
+    font-size: 10px;
+    }
+    .signUp-input{
+      padding: 5px 5px;
+      margin: 5px;
+    }
+    .title-signup{
+      font-size: 13px;
+    }
+    .overlay-ctn{
+      display: none;
+    }
+    .container-signup{
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+    .container-signup-s{
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: 90vw;
+    }
+    .formRegistro{
+      background-image: url('https://images.unsplash.com/photo-1512374382149-233c42b6a83b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80');
+      background-color:transparent;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .sign-in{
+      width: 100% !important;
+    }
+    .formRegistro-signup{
+      background-image: url('https://images-ext-2.discordapp.net/external/bJCh4XXzByjWVzvWBJstjmZJ_4D1qbBHvq5qVzBNFGk/http/imgfz.com/i/6VSyuvZ.png?width=450&height=675');
+      background-color:transparent !important;
+      background-position: center !important;
+      background-size: cover !important;
+      background-repeat: no-repeat !important;
+      width: 100% !important;
+    }
+    .overlay-ctn-signin{
+      width: 100% !important;
+    }
+    .title-signup{
+      color: #fff !important;
+      font-size: 30px;
+      line-height: 12px;
+    }
+    .or-text{
+      color: #fff !important;
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .responsive-btn{
+      display: contents !important;
+    }
+    .title-signup{
+      font-size: 15px
+    }
+    .btn-responsive{
+      text-decoration: underline;
+      border: none !important;
+      color: #fff;
+      font-size: 18px;
+    }
+    .title-signup-res{
+      font-size: 15px;
+      color: #fff;
+    }
+    .sign-up-ctn{
+      width: 100% !important;
+    }
+    .overlay-signup{
+      display: none;
+      background-color: transparent;
+    }
+  }
+@media screen and (max-width:500px){
+  .title-signup{
+    font-size: 20px !important;
+  }
+  .body{
+    width: 100%;
+  }
+  .container-signup{
+    width: 90vw !important;
+  }
+  .accountbtn{
+    font-size: 10px !important;
+    margin: none;
+    width: 100%;
+  }
+  .title-signup-res{
+    font-size: 15px;
+    color: #fff;
+  }
+}
 
 .Header {
   display: flex;
   justify-content: center;
-  /* background-color: white; */
   background-color: #fff;
   height: 10vh;
   padding-top: 2%;
@@ -421,7 +566,6 @@ p {
 
 .imgShops {
   width: 8vw;
-  border-radius: 10px;
 }
 
 .ctn-btn-pagos {
@@ -467,18 +611,18 @@ p {
 .backColor{
   background-color:white;
   display: flex;
+  flex-direction:row;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   background-image: url('https://images.unsplash.com/photo-1518656306295-aa28b28b2504?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
   background-image: url('https://images.unsplash.com/photo-1536250141241-b11c84eff38b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
-
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 5px;
-  /* background: linear-gradient(-30deg, rgba(188, 188, 188, 0.614) 0%,rgb(166, 166, 166) 40%, #828282 50%, #898989 100%); */
+  min-height: 80vh;
 }
 .form-add{
-  height: 70vh;
+  height: 85vh;
   width: 40vw;
   display: flex;
   justify-content: center;
@@ -494,7 +638,7 @@ p {
   font-size: 40px !important;
 }
 .input-boxes{
-  width: 100%;
+  width: 90%;
   height: 100%;
 }
 .input-admin{
@@ -530,10 +674,9 @@ p {
   height: 100%;
   width: 40vw;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color:transparent;
 }
 .input-admin-delete{
   background-color:#fff;
@@ -542,8 +685,16 @@ p {
   border: none;
   outline: none;
 }
-@media screen and (max-width:1300px) {
-  .container {
-    min-height: 70vh !important;
-  }
+.responsive-btn{
+  display: none;
+}
+.input-box-add{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.button-ctn{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }

@@ -71,7 +71,7 @@ const Home = () => {
         </div>
 
         <div className="containerBoxPupular">
-          <div className="container">
+          <div className="containerBP">
             <div className="imgbox">
               <img
                 src="https://i.ibb.co/t8w4YyL/nike.png"
@@ -81,7 +81,7 @@ const Home = () => {
             </div>
 
           </div>
-          <div className="container">
+          <div className="containerBP">
             <div className="imgbox imgbox2">
               <img
                 src="https://media.discordapp.net/attachments/998602282113445979/999392011771715644/adidas-removebg-preview.png"
@@ -92,7 +92,7 @@ const Home = () => {
 
           </div>
 
-          <div className="container">
+          <div className="containerBP">
             <div className="imgbox imgbox3">
               <img
                 src="https://reactsport.herokuapp.com/img/productImages/shoe_newbalance_01.png"
