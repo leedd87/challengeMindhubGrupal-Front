@@ -230,6 +230,7 @@
     flex-direction: column !important;
     margin: 10px;
     width: 90vw !important;
+    min-height: 70vh !important;
     justify-content: center;
     align-items: center;
   }
@@ -241,6 +242,7 @@
   }
   .formDelete{
     width: 90vw !important;
+    height: 40vh !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
