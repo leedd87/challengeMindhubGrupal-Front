@@ -9,7 +9,7 @@ export default function GooglePay(){
     const priceTotal = carrito.reduce((total, producto) => total + producto.price * producto.cant, 0)
     
     return(
-        <>
+        <>  
             <GooglePayButton
                 environment="TEST"
                 buttonSizeMode="fill"
@@ -43,12 +43,23 @@ export default function GooglePay(){
                         currencyCode:'USD',
                         countryCode:'US'
                     },
+                    shippingAddressRequired:true,
+                    callbackIntents:["PAYMENT_AUTHORIZATION"]
                 }}
-                onLoadPaymentData= {paymenData=>{
-                    console.log(paymenData.paymentMethodData)
-                    // history.push('/confirm')
+                onLoadPaymentData= {paymentRequest=>{
+                    console.log(paymentRequest.paymentMethodData)
+                    console.log('pago realizado')
+                    // alert('pago realizado')
                 }}
-            
+                onPaymentAuthorized={paymentData=>{
+                    // console.log(paymentData)
+                    return {
+                        transactionState : 'SUCCESS'
+                    }
+                }}
+                existingPaymentMethodRequired = 'false'
+                buttonColor='black'
+                buttonType='buy'
             />
         </>
     )

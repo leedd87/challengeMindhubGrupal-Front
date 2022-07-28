@@ -11,8 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import DeleteIcon from '@mui/icons-material/Delete';
-
-import { SpinnerCircular } from 'spinners-react'
+import { SpinnerCircular } from 'spinners-react';
 // import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 // import FilterAltOffIcon from '@mui/icons-material/FilterAltOff';
 function Shoop() {
@@ -150,8 +149,8 @@ function Shoop() {
                                 onChange={order}
                                 label="Brand"
                             >
-                                <MenuItem value={"op1"}>menor a mayor</MenuItem>
-                                <MenuItem value={"op2"}>mayor a menor</MenuItem>
+                                <MenuItem value={"op1"}>Lowest to highest price</MenuItem>
+                                <MenuItem value={"op2"}>Highest to lowest price</MenuItem>
 
                             </Select>
                         </FormControl>

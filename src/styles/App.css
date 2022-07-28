@@ -68,3 +68,7 @@
   justify-content: center;
 }
 
+.google-pay-button-container:hover {
+  transform: none;
+  scale: none;
+}

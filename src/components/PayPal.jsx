@@ -7,38 +7,33 @@ import userActions from "../redux/actions/userActions";
 
 
 export default function Paypal() {
-
     // HOOKS
     // const [success, setSuccess] = useState(false);
     // const [orderID, setOrderID] = useState(false);
     // const [ErrorMessage, setErrorMessage] = useState("");
-
+    
     // console.log(1, orderID);
     // console.log(2, success);
     // console.log(3, ErrorMessage);
-
+    
     const dispatch = useDispatch()
     // const dispatch = useDispatch();
-
-
+    
+    
     useEffect(() => {
-
+        
         PayPalCheckOut() //LLamo al cdn de PayPal cada vez que cambia el carrito
-
+        
         // eslint-disable-next-line
     }, []);
-
+    
     // DATOS DE MI CARRITO
     const user = useSelector(store => store.userReducer.user);
-
+    
     const carrito = useSelector(store => store.shopReducer.productsInShop); // GUARDO MI CARRITO
+    const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
     console.log(carrito)
 
-    const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
-
-    // console.log(priceTotal)
-
-    //CDN
     const initialOptions = {
         'client-id': 'AQNs4aLkZG4-jD319sRvEnf0itmOm4qN1OF8wXTOfn32-_VQPbZLF6G7e4Qf4VX8zDlNR9SLHkZGGuKp',
         currency: 'USD',
@@ -148,6 +143,6 @@ export default function Paypal() {
     }
 
     return (
-        <PayPalCheckOut />
+        <PayPalCheckOut/>
     );
 }

@@ -438,9 +438,18 @@ flex-direction: column;
        .containerBoxPupular .containerBP{
         height: 32vh!important;
       }
+      /*Nav*/
+      .css-1lfs2tq-MuiTypography-root{
+        margin-right: 0!important;
+        }
+        .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root{
+          padding-left: 0!important;
+          padding-right: 0!important;
+        }
+        .css-19r6kue-MuiContainer-root{
+          padding-left: 0!important;
+          padding-right: 0!important;
+        }
 
     }
-/*Nav*/
-.css-1lfs2tq-MuiTypography-root{
-margin-right: 0!important;
-}
+

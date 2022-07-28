@@ -16,11 +16,10 @@ import logo from '../assets/logo.png';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Drawer from 'react-modern-drawer'
-import CancelIcon from '@mui/icons-material/Cancel';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import LocalMallIcon from '@mui/icons-material/LocalMall';
 import 'react-modern-drawer/dist/index.css'
 import '../styles/style.css'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import toast from 'react-hot-toast';
 
 import PersonIcon from '@mui/icons-material/Person';
@@ -30,6 +29,9 @@ import userActions from '../redux/actions/userActions';
 import shopActions from '../redux/actions/shopActions';
 import PayPal from './PayPal';
 import GooglePay from './GooglePay';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+
 
 const pages = [
   { to: '/', name: 'Home' },
@@ -193,16 +195,16 @@ const NavBar = () => {
                                 />
                               </div>
                               <div className='titlediv'>
-                                <h3 style={{ color: 'white' }}>{producto.name}</h3>
-                                <p style={{ color: 'white' }}>USD {producto.price}</p>
-                                <p>Unit: {producto.cant}</p>
+                                <p className='name-product' style={{ color: 'black' }}>{producto.name}</p>
+                                <p style={{ color: 'black' }}>$ {producto.price} USD</p>
+                                <p style={{ color: 'black' }}>Unit: {producto.cant}</p>
                               </div>
                               <div
                                 className='btndiv'
                                 onClick={() => removeToShop(producto)}
                               >
                                 <button className="btndelet">
-                                  <CancelIcon
+                                  <DeleteIcon
                                     sx={{ cursor: 'pointer', margin: '5px', color: 'white' }}
                                   />
                                 </button>
@@ -289,12 +291,15 @@ const NavBar = () => {
           </Box>
           <div
             onClick={toggleDrawer}
-            className='flex items-center justify-center hidden sm:block'
+            className='flex items-center justify-center'
           >
-            <LocalMallIcon sx={{ cursor: 'pointer', margin: '10px' }} />
+            <ShoppingCartIcon className='hidden md:block' sx={{ cursor: 'pointer', margin: '10px' }} />
             {
               carrito.length !== 0
-                ? <span className='text-lg'>{carrito.length}</span>
+                ?
+                <div className='badge hidden'>
+                  <span>{carrito.length}</span>
+                </div>
                 : <></>
             }
           </div>
@@ -307,23 +312,21 @@ const NavBar = () => {
                 ? <LinkRouter
                   to='/adminForm'
                 >
-                  <button className='text-3xl mr-4 hidden sm:block'>👮‍♀️</button>
+                  <button className='text-3xl mr-4 hidden md:block'>👮‍♀️</button>
                 </LinkRouter>
                 : <></>
             }
             <Box sx={{ flexGrow: 0 }}>
 
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
+              <Tooltip title="Open settings" >
+                <IconButton  onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   {user ?
-                    <Box>
-                      <Avatar alt='' src={user.photoUrl} />
+                    <Box >
+                      <Avatar className='hidden md:block' alt='' src={user.photoUrl} />
                     </Box>
                     :
                     <Box>
-                      <PersonIcon fontSize='large' 
-                      sx={{ color: '#fff'}} 
-                      />
+                      <PersonIcon fontSize='large' sx={{ color: '#fff' }} />
                     </Box>
                   }
                 </IconButton>
@@ -394,7 +397,7 @@ const NavBar = () => {
                   {settings.map((setting, index) => (
                     <LinkRouter to={setting.to} key={index} onClick={handleCloseUserMenu} className="linkR">
                       <MenuItem >
-                        <Typography textalign="center">{setting.name}</Typography>
+                        <Typography className='p-6' textalign="center">{setting.name}</Typography>
                       </MenuItem>
                     </LinkRouter>
                   ))}
