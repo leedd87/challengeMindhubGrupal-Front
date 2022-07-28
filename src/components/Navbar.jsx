@@ -34,9 +34,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 
 const pages = [
-  { to: '/', name: 'Home' },
-  { to: '/shop', name: 'Shop' },
-  { to: '/about', name: 'About' }
+    { to: '/', name: 'HOME' },
+    { to: '/shop', name: 'SHOP' },
+    { to: '/about', name: 'ABOUT' }
 ];
 
 const settings = [
