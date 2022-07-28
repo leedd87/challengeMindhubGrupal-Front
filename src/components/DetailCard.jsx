@@ -167,8 +167,10 @@ const DetailCard = ({ shoes }) => {
             {/* Nombre precio y talle */}
             <div className='boxFixed'>
               <div className=' text-base lg:text-lg text-center'>
-
+              <div className='hidden md:block'>
                 {logoShoes()}
+              </div>
+                
 
                 <h3 className='mb-2 text-2xl font-bold text-center h2Name'>{shoes.name}</h3>
                 <Stack className='mb-2' spacing={1}>

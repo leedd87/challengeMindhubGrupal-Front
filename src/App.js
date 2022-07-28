@@ -33,7 +33,7 @@ function App() {
 		setTimeout(() => {
 			setLoading(false);
 		}
-			, 2000);
+			, 3000);
 	}
 		, []);
 

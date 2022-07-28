@@ -21,12 +21,7 @@ function AccountSignUp(props) {
             from: 'form-Signup',
             role: 'user'
         }
-
-        // console.log(event);
         const res = await props.signUp(userData)
-
-        // console.log(res.data.message)
-        // console.log(res.data.success)
 
         if (res.data.success) {
 
@@ -37,26 +32,27 @@ function AccountSignUp(props) {
             toast.success(`${res.data.message}`)
             event.target.reset()
         }
-
-        // if (res.data.message.length !== 1) {
-        //     res.data.message.map(mes => {
-        //         toast.error(`${mes.message}`)
-        //     })
-        // } else {
-        // if(res.data)
-        //     event.target.reset()
-        // }
     }
     return (
         <div className='body'>
-            <div className="container-signup" id="main">
-                <div className='overlay-ctn'>
-                    <form onSubmit={handleSubmit}>
-                        <h1>Create Account</h1>
+            <div className="container-signup-s">
+                <div className='overlay-ctn-signin'>
+                    <div className='overlay-signup'>
+                        <div className='overlay-right'>
+                            <h1 className='title-signup'>Have you already created an account?</h1>
+                            <LinkRouter to='/signIn'>
+                                <button className='accountbtn' id='signUp'>Sign In</button>
+                            </LinkRouter>
+                        </div>
+                    </div>
+                </div>
+                <div className="sign-up-ctn">
+                    <form className='formRegistro-signup' onSubmit={handleSubmit}>
+                        <h1 className='title-signup'>Create Account</h1>
                         <div className="social-ctn">
                             <GoogleSignUp />
                         </div>
-                        <h3>or</h3>
+                        <h3 className='or-text'>or</h3>
                         <input className='signUp-input' type='text' placeholder='FirstName' required />
                         <input className='signUp-input' type='text' placeholder='LastName' required />
                         <input className='signUp-input' type='text' placeholder='Email' required />
@@ -68,17 +64,13 @@ function AccountSignUp(props) {
                             )}
                         </select>
                         <button type="submit" value="submit" className='accountbtn'>Sign Up</button>
-                    </form>
-                </div>
-                <div className="sign-in">
-                    <div className='overlay'>
-                        <div className='overlay-right'>
-                            <h1>Have you already created an account?</h1>
+                        <div className='responsive-btn'>
+                            <h1 className='title-signup-res'>Have you already created an account?</h1>
                             <LinkRouter to='/signIn'>
-                                <button className='accountbtn' id='signUp'>Sign In</button>
+                                <button className='btn-responsive' id='signUp'>Sign In</button>
                             </LinkRouter>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
