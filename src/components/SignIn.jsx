@@ -31,30 +31,36 @@ function SignIn(props){
 
     return(
     <div className='body'> 
-            <div className="container-signup" id="main">
-            <div className="sign-in">
-                <form onSubmit={handleSubmit}>
-                    <h1>Welcome</h1>
-                    <div className="social-ctn">
-                        <GoogleSignIn/>
-                    </div>
-                    <h3>or</h3>
-                    <input className='signUp-input' type='text' placeholder='Email'/>
-                    <input className='signUp-input' type='password' placeholder='Password'/>
-                    <button className='accountbtn'>Sign In</button>
-                </form>
-            </div>
-            <div className='overlay-ctn'>
-                <div className='overlay'>
-                    <div className='overlay-right-s'>
-                        <h1>Do not you have an account yet?</h1>
-                        <LinkRouter to='/signup'>
-                            <button className='accountbtn' id='signUp'>Sign Up</button>
-                        </LinkRouter>
+            <div className="container-signup">
+                <div className="sign-in">
+                    <form className='formRegistro' onSubmit={handleSubmit}>
+                        <h1 className='title-signup'>Welcome</h1>
+                        <div className="social-ctn">
+                            <GoogleSignIn/>
+                        </div>
+                        <h3 className='or-text'>or</h3>
+                        <input className='signUp-input' type='text' placeholder='Email'/>
+                        <input className='signUp-input' type='password' placeholder='Password'/>
+                        <button className='accountbtn'>Sign In</button>
+                        <div className='responsive-btn'>
+                            <h1 className='title-signup-res'>Do not you have an account yet?</h1>
+                            <LinkRouter to='/signup'>
+                                <button className='btn-responsive' id='signUp'>Sign Up</button>
+                            </LinkRouter>
+                        </div>
+                    </form>
+                </div>
+                <div className='overlay-ctn'>
+                    <div className='overlay'>
+                        <div className='overlay-right-s'>
+                            <h1 className='title-signup'>Do not you have an account yet?</h1>
+                            <LinkRouter to='/signup'>
+                                <button className='accountbtn' id='signUp'>Sign Up</button>
+                            </LinkRouter>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </div>   
       )
  }
