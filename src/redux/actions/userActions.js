@@ -98,7 +98,7 @@ const userActions={
 
     paypalEmail: (email, data) => {
 
-        console.log(email, data);
+        // console.log(email, data);
         
         return async (dispatch, getState) => {
             await axios.post(url + '/api/email', { email, data })

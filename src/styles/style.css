@@ -380,8 +380,9 @@
   justify-content: center;
   background-color: #fff;
   /* height: 10vh; */
-  padding-top: 2%;
-  padding-bottom: 2%;
+  /* padding-top: 2%; */
+  /* padding-bottom: 2%; */
+  padding: 1rem 0;
   position: fixed;
   width: 100%;
   z-index: 1;

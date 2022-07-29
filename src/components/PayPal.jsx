@@ -28,13 +28,13 @@ export default function Paypal() {
     }, []);
     
     // DATOS DE MI CARRITO
-    const user = useSelector(store => store.userReducer.user);
+    // const user = useSelector(store => store.userReducer.user);
     
     const carrito = useSelector(store => store.shopReducer.productsInShop); // GUARDO MI CARRITO
     // const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
     const priceTotal = carrito.reduce((total, producto) => total + producto.price * producto.cant, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
 
-    console.log(carrito)
+    // console.log(carrito)
 
     const initialOptions = {
         'client-id': 'AQNs4aLkZG4-jD319sRvEnf0itmOm4qN1OF8wXTOfn32-_VQPbZLF6G7e4Qf4VX8zDlNR9SLHkZGGuKp',
@@ -44,7 +44,7 @@ export default function Paypal() {
 
     const createOrder = (data, actions) => {
         //Creo la orden de con los datos, esta puede ser general o con detalle de items
-        console.log('DATA',data)
+        // console.log('DATA',data)
         return actions.order.create({
             purchase_units: [
                 {

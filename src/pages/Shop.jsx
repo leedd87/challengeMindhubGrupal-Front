@@ -97,17 +97,17 @@ function Shoop() {
 
     return (
         <>
-            <div className='Header bg-gray-300 py-5'>
+            <div className='Header bg-gray-300'>
 
                 <div className='filtersShop'>
                     <Box className='hidden md:block'>
-                        <button className='btnColors' onClick={() => handleChangeType("62d81e84db36588e63203de7")}>Urban</button>
+                        <button className='btnColors p-2' onClick={() => handleChangeType("62d81e84db36588e63203de7")}>Urban</button>
                     </Box>
                     <Box className='hidden md:block'>
-                        <button className='btnColors' onClick={() => handleChangeType("62d827534fca1cb3de1808b1")}>Sport</button>
+                        <button className='btnColors p-2' onClick={() => handleChangeType("62d827534fca1cb3de1808b1")}>Sport</button>
                     </Box>
                     <Box className='hidden md:block'>
-                        <button className='btnColors' onClick={() => handleChangeType("62d828964fca1cb3de1808bd")}>Fancy</button>
+                        <button className='btnColors p-2' onClick={() => handleChangeType("62d828964fca1cb3de1808bd")}>Fancy</button>
                     </Box>
 
                     <div>

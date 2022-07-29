@@ -195,13 +195,7 @@ function SuperF() {
       ) : (
         /* 5. Question Card  */
         <div className={questions[currentQuestion].text}>
-          {
-            console.log(questions[currentQuestion].text)
-          }
-          {/* Current Question  */}
-          {/* <h2>
-            Question: {currentQuestion + 1} out of {questions.length}
-          </h2> */}
+          
           <h3 className="question-text text-4xl md:text-6xl">{questions[currentQuestion].text}</h3>
             
           {/* List of possible answers  */}
