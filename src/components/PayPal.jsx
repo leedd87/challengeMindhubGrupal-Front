@@ -31,7 +31,9 @@ export default function Paypal() {
     const user = useSelector(store => store.userReducer.user);
     
     const carrito = useSelector(store => store.shopReducer.productsInShop); // GUARDO MI CARRITO
-    const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
+    // const priceTotal = carrito.reduce((total, producto) => total + producto.price, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
+    const priceTotal = carrito.reduce((total, producto) => total + producto.price * producto.cant, 0) // CALCULA EL PRECIO TOTAL DEL CARRITO
+
     console.log(carrito)
 
     const initialOptions = {
@@ -54,32 +56,6 @@ export default function Paypal() {
             ],
         });
     };
-
-    // const createOrder = (data, actions) => {
-    //     // console.log(data)
-    //     return actions.order.create({
-    //         purchase_units: carrito.map((item) => {
-    //             console.log(item)
-    //             return {
-    //                 description: item.name,
-    //                 payer: {
-    //                     name: {
-    //                         given_name: user.firstName,
-    //                         surname: user.lastName,
-    //                     },
-    //                     email_adress: user.email,
-    //                     cant: item.cant
-
-    //                 },
-    //                 amount: {
-    //                     value: priceTotal
-    //                 }
-    //             }
-    //         })
-
-
-    //     });
-    // };
 
     const onApprove = (data, actions) => { //recibo el resultado de mi operacion
 

@@ -47,6 +47,18 @@ const shopActions = {
         }
     },
 
+    deleteOneProduct: (product) => {
+        return async (dispatch, getState) => {
+
+            dispatch({
+                type: 'DELETEONEPRODUCT',
+                payload: { product },
+            })
+
+
+        }
+    },
+
 }
 
 export default shopActions;

@@ -87,6 +87,11 @@ const NavBar = () => {
     toast.error('No products in cart')
   }
 
+  // AGREGA POR UNIDAD
+  const addProductDrawer = (shoe) => dispatch(shopActions.addToShop(shoe))
+  
+  // ELIMINA POR UNIDAD
+  const deleteProductDrawer = (shoe) => dispatch(shopActions.deleteOneProduct(shoe))
 
   return (
     <AppBar position="sticky" sx={{ backgroundColor: "#000000" }}>
@@ -171,6 +176,7 @@ const NavBar = () => {
               className='drawer-ctn'
             >
               <div>
+
                 {/* TITULO */}
                 <div className='h2-ctn'>
                   <AddShoppingCartIcon sx={{ color: 'black' }} />
@@ -178,39 +184,64 @@ const NavBar = () => {
                 </div>
 
                 {/* ARTICULOS */}
-                <div className="article-ctn">
+                <div className="article-ctn px-3">
 
                   {
                     carrito.length !== 0 ?
                       (
                         carrito.map(producto => {
                           return (
+                            // Cada producto
+                            <div className='bg-gray-300 mb-3 rounded-md grid grid-cols-5'>
 
-                            <div className="products rounded-md">
-                              <div className='imgdiv rounded-md'>
+                              {/* img */}
+                              <div className='flex items-center justify-center col-span-2'>
+
                                 <img
-                                  className="imgShops rounded-md"
+                                  className='p-2'
                                   src={producto.image}
                                   alt={producto.name}
                                 />
                               </div>
-                              <div className='titlediv'>
-                                <p className='name-product' style={{ color: 'black' }}>{producto.name}</p>
-                                <p style={{ color: 'black' }}>$ {producto.price} USD</p>
-                                <p style={{ color: 'black' }}>Unit: {producto.cant}</p>
-                              </div>
-                              <div
-                                className='btndiv'
-                                onClick={() => removeToShop(producto)}
-                              >
-                                <button className="btndelet">
-                                  <DeleteIcon
-                                    sx={{ cursor: 'pointer', margin: '5px', color: 'white' }}
-                                  />
-                                </button>
-                              </div>
-                            </div>
 
+                              {/* info btn */}
+                              <div className='flex flex-col items-center justify-center col-span-3'>
+
+                                {/* info del producto */}
+                                <div className='flex items-center justify-center flex-col gap-1'>
+                                  <p className='name-product' style={{ color: 'black' }}>{producto.name}</p>
+                                  <p style={{ color: 'black' }}>$ {producto.price} USD</p>
+                                  <p style={{ color: 'black' }}>Unit: {producto.cant}</p>
+                                </div>
+
+                                {/* boton eliminar add y del */}
+                                <div
+                                  className='flex justify-center items-center'
+
+                                >
+                                  <button
+                                    onClick={() => addProductDrawer(producto)}
+                                    className='p-2 px-2 md:px-3 ml-1 bg-green-400 hover:bg-green-500 rounded-md font-black'>+
+                                  </button>
+
+                                  <button
+                                    onClick={() => deleteProductDrawer(producto)}
+                                    className='p-2 px-2 md:px-3 ml-1 bg-blue-400 hover:bg-blue-500 rounded-md font-black'>-
+                                  </button>
+
+                                  <button
+                                    onClick={() => removeToShop(producto)}
+                                    className="btndelet rounded-md p-1 md:p-2 bg-red-400 hover:bg-red-500">
+                                    <DeleteIcon
+                                      sx={{ cursor: 'pointer', color: 'white' }}
+                                    />
+                                  </button>
+
+                                </div>
+
+                              </div>
+
+                            </div>
 
                           )
                         })
@@ -319,7 +350,7 @@ const NavBar = () => {
             <Box sx={{ flexGrow: 0 }}>
 
               <Tooltip title="Open settings" >
-                <IconButton  onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   {user ?
                     <Box >
                       <Avatar className='hidden md:block' alt='' src={user.photoUrl} />
