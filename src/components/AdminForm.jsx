@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 
 import adminActions from "../redux/actions/adminActions";
 import shoesActions from "../redux/actions/shoesActions";
-import { color } from "@mui/system";
+// import { color } from "@mui/system";
 
 export default function AdminForm() {
     const [shoes, setShoes] = useState([]);
@@ -70,6 +70,7 @@ export default function AdminForm() {
 
         setReload(!reload);
     };
+
     const colors= ["Select Colorway","black", "grey", "brown", "white", "green", "orange", "cream", "blue", "red", "purple","multi"]
     return (
         <div className="adminFormCtn">
@@ -179,8 +180,9 @@ export default function AdminForm() {
                         </div>
                     </form>
                 </div>
+
                 <div className="formDelete">
-                    <form className="form-delete">
+                    <form className="form-delete" onSubmit={handleSubmitDelete}>
                         <div className="h2cont">
                             <h1 className="add-title">Remove Shoes</h1>
                         </div>

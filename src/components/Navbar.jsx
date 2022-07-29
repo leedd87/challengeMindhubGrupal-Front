@@ -257,10 +257,10 @@ const NavBar = () => {
                 </div>
 
                 {/* FOOTER */}
-                <div className='total-ctn'>
+                <div className='total-ctn px-3'>
 
-                  <div className='price-ctn mb-5'>
-                    <p>Total $ {priceTotal} USD</p>
+                  <div className='w-full mt-2 mb-5 font-bold text-center text-black'>
+                    <p className='bg-gray-300 py-2 rounded-md'>Total $ {priceTotal} USD</p>
                   </div>
 
 
