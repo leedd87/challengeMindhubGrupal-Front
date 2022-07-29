@@ -38,7 +38,7 @@ const Details = () => {
       {/* contenedor principal */}
       <div
         className="mb-4 flex items-center justify-center"
-        style={{ minHeight: "65vh" }}
+        style={{ minHeight: "75vh" }}
       >
         {loading ? <SpinnerCircular /> : <DetailCard shoes={shoes} />}
       </div>
