@@ -1,62 +1,49 @@
-import React from 'react';
-import DetailCard from '../components/DetailCard';
-import {useParams} from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { useDispatch} from "react-redux";
+import React from "react";
+import DetailCard from "../components/DetailCard";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import shoesActions from "../redux/actions/shoesActions";
+import { SpinnerCircular } from "spinners-react";
 
 const Details = () => {
-    const {id}= useParams()
-    // console.log("🆔 ~ file: Shop.jsx ~ line 24 ~ Shoop ~ id", id)
-    
-    
-    const [shoes, setShoes] = useState()
+  const { id } = useParams();
+  // console.log("🆔 ~ file: Shop.jsx ~ line 24 ~ Shoop ~ id", id)
 
+  const [shoes, setShoes] = useState();
+  const [loading, setLoading] = useState(false);
 
-    const dispatch = useDispatch();
-    useEffect(()=>{
-        dispatch(shoesActions.getOneShoe(id))
-        .then(res =>setShoes(res.data.response))
-  // eslint-disable-next-line
-  },[])
+  const dispatch = useDispatch();
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 2000);
+  }, []);
+  useEffect(() => {
+    dispatch(shoesActions.getOneShoe(id)).then((res) =>
+      setShoes(res.data.response)
+    );
+    // eslint-disable-next-line
+  }, []);
 
-//   console.log("🚀 ~ file: Details.js ~ line 14 ~ Details ~ shoes", shoes)
+  //   console.log("🚀 ~ file: Details.js ~ line 14 ~ Details ~ shoes", shoes)
 
+  // const handleIDshoe = async (id) => {
+  // 	// console.log(id)
+  // 	const res = await dispatch(shoesActions.getOneShoe(id));
+  // 	console.log(res.data.response);
+  // };
 
-	// const handleIDshoe = async (id) => {
-	// 	// console.log(id)
-	// 	const res = await dispatch(shoesActions.getOneShoe(id));
-	// 	console.log(res.data.response);
-	// };
-
-
-    return (
-        <div style={{
-            
-            backgroundColor: '#FFFDF6'
-        }}>
-            
-
-            {/* contenedor principal */}
-            <div className='mb-4'>
-                
-                <DetailCard shoes={shoes}  />
-
-            </div>
-
-            {/* Comentarios */}
-            {/* <div className='mb-10 flex justify-center items-center h-20 border border-red-400'>
-                <p className='uppercase font-bold'>comentarios</p>
-            </div> */}
-
-            {/* Footer */}
-            {/* <div className='flex justify-center items-center h-20 border border-red-400'>
-                <p className='uppercase font-bold'>Footer</p>
-            </div> */}
-            
-
-        </div>
-    )
-}
+  return (
+    <div style={{ backgroundColor: "#FFFDF6" }}>
+      {/* contenedor principal */}
+      <div
+        className="mb-4 flex items-center justify-center"
+        style={{ minHeight: "65vh" }}
+      >
+        {loading ? <SpinnerCircular /> : <DetailCard shoes={shoes} />}
+      </div>
+    </div>
+  );
+};
 
 export default Details;
