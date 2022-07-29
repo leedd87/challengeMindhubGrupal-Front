@@ -379,7 +379,7 @@
   display: flex;
   justify-content: center;
   background-color: #fff;
-  height: 10vh;
+  /* height: 10vh; */
   padding-top: 2%;
   padding-bottom: 2%;
   position: fixed;
@@ -398,7 +398,7 @@
 .filtersShop {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: .5rem;
 }
 
 #demo-simple-select {
@@ -497,7 +497,9 @@
 }
 .name-product{
   text-align: center;
-  width: 80%;
+  font-weight: 600;
+  font-size: 1.1rem;
+  /* width: 100%; */
 }
 .btndiv {
   height: 100%;
@@ -509,19 +511,20 @@
 
 /* BTN */
 .btndelet {
-  width: 30px;
-  height: 30px;
+  /* width: 35px; */
+  /* height: 35px; */
   margin: 5px;
+  /* margin-left: 100px; */
   cursor: pointer;
   display: flex;
   align-items: center;
-  background: red;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-  display: flex;
   justify-content: center;
-  align-items: center;
+  /* background-color: red; */
+  /* border: none; */
+  /* border-radius: 5px; */
+  /* box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); */
+  /* display: flex; */
+  /* align-items: center; */
 }
 
 .icon {

@@ -236,17 +236,19 @@ h2 {
   transition-delay: 100ms;
   transform: translateX(21%) rotateZ(13deg) skewX(3deg);
   pointer-events: none;
+  /* border: 2px solid red; */
 }
 
 .img-wrapper {
+  padding-top: 50px;
   animation: float 4s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite alternate;
   position: absolute;
   top: 100px;
   right: 0;
   pointer-events: none;
   backface-visibility: hidden;
-
 }
+
 
 @keyframes float {
   0% {
@@ -260,7 +262,11 @@ h2 {
 
 .card:hover~.img-wrapper img {
   transform: scale(0.9) translateX(10%) translateY(20%) rotateZ(-30deg);
+  padding-top: 0px;
 }
+/* .img-wrapper img:hover {
+  padding-top: 0;
+} */
 
 .right ul {
   margin-left: 21px;
@@ -332,6 +338,8 @@ h2 {
 }
 
 
+
+
 @keyframes fadeIn {
   0% {
     opacity: 0.33;
@@ -341,7 +349,7 @@ h2 {
 
 .contFilterCards {
   display: flex;
-  margin-top: 10vh;
+  margin-top: 20vh;
 }
 
 .filter {

@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../styles/styleHome.css";
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay } from "swiper";
 //grid
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";

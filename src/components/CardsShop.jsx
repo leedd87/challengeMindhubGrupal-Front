@@ -24,7 +24,7 @@ const CardsShop = ({ shoes }) => {
 			id: shoes._id,
 			cant: 1
 		}
-		
+
 		dispatch(shopActions.addToShop(product))
 
 		// console.log('alerta agregaste un producto')
@@ -41,15 +41,15 @@ const CardsShop = ({ shoes }) => {
 					<div className="front">
 						{
 							shoes.brand ?
-							<h1>{shoes.brand.name}</h1> 
-							:null
+								<h1>{shoes.brand.name}</h1>
+								: null
 						}
 						{
 							shoes.type ?
-							<h1>{shoes.type.name}</h1> 
-							:null
+								<h1>{shoes.type.name}</h1>
+								: null
 						}
-						
+
 						{/* <h1>{shoes?.type.name}</h1> */}
 						<p className="frontName">{shoes.name}</p>
 						<h2 className="price">U$S {shoes.price}</h2>
@@ -75,6 +75,7 @@ const CardsShop = ({ shoes }) => {
 					</div>
 
 				</div>
+
 				<div className="img-wrapper">
 					<img className="imgCardShop" src={shoes.image[0]} alt={shoes.name} />
 				</div>
