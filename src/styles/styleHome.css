@@ -384,7 +384,23 @@ flex-direction: column;
       transform: translateX(-100px);
     }
   }
- 
+/**about**/
+.h1About, .eXuCws h3, .kdDJvf h3, .jZZnvN h3{
+  text-decoration: none!important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+.kdDJvf .titlecont {
+  color: #f0f8ff;
+    font-weight: 700;
+    left: 0;
+    margin: 0;
+    padding: 0 20px 20px;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff, 0 8px 2px rgb(0 0 0 / 30%), 0 -2px 9px rgb(0 0 0 / 20%), 0 0 3px rgb(0 0 0 / 10%);
+    text-transform: uppercase;
+    top: 120px;
+}
 /*-----Footer----*/
 .footer{
     background-color: rgb(23, 24, 26);
@@ -450,6 +466,13 @@ flex-direction: column;
           padding-left: 0!important;
           padding-right: 0!important;
         }
+        .containerAbout{
+          display: none!important;
+        }
 
     }
-
+.aboutQuestions{
+  font-weight: 800;
+  background-color: #1e1e1e;
+  color:white;
+}

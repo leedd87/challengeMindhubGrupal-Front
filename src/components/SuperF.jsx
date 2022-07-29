@@ -42,7 +42,7 @@ function SuperF() {
     //console.log("🚀 ~ file: superF.JSX ~ line 32 ~ shoesIdeal ~ shoesType", shoesBrand)
     if (shoesBrand.length !== 0) {
       setShoesFinal(shoesColor)
-      console.log(shoesColor)
+      // console.log(shoesColor)
       //console.log("tu zapatilla ideal es: ", shoesFinal)
     }
     else {
@@ -116,9 +116,9 @@ function SuperF() {
   ];
 
   const optionClicked = (isCorrect) => {
-    console.log("🚀 ~ file: superF.JSX ~ line 97 ~ optionClicked ~ isCorrect", answer)
+    // console.log("🚀 ~ file: superF.JSX ~ line 97 ~ optionClicked ~ isCorrect", answer)
     setAnswer([...answer, { isCorrect }])
-    console.log("🚀 ~ file: superF.JSX ~ line 99 ~ optionClicked ~ isCorrect", isCorrect)
+    // console.log("🚀 ~ file: superF.JSX ~ line 99 ~ optionClicked ~ isCorrect", isCorrect)
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
     } else {

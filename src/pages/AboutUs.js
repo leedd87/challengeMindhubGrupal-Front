@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Collapse, Text } from "@nextui-org/react";
-
+import "../styles/styleHome.css";
 function AboutUs() {
 	return (
-		<AboutUsConteiner>
+		<AboutUsConteiner >
+			<div className="containerAbout">
 			<div className="titlecont">About Us</div>
 
 			{/* <div className="first-cont">
@@ -48,7 +49,7 @@ function AboutUs() {
 				/>
 				
 			</div> */}
-			<h1>The gallery of the store, memorable moments of the sneaker culture</h1>
+			<h1 className="h1About">The gallery of the store, memorable moments of the sneaker culture</h1>
 			<div className="contenedor">
 				<div className="div1">
 
@@ -126,19 +127,15 @@ function AboutUs() {
 
 				</div>
 			</div>
-
-			<h5>Frequently Asked Questions</h5>
+			</div>
+			<h5 className="aboutQuestions">Frequently Asked Questions</h5>
 
 			<div className="a">
 
 				<Collapse.Group>
 					<Collapse title="How I can know about my order?">
 						<Text>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore
-							magna aliqua. Ut enim ad minim veniam, quis nostrud
-							exercitation ullamco laboris nisi ut aliquip ex ea
-							commodo consequat.
+						You will receive a shipping confirmation email once the order has shipped from our warehouse. It will contain information to track your order.
 						</Text>
 					</Collapse>
 					<Collapse title="Can I Pay with credit or debit card at your store?">
@@ -207,19 +204,19 @@ const AboutUsConteiner = styled.div`
 		align-items: center;
 		width: 100%;
 		text-align: center;
-		height: 20vh;
+		height: 14vh;
 		
 		/* background: linear-gradient(
         45deg,
         rgba(255, 0, 0, 1) 0%,
         rgba(255, 253, 0, 1) 100%
     ); */
-		background-color: antiquewhite;
-		background-image: url(https://images.squarespace-cdn.com/content/v1/5cfd417dcdc28e0001b15cd7/1643170500837-VOWDXP1ZOL3GS38J1LHK/Sneakers+banner.jpg);
+		background-color: white;
+		// background-image: url(https://images.squarespace-cdn.com/content/v1/5cfd417dcdc28e0001b15cd7/1643170500837-VOWDXP1ZOL3GS38J1LHK/Sneakers+banner.jpg);
 		background-size: cover;
 		border: 1px solid black;
 		box-sizing: border-box;
-		color: white;
+		color: black;
 		font-size: 4rem;
 		margin-bottom: 20px;
 		z-index: -1;
@@ -444,9 +441,7 @@ padding: 20px;
 	background-image: url(https://cdn.25gramos.com/wp-content/uploads/2019/07/25-Gramos-Yeezy-Kanye-West-Forbes-1.jpg);
 	background-size: cover;
 	background-position: center;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	
 }
 .div2 { 
 	grid-area: 1 / 3 / 4 / 5; 
@@ -454,18 +449,13 @@ padding: 20px;
 	/* background-image: url(https://media.gq.com/photos/60d2192a430ae505071c3804/master/w_2571,h_3600,c_limit/SNEAKER_GUIDE_JORDANS_1.jpg); */
 	background-size: cover;
 	background-position: center;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 }
 .div3 {
 	grid-area: 4 / 1 / 11 / 5; 
 	background-image: url(https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_auto,w_1400/fl_lossy,pg_1/uj9phqfjnlsu1mq2ruwk/air-jordan-1-1985?fimg-ssr-default);
 	background-size: cover;
 	background-position: center;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	
 }
 
 .div4 { 
@@ -474,34 +464,25 @@ padding: 20px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	
 }
 .div5 {
 	grid-area: 1 / 7 / 4 / 9;
 	background-image: url(https://90snkrs.com/es/wp-content/uploads/sites/3/2021/05/FLIGHT-CLUB-LA.jpg);
 	background-size: cover;
 	background-position: center;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	
 }
 
 .div6 { 
 	grid-area: 4 / 7 / 8 / 9; 
 	/* background-image: url(https://www.theridernews.com/wp-content/uploads/2022/04/DSC05208-780x470.jpg); */
-	background-color: black;
+	background-color: #222;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 	padding: 3px;
-
 	font-size: 1rem;
-	font-weight: bold;
 	text-align: center;
 	border-radius: 10px;
 	color: white;
@@ -516,9 +497,6 @@ padding: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 }
 .div8 {
 	grid-area: 11 / 1 / 21 / 3;
@@ -526,9 +504,6 @@ padding: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 }
 .div9 {
 	grid-area: 11 / 3 / 14 / 5;
@@ -536,23 +511,14 @@ padding: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 }
 .div10 {
 	grid-area: 14/ 3 / 18 /5;
-	background-color: black;
+	background-color: #222;
 	background-size: cover;
 	background-position: center;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		padding: 3px;
-
+	padding-left: 10px;
 	font-size: 1rem;
-	font-weight: bold;
-	text-align: center;
 	border-radius: 10px;
 	color: white;
 	display: flex;
@@ -566,9 +532,7 @@ padding: 20px;
 	background-image: url(https://www.okayplayer.com/wp-content/uploads/2021/04/120-OKP-SB-Dunks-01-1200.jpg);
 	background-size: cover;
 	background-position: center;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	
 }
 .div12 {
 	grid-area: 11/ 5 / 16 / 9;
@@ -576,9 +540,6 @@ padding: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 }
 .div13 {
 	grid-area: 16 / 5 / 21 / 9;
@@ -586,9 +547,6 @@ padding: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 }
 .parent{
 	display: grid;
@@ -605,9 +563,6 @@ padding: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 	padding: 3px;
 }
 .div15 {
@@ -616,9 +571,6 @@ padding: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 	padding: 3px;
 	font-size: 1rem;
 	font-weight: bold;
@@ -635,12 +587,8 @@ padding: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 	padding: 3px;
 	font-size: 1rem;
-	font-weight: bold;
 	text-align: center;
 	border-radius: 10px;
 	color: white;
@@ -655,9 +603,6 @@ padding: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 	padding: 3px;
 }
 .div18 {
@@ -666,13 +611,8 @@ padding: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-	padding: 3px;
+	padding: 9px;
 	font-size: 1rem;
-	font-weight: bold;
-	text-align: center;
 	border-radius: 10px;
 	color: white;
 	display: flex;
@@ -685,9 +625,6 @@ padding: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
 	padding: 3px;
 }
 .div20 {
@@ -696,15 +633,12 @@ padding: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		-moz-box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
-		box-shadow: 10px 8px 16px -3px rgba(0, 0, 0, 0.63);
+	
 	padding: 3px;
 }
 h1, h3, h5{
 	font-size: 2rem;
 	text-align: center;
-	text-decoration: underline;
 }
 .nextui-collapse-title {
 		margin: 0px;

@@ -24,7 +24,7 @@ const shoesActions={
     },
 
     getShoesByBrand: (brandID) => {
-    console.log("🚀 ~ file: shoesActions.js ~ line 25 ~ brandID", brandID)
+    // console.log("🚀 ~ file: shoesActions.js ~ line 25 ~ brandID", brandID)
 
         return async (dispatch, getState) => {
             try {
@@ -44,7 +44,7 @@ const shoesActions={
     },
     
     getShoesByType: (typeID) => {
-    console.log("🚀 ~ file: shoesActions.js ~ line 42 ~ typeID", typeID)
+    // console.log("🚀 ~ file: shoesActions.js ~ line 42 ~ typeID", typeID)
 
         return async (dispatch, getState) => {
             try {

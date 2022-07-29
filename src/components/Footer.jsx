@@ -18,13 +18,13 @@ function Footer() {
 
                         <div className="flex flex-col items-start">
 
-                            <a className="m-0" href="https://www.linkedin.com/in/david-lee-full-stack-dev/"><LinkedInIcon /> David</a>
-                            <a className="m-0" href="https://daftlab.herokuapp.com/"><LinkedInIcon /> Alejo</a>
-                            <a className="m-0" href="https://www.linkedin.com/in/alexis-yusti-6a018423a/"><LinkedInIcon /> Alexis</a>
-                            <a className="m-0" href="https://www.linkedin.com/in/laura-silva-06121a238/"><LinkedInIcon /> Laura</a>
-                            <a className="m-0" href="https://daftlab.herokuapp.com/"><LinkedInIcon /> Flor</a>
-                            <a className="m-0" href="https://daftlab.herokuapp.com/"><LinkedInIcon /> Brayny</a>
-                            <a className="m-0" href="https://www.linkedin.com/in/tomasaybar/"><LinkedInIcon /> Tomas</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/david-lee-full-stack-dev/"><LinkedInIcon /> <span className="font-bold">D</span>avid</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/alejo-veron-41bb62168/"><LinkedInIcon /> <span className="font-bold">A</span>lejo</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/florencia-romano-4ba3481a0/"><LinkedInIcon /> <span className="font-bold">F</span>lor</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/tomasaybar/"><LinkedInIcon /> <span className="font-bold">T</span>omas</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/laura-silva-06121a238/"><LinkedInIcon /> <span className="font-bold">L</span>aura</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/alexis-yusti-6a018423a/"><LinkedInIcon /> <span className="font-bold">A</span>lexis</a>
+                            <a className="m-0" target='_blank' href="https://www.linkedin.com/in/brayny-stefan-palomino-laos-464216238/"><LinkedInIcon /> <span className="font-bold">B</span>rayny</a>
 
                         </div>
 

@@ -698,3 +698,72 @@
   justify-content: center !important;
   align-items: center !important;
 }
+
+
+/**btnNav*/
+/* 
+.btnNav:focus,
+.btnNav:hover {
+  color: rgb(255, 255, 255);
+}
+
+.btnNav:after,
+.btnNav:after {
+  width: 100%;
+  left: 0%;
+}
+
+.btnNav:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  
+  background-color: #df1313e6;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+} */
+/******/
+.btnNav {
+  font-size: 18px;
+  /* font-weight: 800; */
+  font-family: 'Poppins', sans-serif!important;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+.btnNav:focus,
+.btnNav:hover {
+  color: rgb(255, 255, 255);
+}
+
+.btnNav:focus:after,
+.btnNav:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.btnNav:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  /* background-color: rgb(255, 0, 0); */
+  background-color: rgb(255, 255, 255);
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}

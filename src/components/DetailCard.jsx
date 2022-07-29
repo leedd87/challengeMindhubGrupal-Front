@@ -11,6 +11,8 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import toast from 'react-hot-toast';
+import { Link as LinkRouter } from 'react-router-dom';
+
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -27,7 +29,7 @@ const DetailCard = ({ shoes }) => {
 
   const dispatch = useDispatch();
 
-  console.log("👠 ~ file: DetailCard.jsx ~ line 4 ~ DetailCard ~ shoes", shoes)
+  // console.log("👠 ~ file: DetailCard.jsx ~ line 4 ~ DetailCard ~ shoes", shoes)
 
 
   const addCarrito = ({ shoes }) => {
@@ -176,9 +178,9 @@ const DetailCard = ({ shoes }) => {
                 </Stack>
                 <p className='mb-4 text-2xl font-bold'>u$s {shoes.price}</p>
                 <div className='metodosPago text-left '>
-                  <p> <LocalShippingIcon/>  FREE SHIPPING OVER $18,999</p>
-                  <p><CreditCardIcon/> UP TO 6 INSTALLMENTS WITHOUT INTEREST!</p>
-                  <p><KeyboardReturnIcon/>FREE RETURNS NOT YOUR SIZE? YOU CAN RETURN IT WITHIN 60 DAYS</p>
+                  <p> <LocalShippingIcon />  FREE SHIPPING OVER $18,999</p>
+                  <p><CreditCardIcon /> UP TO 6 INSTALLMENTS WITHOUT INTEREST!</p>
+                  <p><KeyboardReturnIcon />FREE RETURNS NOT YOUR SIZE? YOU CAN RETURN IT WITHIN 60 DAYS</p>
                 </div>
                 <p className='text-left txtDescription'>{shoes.description}</p>
 
@@ -198,11 +200,15 @@ const DetailCard = ({ shoes }) => {
                     onClick={() => addCarrito({ shoes })}
                   >Add to cart</button>
 
-                  {/* <button className='bg-green-600 text-white font-bold px-1 lg:px-5 py-2 lg:py-2 text-sm lg:text-base rounded-md hover:bg-indigo-700 shadow-md w-2/5 sm:w-2/3'>Comprar ahora</button> */}
+                  <LinkRouter
+                    className='bg-green-600 text-white font-bold px-1 lg:px-5 py-2 lg:py-2 text-sm lg:text-base rounded-md hover:bg-indigo-700 shadow-md w-2/5 sm:w-2/3'
+                    to='/shop'>Continue shopping
+                  </LinkRouter>
+                  {/* <button className='bg-green-600 text-white font-bold px-1 lg:px-5 py-2 lg:py-2 text-sm lg:text-base rounded-md hover:bg-indigo-700 shadow-md w-2/5 sm:w-2/3'>Continue shopping</button> */}
 
 
                 </div>
-                
+
 
               </div>
             </div>

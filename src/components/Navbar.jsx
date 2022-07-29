@@ -34,9 +34,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 
 const pages = [
-  { to: '/', name: 'Home' },
-  { to: '/shop', name: 'Shop' },
-  { to: '/about', name: 'About' }
+    { to: '/', name: 'HOME' },
+    { to: '/shop', name: 'SHOP' },
+    { to: '/about', name: 'ABOUT' }
 ];
 
 const settings = [
@@ -282,9 +282,9 @@ const NavBar = () => {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((op, index) => (
-              <LinkRouter to={op.to} key={index} onClick={handleCloseNavMenu} className="linkR BtnColorsNav">
+              <LinkRouter to={op.to} key={index} onClick={handleCloseNavMenu} className="linkR">
                 <MenuItem  >
-                  <Typography onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })} textalign="center" sx={{ color: "whitesmoke", fontWeight: "bold", fontSize: 20, textShadow: " 0 1px 0 rgb(255 255 255), 0 -1px 2px rgb(0 0 0 / 30%), 0 -2px 2px rgb(0 0 0 / 20%), 0 0 3px rgb(0 0 0 / 10%)" }}>{op.name}</Typography>
+                  <Typography className='btnNav' onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })} textalign="center" sx={{ color: "whitesmoke", fontWeight: "bold", fontSize: 20, textShadow: " 0 1px 0 rgb(255 255 255), 0 -1px 2px rgb(0 0 0 / 30%), 0 -2px 2px rgb(0 0 0 / 20%), 0 0 3px rgb(0 0 0 / 10%)" }}>{op.name}</Typography>
                 </MenuItem>
               </LinkRouter>
             ))}
@@ -319,7 +319,7 @@ const NavBar = () => {
             <Box sx={{ flexGrow: 0 }}>
 
               <Tooltip title="Open settings" >
-                <IconButton  onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   {user ?
                     <Box >
                       <Avatar className='hidden md:block' alt='' src={user.photoUrl} />

@@ -6,7 +6,7 @@ const adminActions = {
 
     addShoe: (data) => {
 
-        console.log(data);
+        // console.log(data);
 
         return async (dispatch, getState) => {
 
