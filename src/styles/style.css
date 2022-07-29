@@ -465,6 +465,18 @@
   height: 65vh;
   margin-bottom: 10px;
 }
+.article-ctn::-webkit-scrollbar {
+  display: none;
+}
+.article-ctn::-webkit-scrollbar-track {
+  display: none;
+}
+.article-ctn::-webkit-scrollbar-thumb {
+  display: none;
+}
+.article-ctn::-webkit-scrollbar-track-piece {
+  display: none;
+}
 
 .products {
   display: flex;
