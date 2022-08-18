@@ -24,7 +24,7 @@ function Footer() {
                             <a className="m-0" target='_blank' rel="noopener noreferrer" href="https://www.linkedin.com/in/tomasaybar/"><LinkedInIcon /> <span className="font-bold">T</span>omas</a>
                             <a className="m-0" target='_blank' rel="noopener noreferrer" href="https://www.linkedin.com/in/laura-silva-06121a238/"><LinkedInIcon /> <span className="font-bold">L</span>aura</a>
                             <a className="m-0" target='_blank' rel="noopener noreferrer" href="https://www.linkedin.com/in/alexis-yusti-6a018423a/"><LinkedInIcon /> <span className="font-bold">A</span>lexis</a>
-                            <a className="m-0" target='_blank' rel="noopener noreferrer" href="https://www.linkedin.com/in/brayny-stefan-palomino-laos-464216238/"><LinkedInIcon /> <span className="font-bold">B</span>rayny</a>
+                            <a className="m-0" target='_blank' rel="noopener noreferrer" href="https://www.linkedin.com/in/brayny-palomino-dev/"><LinkedInIcon /> <span className="font-bold">B</span>rayny</a>
 
                         </div>
 
