@@ -6,8 +6,8 @@ const adminActions = {
 
     addShoe: (data, token) => {
 
-        console.log(data);
-        console.log(token);
+        // console.log(data);
+        // console.log(token);
 
         return async (dispatch, getState) => {
 
@@ -23,11 +23,15 @@ const adminActions = {
 
     },
 
-    removeShoe: (idShoe) => {
+    removeShoe: (idShoe, token) => {
 
         return async (dispatch, getState) => {
 
-            const res = await axios.delete(`https://daftlab-back.herokuapp.com/api/shoes/${idShoe}`)
+            const res = await axios.delete(`https://daftlab-back.herokuapp.com/api/shoes/${idShoe}`, {
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            })
 
             return res;
         }

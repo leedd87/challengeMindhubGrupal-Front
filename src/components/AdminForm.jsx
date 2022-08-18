@@ -40,10 +40,10 @@ export default function AdminForm() {
             type: e.target[10].value,
         };
 
-        const token = localStorage.getItem('token')
-        const res = await dispatch(adminActions.addShoe(data, token))
+        const token = localStorage.getItem('token');
+        const res = await dispatch(adminActions.addShoe(data, token));
         // console.log(res.data.message)
-        toast.success(`${res.data.message}`)
+        toast.success(`${res.data.message}`);
 
         e.target[0].value = "";
         e.target[1].value = "";
@@ -64,9 +64,11 @@ export default function AdminForm() {
     const handleSubmitDelete = async (e) => {
         e.preventDefault();
 
-        const res = await dispatch(adminActions.removeShoe(e.target[0].value))
+        const token = localStorage.getItem('token');
+
+        const res = await dispatch(adminActions.removeShoe(e.target[0].value, token));
         // dispatch(adminActions.removeShoe(e.target[0].value))
-        toast.success(`${res.data.message}`)
+        toast.success(`${res.data.message}`);
         // console.log(res.data.message)
         e.target[0].value = "";
 
