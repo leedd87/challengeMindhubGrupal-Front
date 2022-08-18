@@ -148,7 +148,7 @@ const DetailCard = ({ shoes }) => {
 
                 <Grid item xs={12}>
                     <Item className='flex items-center justify-center'><img
-                    src={shoes.image[0]}
+                    src={shoes.image[3]}
                     alt='producto'
                   /></Item>
                 </Grid>
