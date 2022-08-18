@@ -12,10 +12,18 @@ export default function AdminForm() {
     const [reload, setReload] = useState(false);
     const dispatch = useDispatch();
 
+    let token;
+
     useEffect(() => {
         // getShoes()
         dispatch(shoesActions.getShoes())
             .then(res => setShoes(res.data.response))
+
+
+        if (localStorage.getItem('token') !== null) {
+            token = localStorage.getItem('token')
+        }
+
         // eslint-disable-next-line
     }, [reload])
 
@@ -39,7 +47,7 @@ export default function AdminForm() {
             type: e.target[10].value,
         };
 
-        const res = await dispatch(adminActions.addShoe(data))
+        const res = await dispatch(adminActions.addShoe(data, token))
         // console.log(res.data.message)
         toast.success(`${res.data.message}`)
 
@@ -71,7 +79,7 @@ export default function AdminForm() {
         setReload(!reload);
     };
 
-    const colors= ["Select Colorway","black", "grey", "brown", "white", "green", "orange", "cream", "blue", "red", "purple","multi"]
+    const colors = ["Select Colorway", "black", "grey", "brown", "white", "green", "orange", "cream", "blue", "red", "purple", "multi"]
     return (
         <div className="adminFormCtn">
             <div className="backColor">
@@ -106,7 +114,7 @@ export default function AdminForm() {
                             </div>
                             <div className="input-box-add">
                                 <select className="input-admin">
-                                    {colors?.map((col,index)=>(
+                                    {colors?.map((col, index) => (
                                         <option key={index}>{col}</option>
                                     ))}
                                 </select>
