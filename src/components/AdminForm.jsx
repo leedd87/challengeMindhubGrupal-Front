@@ -12,17 +12,10 @@ export default function AdminForm() {
     const [reload, setReload] = useState(false);
     const dispatch = useDispatch();
 
-    let token;
-
     useEffect(() => {
         // getShoes()
         dispatch(shoesActions.getShoes())
             .then(res => setShoes(res.data.response))
-
-
-        if (localStorage.getItem('token') !== null) {
-            token = localStorage.getItem('token')
-        }
 
         // eslint-disable-next-line
     }, [reload])
@@ -47,6 +40,7 @@ export default function AdminForm() {
             type: e.target[10].value,
         };
 
+        const token = localStorage.getItem('token')
         const res = await dispatch(adminActions.addShoe(data, token))
         // console.log(res.data.message)
         toast.success(`${res.data.message}`)
