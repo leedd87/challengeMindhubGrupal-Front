@@ -18,6 +18,7 @@ const Details = () => {
     setLoading(true);
     setTimeout(() => setLoading(false), 2000);
   }, []);
+  
   useEffect(() => {
     dispatch(shoesActions.getOneShoe(id)).then((res) =>
       setShoes(res.data.response)

@@ -31,7 +31,6 @@ const DetailCard = ({ shoes }) => {
 
   // console.log("👠 ~ file: DetailCard.jsx ~ line 4 ~ DetailCard ~ shoes", shoes)
 
-
   const addCarrito = ({ shoes }) => {
     const product = {
       image: shoes.image[0],
@@ -124,7 +123,7 @@ const DetailCard = ({ shoes }) => {
             <Box sx={{ flexGrow: 1 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
-                  <Item> <img
+                  <Item className='flex items-center justify-center'><img
                     src={shoes.image[0]}
                     alt='producto'
                   /></Item>
@@ -148,7 +147,7 @@ const DetailCard = ({ shoes }) => {
                 </Grid>
 
                 <Grid item xs={12}>
-                  <Item><img
+                    <Item className='flex items-center justify-center'><img
                     src={shoes.image[0]}
                     alt='producto'
                   /></Item>
