@@ -172,7 +172,7 @@ const DetailCard = ({ shoes }) => {
                 
 
                 <h3 className='mb-2 text-2xl font-bold text-center h2Name'>{shoes.name}</h3>
-                <Stack className='mb-2' spacing={1}>
+                <Stack className='mb-2 flex items-center justify-center' spacing={1}>
                   <Rating name="size-large" defaultValue={2} size="large" />
                 </Stack>
                 <p className='mb-4 text-2xl font-bold'>u$s {shoes.price}</p>

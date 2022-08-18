@@ -389,8 +389,8 @@ h2 {
 .boxDetailsFixed {
   display: flex;
   background-color: #cccccc26;
-  /* align-items: center;
-  justify-content: center; */
+  /* align-items: center; */
+  justify-content: flex-start;
 
 }
 
