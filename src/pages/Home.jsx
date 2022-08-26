@@ -84,7 +84,7 @@ const Home = () => {
           <div className="containerBP">
             <div className="imgbox imgbox2">
               <img
-                src="https://media.discordapp.net/attachments/998602282113445979/999392011771715644/adidas-removebg-preview.png"
+                src="http://imgfz.com/i/0paYjzO.png"
                 alt="Nike Air Max 270"
                 title="Nike Air Max 270"
               />
